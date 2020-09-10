@@ -2,10 +2,78 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/css/2.2-CSS3-Selector.css" />
+    <!-- 
+      @ Select 종류
+      1. 전체
+        - *
+      2. 태그
+        - p, h1
+      3. ID
+        - #p1
+      4. 클래스
+        - .container
+      5. 어트리뷰트
+        - a[href]
+      6. 복합
+        1. 후손
+          - div p
+        2. 자식
+          - div > p
+        3. 형제(동위)
+          1. 인접 형제
+            - p + ul
+          2. 일반 형제
+            - p ~ ul
+      7. 가상 클래스
+        1. 링크, 동적
+          - a:hover
+        2. UI 요소 상태
+          - input:disabled
+        3. 구조 가상 클래스
+          - p:first-child
+          - p:nth-of-type(2n)
+        4. 부정
+          - input:not(:nth-of-type(2n))
+        5. 정합성 체크
+          - input:valid
+      8. 가상 요소
+        - h1::after
+
+        
+      @ Tip
+      1. input 어트리뷰트의 name이 submit시 사용되는 변수이름이다
+      2. 어트리뷰트는 마음대로 생성이 가능하다
+     -->
+    <!-- <link rel="stylesheet" href="/css/2.2-CSS3-Selector.css" /> -->
     <title>https://poiemaweb.com/css3-selector</title>
+    <style>
+      p::first-letter {
+        font-size: 3em;
+        font-weight: bold;
+      }
+      p::first-line {
+        color: red;
+      }
+      h1::before {
+        content: "HTML!!! ";
+        color: blue;
+      }
+      h1:after {
+        content: " CSS3!!!";
+        color: red;
+      }
+      ::selection {
+        background-color: red;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello, world</h1>
+    <h1>This is a heading</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo illum
+      sunt distinctio sed, tempore, repellat rerum et ea laborum voluptatum!
+      Quisquam error fugiat debitis maiores officiis, tenetur ullam amet in!
+    </p>
   </body>
 </html>
