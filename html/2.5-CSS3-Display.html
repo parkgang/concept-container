@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+        1. display 프로퍼티는 상속되지 않는다.
+     -->
+    <title>https://poiemaweb.com/css3-display</title>
+    <style>
+      div,
+      img {
+        float: left;
+        width: 150px;
+        height: 150px;
+        margin: 30px;
+        background-color: blue;
+        color: white;
+        opacity: 0.5;
+        transition: opacity 1s;
+      }
+      div:hover,
+      img:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div>opacity: 0.5</div>
+    <img src="https://poiemaweb.com/img/doug.jpg" alt="doug" />
+  </body>
+</html>
