@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+      1. 대부분 브라우저의 폰트 사이즈 기본값은 16px, 1em, 100%
+      2. px: 절대값
+      3. em, %: 상대값
+        - 하위 태그에 상속됨
+      4. rem
+        - 최상위 요소(html)의 사이즈를 기준으로 삼는다. rem의 r은 root를 의미함
+      5. Viewport: viewport를 기준으로 한 상대적 사이즈를 의미
+        - vw
+        - vh
+        - vmin
+        - vmax
+     -->
+    <title>https://poiemaweb.com/css3-units</title>
+  </head>
+  <style>
+    body {
+      font-size: 14px;
+      text-align: center;
+    }
+    div {
+      font-size: 120%;
+      font-weight: bold;
+      padding: 2em;
+    }
+    .box1 {
+      background-color: rgba(255, 0, 0, 0.2);
+    }
+    .box2 {
+      background-color: rgba(255, 0, 0, 0.6);
+    }
+    .box3 {
+      background-color: rgba(255, 0, 0, 0.8);
+    }
+  </style>
+  <body>
+    <div class="box1">
+      Font size: 1.2em ⇒ 14px * 1.2 = 16.8px
+      <div class="box2">
+        Font size: 1.2em ⇒ 16.8px * 1.2 = 20.16px
+        <div class="box3">Font size: 1.2em ⇒ 20.16px * 1.2 = 24.192px</div>
+      </div>
+    </div>
+  </body>
+</html>
