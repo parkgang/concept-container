@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+        1. background-image에 복수개의 이미지를 설정할 경우, 먼저 설정된 이미지가 전면에 출력된다.
+     -->
+    <title>https://poiemaweb.com/css3-background</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      div {
+        background-image: url("http://poiemaweb.com/img/bg/dot.png");
+        background-color: #ffee99;
+        background-repeat: no-repeat;
+        width: 32vw;
+        height: 200px;
+        margin-bottom: 2vw;
+        float: left;
+      }
+      div:not(:nth-of-type(3n + 1)) {
+        margin-left: 2vw;
+      }
+      .example1 {
+        background-position: top;
+      }
+      .example2 {
+        background-position: bottom;
+      }
+      .example3 {
+        background-position: center;
+      }
+      .example4 {
+        background-position: left;
+      }
+      .example5 {
+        background-position: right;
+      }
+      .example6 {
+        background-position: 25% 75%;
+      }
+      .example7 {
+        background-position: 10px 20px;
+      }
+      .example8 {
+        background-image: url("http://poiemaweb.com/img/bg/dot.png"),
+          url("http://poiemaweb.com/img/bg/dot.png");
+        background-position: 0px 0px, 10px, 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>default(0% 0%)</div>
+    <div class="example1">top</div>
+    <div class="example2">bottom</div>
+    <div class="example3">center</div>
+    <div class="example4">left</div>
+    <div class="example5">right</div>
+    <div class="example6">25% 75%</div>
+    <div class="example7">10px 20px</div>
+    <div class="example8">0px 0px, center</div>
+  </body>
+</html>
