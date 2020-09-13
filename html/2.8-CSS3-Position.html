@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+        1. position은 parent의 좌표에 기반해서 움직인다
+        2. z-index는 positon 프로퍼티가 static 이외인 요소에만 적용된다.
+     -->
+    <title>https://poiemaweb.com/css3-position</title>
+    <style>
+      div {
+        width: 150px;
+        height: 150px;
+        padding: 10px;
+        margin: 30px;
+        font-size: 1.2em;
+        border-radius: 6px;
+        border-color: gray;
+        border-style: dotted;
+        float: left;
+      }
+      .visible {
+        overflow: visible;
+      }
+      .hidden {
+        overflow: hidden;
+      }
+      .scroll {
+        overflow: scroll;
+      }
+      .auto {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>overflow</h1>
+    <div class="visible">
+      <h3>visible</h3>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+    <div class="hidden">
+      <h3>hidden</h3>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+    <div class="scroll">
+      <h3>scroll</h3>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+    <div class="auto">
+      <h3>auto</h3>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+  </body>
+</html>
