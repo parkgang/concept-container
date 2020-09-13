@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+        1. box model관련 프로퍼티는 상속되지 않는다.
+        2. margin 프로퍼티에 auto 키워드를 설정하면 해당 요소를 브라우저 중앙에 위치 시킬 수 있다.
+        3. border-width 프로퍼티는 border-style과 함께 사용하지 않으면 적용되지 않는다.
+        4. border-color 프로퍼티는 border-style과 함께 사용하지 않으면 적용되지 않는다.
+        5. 프로퍼티는 시계 방향으로 적용됨(top, right, bottom, left)
+        6. 개별적으로 연속되는 프로퍼니는 " "으로 구분함
+            - border-radius: 10px 40px 40px 10px;
+        7. box-sizing 프로퍼티는 상속되지 않는다.
+     -->
+    <title>https://poiemaweb.com/css3-box-model</title>
+  </head>
+  <style>
+    div {
+      border: 10px solid;
+      padding: 50px;
+      margin: 50px;
+      width: 600px;
+      background-color: red;
+    }
+    .border-box {
+      box-sizing: border-box;
+    }
+  </style>
+  <body>
+    <div class="content-box">content-box</div>
+    <div class="border-box">border-box</div>
+  </body>
+</html>
