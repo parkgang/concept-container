@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+      1. 첫번째 지정한 폰트가 클라이언트 컴퓨터에 설치되어 있지 않은 경우, 다음에 지정된 폰트를 적용한다. 
+        - 따라서 마지막에 지정하는 폰트는 대부분의 OS에 기본적으로 설치되어 있는 generic-family 폰트(Serif, Sans-serif, Mono space)를 지정하는 것이 일반적이다.      
+     -->
+    <title>https://poiemaweb.com/css3-font-text</title>
+    <style>
+      div {
+        width: 150px;
+        height: 150px;
+        padding: 10px;
+        margin: 40px;
+        border-radius: 6px;
+        border-color: gray;
+        border-style: dotted;
+      }
+      .word-wrap {
+        word-wrap: break-word;
+      }
+      .word-break {
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Floccinaucinihilipilification https://poiemaweb.com/css3-font-text
+    </div>
+
+    <h1>word-wrap</h1>
+    <div class="word-wrap">
+      Floccinaucinihilipilification https://poiemaweb.com/css3-font-text
+    </div>
+
+    <h1>word-break</h1>
+    <div class="word-break">
+      Floccinaucinihilipilification https://poiemaweb.com/css3-font-text
+    </div>
+  </body>
+</html>
