@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>https://poiemaweb.com/css3-animation</title>
+    <style>
+      .box {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation-name: move;
+        animation-duration: 5s;
+        animation-play-state: paused; /* 초기 애니메이션 재생 상태: 정지 */
+        animation-iteration-count: infinite;
+      }
+
+      /* @keyframes rule */
+      @keyframes move {
+        from {
+          left: 0;
+        }
+
+        to {
+          left: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <button class="start">start animation</button>
+    <button class="pause">pause animation</button>
+
+    <script>
+      const box = document.querySelector(".box");
+
+      document.querySelector(".start").addEventListener("click", function () {
+        // trigger animation
+        // prefixes would be needed...
+        box.style.animationPlayState = "running";
+      });
+
+      document.querySelector(".pause").addEventListener("click", function () {
+        // pause animation
+        // prefixes would be needed...
+        box.style.animationPlayState = "paused";
+      });
+    </script>
+  </body>
+</html>
