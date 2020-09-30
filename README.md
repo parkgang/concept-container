@@ -2,6 +2,18 @@
 
 Front-end Web 개발 연습
 
+# 진척도
+
+| 챕터 | 진행상황 |
+| --- | --- |
+| html | 완료 |
+| css | [2.18 CSS3 Layout](https://poiemaweb.com/css3-layout) 진행하다 멈춤 history 2020.09.17 |
+| js | 진행 중 |
+| node.js | 진행 전 |
+| Express | 진행 전 |
+| ts | 진행 전 |
+
+
 # Commit message 규칙
 
 ## 1. Commit Message Structure
