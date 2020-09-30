@@ -1,4 +1,6 @@
-const arr = [1, 2, 3];
+// 5.6 Clear
 
-// arr.forEach(console.log);
-arr.forEach(alert);
+var x = 1;
+console.log(x);
+var x = 2;
+console.log(x);
