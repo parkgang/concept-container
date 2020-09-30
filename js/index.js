@@ -1,5 +1,4 @@
-var i = 0;
-for (i = 0; i <= 10; i++) {
-  document.write("Hello World!");
-  document.write("<br>");
-}
+const arr = [1, 2, 3];
+
+// arr.forEach(console.log);
+arr.forEach(alert);
