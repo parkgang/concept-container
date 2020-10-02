@@ -15,3 +15,6 @@
 // 5.20 [부터 진행되어야함](https://poiemaweb.com/js-object-oriented-programming#6-%EC%BA%A1%EC%8A%90%ED%99%94encapsulation%EC%99%80-%EB%AA%A8%EB%93%88-%ED%8C%A8%ED%84%B4module-pattern)
 // 5.21
 // 5.22
+// 5.23 예정
+// 5.24 예정
+// 5.25 예정
