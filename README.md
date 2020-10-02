@@ -8,7 +8,7 @@ Front-end Web 개발 연습
 | --- | --- |
 | html | 완료 |
 | css | [2.18 CSS3 Layout](https://poiemaweb.com/css3-layout) 진행하다 멈춤 history 2020.09.17 |
-| js | 진행 중 |
+| js | [5.18](https://poiemaweb.com/js-execution-context) <br> [5.19](https://poiemaweb.com/js-closure) <br> 진행 중 |
 | node.js | 진행 전 |
 | Express | 진행 전 |
 | ts | 진행 전 |
