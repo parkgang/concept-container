@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>버튼을 클릭하면 이벤트 전파를 중단한다. <button>버튼</button></p>
+    <script>
+      const body = document.querySelector("body");
+      const para = document.querySelector("p");
+      const button = document.querySelector("button");
+
+      // 버블링
+      body.addEventListener("click", function () {
+        console.log("Handler for body.");
+      });
+
+      // 버블링
+      para.addEventListener("click", function () {
+        console.log("Handler for paragraph.");
+      });
+
+      // 버블링
+      button.addEventListener("click", function (event) {
+        console.log("Handler for button.");
+
+        // 이벤트 전파를 중단한다.
+        event.stopPropagation();
+      });
+    </script>
+  </body>
+</html>

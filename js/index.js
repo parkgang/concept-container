@@ -27,3 +27,4 @@
 // 5.30
 // 5.31 얕게 확인
 // 5.32 Clear
+// 5.33 Clear: [부터 대충 봄](https://poiemaweb.com/js-event#92-eventstoppropagation)
