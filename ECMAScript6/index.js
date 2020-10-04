@@ -7,3 +7,4 @@
 // 6.7 한 번 더 보기
 // 6.8 Clear: 한번 더 보기
 // 6.9 Clear: 한번 더 보기
+// 6.10 Clear: [부터 대충 봄](https://poiemaweb.com/es6-symbol#4-symbol-%EA%B0%9D%EC%B2%B4)
