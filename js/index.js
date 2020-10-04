@@ -31,3 +31,4 @@
 // 5.34
 // 5.35 Clear
 // 5.36 Clear
+// 5.37 Clear: [부터 대충 봄](https://poiemaweb.com/js-spa#32-ajax-%EB%B0%A9%EC%8B%9D)
