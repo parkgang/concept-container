@@ -29,3 +29,4 @@
 // 5.32 Clear
 // 5.33 Clear: [부터 대충 봄](https://poiemaweb.com/js-event#92-eventstoppropagation)
 // 5.34
+// 5.35 Clear
