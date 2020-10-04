@@ -1,1 +1,1 @@
-console.log("Hello, ECMA6!");
+// 6.1 Clear
