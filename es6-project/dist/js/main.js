@@ -1,5 +1,7 @@
 "use strict";
 
+require("@babel/polyfill");
+
 var _lib = require("./lib");
 
 // src/js/main.js
