@@ -175,12 +175,29 @@ var Foo = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib */ "./src/js/lib.js");
+// src/js/main.js
 
 console.log(_lib__WEBPACK_IMPORTED_MODULE_0__["pi"]);
 console.log(Object(_lib__WEBPACK_IMPORTED_MODULE_0__["power"])(_lib__WEBPACK_IMPORTED_MODULE_0__["pi"], _lib__WEBPACK_IMPORTED_MODULE_0__["pi"]));
 var f = new _lib__WEBPACK_IMPORTED_MODULE_0__["Foo"]();
 console.log(f.foo());
-console.log(f.bar());
+console.log(f.bar()); // polyfill이 필요한 코드
+
+console.log(new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    return resolve(1);
+  }, 100);
+})); // polyfill이 필요한 코드
+
+console.log(Object.assign({}, {
+  x: 1
+}, {
+  y: 2
+})); // polyfill이 필요한 코드
+
+console.log(Array.from([1, 2, 3], function (v) {
+  return v + v;
+}));
 
 /***/ })
 
