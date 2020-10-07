@@ -1,8 +1,8 @@
 const path = require("path");
 
 module.exports = {
-  // enntry file
-  entry: ["@babel/polyfill", "./src/js/main.js"],
+  // entry files
+  entry: ["@babel/polyfill", "./src/js/main.js", "./src/sass/main.scss"],
   // 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
   output: {
     path: path.resolve(__dirname, "dist/js"),
@@ -21,6 +21,15 @@ module.exports = {
             plugins: ["@babel/plugin-proposal-class-properties"],
           },
         },
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+          "sass-loader", // compiles Sass to CSS, using Node Sass by default
+        ],
+        exclude: /node_modules/,
       },
     ],
   },
