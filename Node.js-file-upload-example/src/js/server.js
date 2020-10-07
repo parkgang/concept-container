@@ -1,9 +1,14 @@
 const http = require("http");
+const url = require("url");
 
-const start = () => {
+const start = (route) => {
   const onRequest = (request, response) => {
-    console.log("Request received.");
-    response.writeHead(200, { "Context-Type": "text/plain" });
+    const pathname = url.parse(request.url).pathname;
+    console.log(`Request for ${pathname} received`);
+
+    route(pathname);
+
+    response.writeHead(200, { "Content-Type": "text/plain" });
     response.write("Hello, world");
     response.end();
   };
