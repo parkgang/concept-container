@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "formidable": "^1.2.2",
     "http": "0.0.1-security"
   }
 }
