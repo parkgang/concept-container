@@ -7,22 +7,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello, world");
-});
+const cb0 = function (req, res, next) {
+  console.log("CB0");
+  next();
+};
 
-app.post("/signin", (req, res) => {
-  const { username, password } = req.body;
-  res.send({ username, password });
-});
+const cb1 = function (req, res, next) {
+  console.log("CB1");
+  next();
+};
 
-app.get("/api/books", (req, res) => {
-  res.send("GET request to the /api/books");
-});
+const cb2 = function (req, res) {
+  res.send("Hello from C!");
+};
 
-app.post("/api/books", (req, res) => {
-  res.send("POST request to the /api/books");
-});
+app.get("/example/c", [cb0, cb1, cb2]);
+
+app.get(
+  "/example/d",
+  [cb0, cb1],
+  (req, res, next) => {
+    console.log("the response will be sent by the next function ...");
+    next();
+  },
+  (req, res) => res.send("Hello from D!")
+);
 
 // start
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
