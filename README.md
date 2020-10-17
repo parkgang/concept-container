@@ -7,11 +7,11 @@ Front-end Web 개발 연습
 | 챕터 | 진행상황 |
 | --- | --- |
 | html | 완료 |
-| css | [2.18 CSS3 Layout](https://poiemaweb.com/css3-layout) 진행하다 멈춤 history 2020.09.17 |
-| js | [5.18](https://poiemaweb.com/js-execution-context) <br> [5.19](https://poiemaweb.com/js-closure) <br> [5.20 - 6. 부터 진행](https://poiemaweb.com/js-object-oriented-programming#6-%EC%BA%A1%EC%8A%90%ED%99%94encapsulation%EC%99%80-%EB%AA%A8%EB%93%88-%ED%8C%A8%ED%84%B4module-pattern) <br> ./js/index.js에서 Clear 이외에는 한번씩 더 보는게 좋음 |
+| css | 2.18 CSS3 Layout 진행하다 멈춤 history 2020.09.17 |
+| js | 5.18<br> 5.19<br> 5.20 - 6. 부터 진행<br> ./js/index.js에서 Clear 이외에는 한번씩 더 보는게 좋음 |
 | ECMAScript6 | ./ECMAScript6/index.js 에서 진척도 확인하기 |
-| node.js | 진행 전 |
-| Express | 진행 전 |
+| node.js | 완료 |
+| Express | 완료 |
 | ts | 진행 전 |
 
 
