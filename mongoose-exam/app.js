@@ -10,9 +10,8 @@ const port = process.env.PORT || 4500;
 
 // Static File Service
 app.use(express.static("public"));
-// Body-parser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// express.js도 빌트인 Body-parser가 포함됨 (추후 사용을 위해서 body-parser 모듈은 삭제하지 않음)
+app.use(express.json());
 
 // Node의 native Promise 사용
 mongoose.Promise = global.Promise;
