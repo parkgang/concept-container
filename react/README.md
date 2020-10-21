@@ -36,8 +36,19 @@
   }
 ```
 
+## 질문 시리즈
+
+1. npm 모듈이 설치된 `node_modules`는 `.gitignore`으로 형상관리를 안하는지?
+2. `package-lock.json`하는 역할은? yarn에서는 `yarn.lock` 으로 대체됨
+
 ## 참조
 
 - [트러블 슈팅에 대한 힌트를 제공](https://stackoverflow.com/questions/59611597/error-cannot-find-module-webpack-cli-bin-config-yargs)
 - [해당 문제 이슈 목록 이걸 보고 해결함](https://github.com/webpack/webpack-dev-server/issues/2759)
 - [가이드](https://velog.io/@jeff0720/React-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD%EC%9D%84-%EA%B5%AC%EC%B6%95%ED%95%98%EB%A9%B4%EC%84%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-Webpack-%EA%B8%B0%EC%B4%88)
+- [webpack-cli가 아닌 경로 지정으로 실행방법](https://romeoh.tistory.com/entry/Webpack-dev-server-%EA%B5%AC%EB%8F%99%ED%95%98%EA%B8%B0)
+- [webpack에서 사용되는 모듈의 자세한 설명](https://sujinlee.me/webpack-react-tutorial/)
+- [webpack mode  설정방법](https://ibrahimovic.tistory.com/51)
+- [참고 1](https://joshua1988.github.io/webpack-guide/tutorials/webpack-dev-server.html#%EC%8B%A4%EC%8A%B5-%EC%A0%88%EC%B0%A8)
+- [참고 2](https://velog.io/@adam2/webpack-dev-server-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0%EC%82%BD%EC%A7%88%ED%9B%84%EA%B8%B0)
+- [참고 2](https://ideveloper2.tistory.com/130)
