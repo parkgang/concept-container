@@ -1,19 +1,22 @@
-# Front-end-practice
+# Hi
 
-Front-end Web 개발 연습
+Front-end Web을 위한 개발 연습 프로젝트 입니다.
+
+## 주의!
+
+> **`.gitignore`에서 일부로 `.env`를 저장합니다.** 연습프로젝트라 기본 스키마를 알기 위함 입니다.
 
 # 진척도
 
-| 챕터 | 진행상황 |
-| --- | --- |
-| html | 완료 |
-| css | 2.18 CSS3 Layout 진행하다 멈춤 history 2020.09.17 |
-| js | 5.18<br> 5.19<br> 5.20 - 6. 부터 진행<br> ./js/index.js에서 Clear 이외에는 한번씩 더 보는게 좋음 |
-| ECMAScript6 | ./ECMAScript6/index.js 에서 진척도 확인하기 |
-| node.js | 완료 |
-| Express | 완료 |
-| ts | 진행 전 |
-
+| 챕터        | 진행상황                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------ |
+| html        | 완료                                                                                             |
+| css         | 2.18 CSS3 Layout 진행하다 멈춤 history 2020.09.17                                                |
+| js          | 5.18<br> 5.19<br> 5.20 - 6. 부터 진행<br> ./js/index.js에서 Clear 이외에는 한번씩 더 보는게 좋음 |
+| ECMAScript6 | ./ECMAScript6/index.js 에서 진척도 확인하기                                                      |
+| node.js     | 완료                                                                                             |
+| Express     | 완료                                                                                             |
+| ts          | 진행 전                                                                                          |
 
 # Commit message 규칙
 
