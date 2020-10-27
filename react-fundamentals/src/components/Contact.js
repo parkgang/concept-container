@@ -1,5 +1,6 @@
 import React from "react";
 import ContactInfo from "./ContactInfo";
+import ContactDetails from "./ContactDetails";
 
 export default class Contact extends React.Component {
   constructor(props) {
@@ -55,11 +56,11 @@ export default class Contact extends React.Component {
       });
       return data.map((contact, i) => {
         return (
-          // React의 Component에서는 onClick와 같은 이멘트가 props으로 전달되어서 작동되지 않는다, Native DOM에서는 작동함
+          // React의 Component에서는 onClick와 같은 이멘트가 props으로 전달되어서 작동되지 않는다, Native DOM에서는 작동함, 함수자체를 넘겨줘서 실행한다고 생각하기
           <ContactInfo
             contact={contact}
             key={i}
-            onClick={() => console.log("A")}
+            onClick={() => this.handleClick(i)}
           />
         );
       });
@@ -75,6 +76,10 @@ export default class Contact extends React.Component {
           onChange={this.handleChange}
         />
         <div>{mapToComponents(this.state.contactData)}</div>
+        <ContactDetails
+          isSelected={this.state.selectedKey != -1}
+          contact={this.state.contactData[this.state.selectedKey]}
+        />
       </div>
     );
   }
