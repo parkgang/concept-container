@@ -5,6 +5,7 @@ export default class Contact extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedKey: -1,
       keyword: "",
       contactData: [
         {
@@ -27,12 +28,20 @@ export default class Contact extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e) {
     this.setState({
       keyword: e.target.value,
     });
+  }
+
+  handleClick(key) {
+    this.setState({
+      selectedKey: key,
+    });
+    console.log(key, "is selected");
   }
 
   render() {
@@ -45,7 +54,14 @@ export default class Contact extends React.Component {
         );
       });
       return data.map((contact, i) => {
-        return <ContactInfo contact={contact} key={i} />;
+        return (
+          // React의 Component에서는 onClick와 같은 이멘트가 props으로 전달되어서 작동되지 않는다, Native DOM에서는 작동함
+          <ContactInfo
+            contact={contact}
+            key={i}
+            onClick={() => console.log("A")}
+          />
+        );
       });
     };
 
