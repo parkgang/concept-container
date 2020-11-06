@@ -21,4 +21,5 @@ export default hot(module)(App);
  *    - ES6의 "Spread 문법"을 사용해도 된다.: 사용하기 위해서는 "babel-preset-stage-0"를 설치하고 적용해야 한다.
  * # 4-5
  * 이벤트는 하나만 catch가 가능하므로 여러개를 하기 위해선 Empty 객체에 삽입하도록 한다: "ContactCreate.js"의 "handleChange(e)"함수 참고
+ * Studying something other than coding
  */
