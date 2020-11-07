@@ -39,6 +39,27 @@ export default class Contact extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
 
+  // component가 DOM위에 생기기 전(렌더링 되기 전)
+  componentWillMount() {
+    const contactData = localStorage.contactData;
+
+    if (contactData) {
+      this.setState({
+        contactData: JSON.parse(contactData),
+      });
+    }
+  }
+
+  // component가 Update된 뒤
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      JSON.stringify(prevState.contactData) !=
+      JSON.stringify(this.state.contactData)
+    ) {
+      localStorage.contactData = JSON.stringify(this.state.contactData);
+    }
+  }
+
   handleChange(e) {
     this.setState({
       keyword: e.target.value,
@@ -119,6 +140,13 @@ export default class Contact extends React.Component {
           onEdit={this.handleEdit}
         />
         <ContactCreate onCreate={this.handleCreate} />
+        <button
+          onClick={() => {
+            localStorage.clear();
+          }}
+        >
+          localStorage Clear
+        </button>
       </div>
     );
   }
