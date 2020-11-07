@@ -21,5 +21,7 @@ export default hot(module)(App);
  *    - ES6의 "Spread 문법"을 사용해도 된다.: 사용하기 위해서는 "babel-preset-stage-0"를 설치하고 적용해야 한다.
  * # 4-5
  * 이벤트는 하나만 catch가 가능하므로 여러개를 하기 위해선 Empty 객체에 삽입하도록 한다: "ContactCreate.js"의 "handleChange(e)"함수 참고
- * Studying something other than coding
+ * # 4-6
+ * this.setState는 비동기이라서 값이 변경되지 않는 것처럼 보일 수 있다.
+ * 값을 수정할 때 부모에게 받은 props를 현 컴포넌트의 state 넣은 후 가지고 놀다가 부모에게 반영해야 할 때는 부모에게 전달받은 함수를 통해 전달함
  */
