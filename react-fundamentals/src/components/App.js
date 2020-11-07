@@ -27,4 +27,6 @@ export default hot(module)(App);
  * # 4-7
  * ref를 사용 전 ref를 사용해야 되는지 생각하고 사용하기(예: Focus 같은 경우는 ref 말고는 대체 불가능))
  * ref를 이용하여 부모 컴포넌트에 접근할 수 있으며 메소드도 실행할 수 있다.
+ * # 4-9
+ * localStorage은 string만 저장이 가능해서 Object input시 JSON.stringify output시 JSON.parse 해야한다.
  */
