@@ -13,6 +13,18 @@ Data를 넣는 곳(state를 나타냄)
 
 store는 reducer를 반드시 필요로 함
 
+### getState
+
+Store Data를 출력함
+
+### dispatch
+
+reducer에 action을 전달함
+
+### subscribe
+
+store 안에 있는 변화를 알게 해줌
+
 ## reducer
 
 함수의 형태이며 이걸 이용해서만 데이터 수정이 가능함
