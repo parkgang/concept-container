@@ -27,7 +27,7 @@ const reducer = (state = [], action) => {
       // Spread으로 배열 input 순서에 따라서 TODO List 생성 순서 변경 가능
       return [{ text: action.text, id: Date.now() }, ...state];
     case DELETE_TODO:
-      return [];
+      return state.filter((toDo) => toDo.id !== action.id);
     default:
       return [];
   }
@@ -43,7 +43,7 @@ const dispatchAddToDo = (text) => {
 };
 
 const dispatchDeleteToDo = (e) => {
-  const id = e.target.parentNode.id;
+  const id = parseInt(e.target.parentNode.id);
   store.dispatch(deleteToDo(id));
 };
 
