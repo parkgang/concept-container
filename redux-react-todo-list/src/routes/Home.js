@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from "../store";
+import ToDo from "../components/ToDo";
 
 // parameter가 props를 의미함
 function Home({ toDos, addToDo }) {
@@ -21,7 +22,11 @@ function Home({ toDos, addToDo }) {
         <input type="text" value={text} onChange={onChange} />
         <button>Add</button>
       </form>
-      <ul>{JSON.stringify(toDos)}</ul>
+      <ul>
+        {toDos.map((toDo) => (
+          <ToDo {...toDo} key={toDo.id} />
+        ))}
+      </ul>
     </>
   );
 }
@@ -29,7 +34,7 @@ function Home({ toDos, addToDo }) {
 // 어떤 값을 return하더라도 현재 component의 props에 추가된다.
 // state    : Redux store로 부터 바인딩 된 component에 state를 가져다 줍니다.(props 전달)
 // ownProps : react-router에 의해 Home component에 준 props들 입니다.
-/* 바인딩 된 component에 store의 state를 전달해 주는 함수(store.getState())*/
+/* 바인딩 된 component에 store의 state를 전달해 주는 함수(store.getState()), 해당 function은 props로 전달됨 */
 function mapStateToProps(state) {
   return { toDos: state };
 }
