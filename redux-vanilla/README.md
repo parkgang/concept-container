@@ -6,6 +6,13 @@
 
 # Redux 정리노트
 
+**mutate state 절대 금지한다!**<br>
+
+예를 들어 배열에 새로운 요소를 추가해야한다면.<br>
+`.push`와 같은 메소드로 배열을 수정하는게 아닌 새로운 배열을 생성하여 return해야한다.
+
+> 이는 `Reate` state 관리와 매우 유사함
+
 ## store
 
 Data를 넣는 곳(state를 나타냄)
