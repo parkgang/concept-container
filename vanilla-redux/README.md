@@ -41,4 +41,4 @@ reducer를 이용해 데이터를 수정하기 위해서는 action이 사용됨
 redux에서 function을 부를 때 쓰는 두 번째 parameter or argument
 reducer와 소통하기 위함(메세지를 보내가 위함도 맞음)
 
-> store의 dispatch를 통해서 전달되며 type property를 가지고 있는 Object 이여야한다.
+> store의 dispatch를 통해서 전달되며 type property를 가지고 있는 Object 이여야한다. **(string 안되며 type property 이름을 변경할 수 없다.)**
