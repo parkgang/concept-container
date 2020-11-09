@@ -1,4 +1,3 @@
-import React from "react";
 import "./Comment.css";
 
 const Comment = ({ name, body }) => {
