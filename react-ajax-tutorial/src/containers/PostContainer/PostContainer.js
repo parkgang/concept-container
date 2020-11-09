@@ -14,6 +14,7 @@ export default class PostContainer extends React.Component {
       comments: [],
       // 요청이 응답을 기다리고 있는지 여부를 알려줌
       fetching: false,
+      warningVisibility: false,
     };
   }
 
@@ -57,6 +58,7 @@ export default class PostContainer extends React.Component {
     } catch (e) {
       // -1 page 탐색시 발생함
       this.setState({ fetching: false });
+      this.showWarning();
       console.error("에러가 발생함", e);
     }
   };
@@ -71,9 +73,19 @@ export default class PostContainer extends React.Component {
     }
   };
 
+  showWarning = () => {
+    this.setState({
+      warningVisibility: true,
+    });
+
+    setTimeout(() => {
+      this.setState({ warningVisibility: false });
+    }, 1500);
+  };
+
   render() {
     // 비구조화 할당 문법을 사용하여 "this.state.post.title" 이렇게 해야되는거를 바로 "post.title" 로 할 수 있어 가독성을 향상시킨다.
-    const { postId, fetching, post, comments } = this.state;
+    const { postId, fetching, post, comments, warningVisibility } = this.state;
     return (
       <PostWrapper>
         <Navigator
@@ -82,7 +94,7 @@ export default class PostContainer extends React.Component {
           onClick={this.handleNavigateClick}
         />
         <Post title={post.title} body={post.body} comments={comments} />
-        <Warning message="마지막 페이지입니다." />
+        <Warning visible={warningVisibility} message="마지막 페이지입니다." />
       </PostWrapper>
     );
   }
