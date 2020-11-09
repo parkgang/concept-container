@@ -27,32 +27,48 @@ export default class PostContainer extends React.Component {
       fetching: true,
     });
 
-    // 방법1
-    // const post = await service.getPost(postId);
-    // console.log(post);
-    // const comments = await service.getComments(postId);
-    // console.log(comments);
+    try {
+      // 방법1
+      // const post = await service.getPost(postId);
+      // console.log(post);
+      // const comments = await service.getComments(postId);
+      // console.log(comments);
 
-    // 방법2: 2개의 Promise를 기다립니다.
-    const info = await Promise.all([
-      service.getPost(postId),
-      service.getComments(postId),
-    ]);
-    // console.log(info);
+      // 방법2: 2개의 Promise를 기다립니다.
+      const info = await Promise.all([
+        service.getPost(postId),
+        service.getComments(postId),
+      ]);
+      // console.log(info);
 
-    const { title, body } = info[0].data;
-    const comments = info[1].data;
+      const { title, body } = info[0].data;
+      const comments = info[1].data;
 
-    this.setState({
-      postId,
-      post: {
-        title,
-        body,
-      },
-      comments,
-      // 요청 완료
-      fetching: false,
-    });
+      this.setState({
+        postId,
+        post: {
+          title,
+          body,
+        },
+        comments,
+        // 요청 완료
+        fetching: false,
+      });
+    } catch (e) {
+      // -1 page 탐색시 발생함
+      this.setState({ fetching: false });
+      console.error("에러가 발생함", e);
+    }
+  };
+
+  handleNavigateClick = (type) => {
+    const postId = this.state.postId;
+
+    if (type === "NEXT") {
+      this.fetchPostInfo(postId + 1);
+    } else {
+      this.fetchPostInfo(postId - 1);
+    }
   };
 
   render() {
@@ -60,7 +76,11 @@ export default class PostContainer extends React.Component {
     const { postId, fetching, post, comments } = this.state;
     return (
       <PostWrapper>
-        <Navigator postId={postId} disabled={fetching} />
+        <Navigator
+          postId={postId}
+          disabled={fetching}
+          onClick={this.handleNavigateClick}
+        />
         <Post title={post.title} body={post.body} comments={comments} />
       </PostWrapper>
     );
