@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { PostWrapper, Navigator, Post, Warning } from "../../components";
 import * as service from "../../services/post";
 
-export default class PostContainer extends React.Component {
+export default class PostContainer extends Component {
   constructor(props) {
     super();
     this.state = {
