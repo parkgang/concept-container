@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "./Warning.css";
 
-class Warning extends Component {
+export default class Warning extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,5 +42,3 @@ class Warning extends Component {
     );
   }
 }
-
-export default Warning;
