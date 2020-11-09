@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PostWrapper, Navigator, Post } from "../../components";
+import { PostWrapper, Navigator, Post, Warning } from "../../components";
 import * as service from "../../services/post";
 
 export default class PostContainer extends React.Component {
@@ -82,6 +82,7 @@ export default class PostContainer extends React.Component {
           onClick={this.handleNavigateClick}
         />
         <Post title={post.title} body={post.body} comments={comments} />
+        <Warning message="마지막 페이지입니다." />
       </PostWrapper>
     );
   }
