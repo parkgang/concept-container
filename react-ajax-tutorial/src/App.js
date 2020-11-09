@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import { PostContainer } from "./containers";
+import { Header } from "./components";
 
-export default class App extends Component {
+class App extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <Header />
+        <PostContainer />
+      </div>
+    );
   }
 }
+
+export default App;
