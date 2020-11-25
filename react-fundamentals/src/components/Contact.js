@@ -5,6 +5,15 @@ import ContactCreate from "./ContactCreate";
 
 import update from "react-addons-update";
 
+// 스케줄러 테스트
+let scheduler = 0;
+const tick = () => {
+  alert("스케줄러 " + scheduler);
+  scheduler++;
+  setTimeout(tick, 2000);
+};
+setTimeout(tick, 2000);
+
 export default class Contact extends React.Component {
   constructor(props) {
     super(props);
