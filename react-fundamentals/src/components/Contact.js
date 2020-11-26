@@ -5,14 +5,14 @@ import ContactCreate from "./ContactCreate";
 
 import update from "react-addons-update";
 
-// 스케줄러 테스트
-let scheduler = 0;
-const tick = () => {
-  alert("스케줄러 " + scheduler);
-  scheduler++;
-  setTimeout(tick, 2000);
-};
-setTimeout(tick, 2000);
+// 스케줄러 테스트 코드
+// let scheduler = 0;
+// const tick = () => {
+//   alert("스케줄러 " + scheduler);
+//   scheduler++;
+//   setTimeout(tick, 2000);
+// };
+// setTimeout(tick, 2000);
 
 export default class Contact extends React.Component {
   constructor(props) {
@@ -67,6 +67,10 @@ export default class Contact extends React.Component {
     ) {
       localStorage.contactData = JSON.stringify(this.state.contactData);
     }
+
+    setTimeout(() => {
+      this.SchedulerCreate();
+    }, 2000);
   }
 
   handleChange(e) {
@@ -86,6 +90,13 @@ export default class Contact extends React.Component {
     this.setState({
       contactData: update(this.state.contactData, { $push: [contact] }),
     });
+  }
+
+  SchedulerCreate() {
+    alert("스케줄러");
+    setTimeout(() => {
+      this.SchedulerCreate();
+    }, 2000);
   }
 
   handleRemove() {
