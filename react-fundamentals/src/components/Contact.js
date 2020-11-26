@@ -93,10 +93,17 @@ export default class Contact extends React.Component {
   }
 
   SchedulerCreate() {
-    alert("스케줄러");
-    setTimeout(() => {
-      this.SchedulerCreate();
-    }, 2000);
+    const contact = {
+      name: "name",
+      phone: "phone",
+    };
+    this.setState({
+      contactData: update(this.state.contactData, { $push: [contact] }),
+    });
+    // 이미 위에서 setState으로 인하여 componentDidUpdate()가 실행되므로 setTimeout를 한번 더 호출하면 중첩되므로 안된다
+    // setTimeout(() => {
+    //   this.SchedulerCreate();
+    // }, 2000);
   }
 
   handleRemove() {
