@@ -1,7 +1,19 @@
 var app = require("express")();
+
+// CORS 대응을 위함
+const options = {
+  // cors: true,
+  // origins: ["http://127.0.0.1:5500/"],
+  // transports: ["websocket"],
+  cors: {
+    origin: "http://127.0.0.1:5500",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+};
+
 var server = require("http").createServer(app);
-// http server를 socket.io server로 upgrade한다
-var io = require("socket.io")(server);
+var io = require("socket.io")(server, options);
 
 // localhost:3000으로 서버에 접속하면 클라이언트로 index.html을 전송한다
 app.get("/", function (req, res) {

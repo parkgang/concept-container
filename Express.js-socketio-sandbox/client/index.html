@@ -6,6 +6,10 @@
   </head>
   <body>
     <span> Socket.io Test </span>
-    <script src="./index.js"></script>
+    <!-- # 잘못된 npm CDN: socket POST 폴링이 실패합니다. -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script> -->
+    <!-- # require와 같은 브라우저가 읽지 못하는 코드가 있기 때문에 컴파일 된 코드를 사용해야합니다. -->
+    <!-- <script src="./index.js"></script> -->
+    <script src="./build/bundle.js"></script>
   </body>
 </html>
