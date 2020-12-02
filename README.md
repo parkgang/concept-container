@@ -18,6 +18,14 @@ Front-end Web을 위한 개발 연습 프로젝트 입니다.
 | Express     | 완료                                                                                             |
 | ts          | 진행 전                                                                                          |
 
+# template
+
+| 디렉토리                      | 설명                                       |
+| ----------------------------- | ------------------------------------------ |
+| Express.js-socketio-chat      | room 을 사용하지 않은 기본 소켓            |
+| Express.js-socketio-room-chat | room 사용                                  |
+| Express.js-socketio-sandbox   | client와 server를 나눈 소켓 (**template**) |
+
 # Commit message 규칙
 
 ## 1. Commit Message Structure
