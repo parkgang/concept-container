@@ -27,6 +27,8 @@ Front-end Web을 위한 개발 연습 프로젝트 입니다.
 | Express.js-socketio-chat      | room 을 사용하지 않은 기본 소켓            |
 | Express.js-socketio-room-chat | room 사용                                  |
 | Express.js-socketio-sandbox   | client와 server를 나눈 소켓 (**template**) |
+| react-router-helloworld       | react 라우터 helloworld (원리 이해하도록)  |
+| react-redux-router-helloworld | product 레벨의 템플릿 (재남)               |
 
 # Commit message 규칙
 
