@@ -66,13 +66,66 @@ nav {
   display: inline-block; /* 가로정렬 */
 }
 .nav-items > li > a {
-  /* for Vertical Centering */
-  line-height: 60px;
-  padding: 0 30px;
+  line-height: 60px; /* for Vertical Centering */
+  padding: 0 30px; /* nav item간 간격 */
   color: rgba(0, 0, 0, 0.4);
 }
 .nav-items > li > a:hover {
   color: rgba(0, 0, 0, 0.8);
+}
+
+/* navigation icon for Mobile Layout */
+.navicon {
+  cursor: pointer;
+  height: 60px;
+  padding: 28px 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Likely future */
+}
+/* nav icon의 내부 막대 */
+.navicon-bar {
+  background-color: #333;
+  display: block;
+  position: relative;
+  /* navigation icon animation */
+  transition: background-color 0.2s ease-out;
+  width: 20px;
+  height: 3px;
+}
+.navicon-bar::before,
+.navicon-bar::after {
+  background-color: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  /* navigation icon animation */
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.navicon-bar::before {
+  top: -7px;
+}
+.navicon-bar::after {
+  top: 7px;
+}
+/* toggle navigation icon */
+.nav-toggle:checked ~ .navicon > .navicon-bar {
+  background: transparent;
+}
+.nav-toggle:checked ~ .navicon > .navicon-bar::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.nav-toggle:checked ~ .navicon > .navicon-bar::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 /* contents */
@@ -87,6 +140,7 @@ aside {
   position: fixed;
   top: 60px;
   bottom: 0;
+
   width: 200px; /* 너비 고정 */
   padding-top: 25px;
   background-color: #333;
@@ -113,13 +167,20 @@ aside > h1 {
 /* Section */
 section {
   float: right;
-  /* aside width */
-  margin-left: 200px;
+  margin-left: 200px; /*aside width*/
 }
 article {
-  margin: 10px;
+  width: 48.5%;
+  margin: 1%;
   padding: 25px;
   background-color: white;
+  float: left;
+}
+article:nth-of-type(2n) {
+  margin-left: 0;
+}
+article:nth-of-type(n + 3) {
+  margin-top: 0;
 }
 /* footer */
 footer {
@@ -132,4 +193,11 @@ footer {
   color: #8a8c8f;
   border-top: 1px solid #dee5e7;
   background-color: #f2f2f2;
+}
+
+.nav-toggle {
+  display: none;
+}
+.navicon {
+  display: none;
 }
