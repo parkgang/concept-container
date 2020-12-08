@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./responsive.css" />
   </head>
   <body>
     <div id="wrap">
       <header>
-        <a class="logo" href="#home"
-          ><img src="https://poiemaweb.com/img/logo.png"
-        /></a>
+        <a class="logo" href="#home">
+          <img src="https://poiemaweb.com/img/logo.png" />
+        </a>
         <nav>
+          <input class="nav-toggle" id="nav-toggle" type="checkbox" />
+          <label class="navicon" for="nav-toggle">
+            <span class="navicon-bar"></span
+          ></label>
           <ul class="nav-items">
             <li><a href="#home">Home</a></li>
             <li><a href="#news">News</a></li>
@@ -20,7 +26,6 @@
           </ul>
         </nav>
       </header>
-
       <div id="content-wrap">
         <aside>
           <h1>Aside</h1>

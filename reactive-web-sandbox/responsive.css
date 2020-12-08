@@ -1,0 +1,81 @@
+/* Desktop First */
+
+/* Media Query */
+/* for tablet: ~ 800px */
+@media screen and (max-width: 800px) {
+  header {
+    height: 120px;
+    text-align: center;
+  }
+  nav {
+    float: none;
+    margin-right: 0;
+  }
+  #wrap {
+    /* margin-top = header height */
+    margin-top: 120px;
+  }
+  aside {
+    top: 120px;
+  }
+
+  article {
+    width: inherit;
+    display: block;
+    margin: 10px;
+    float: none;
+  }
+  article:nth-of-type(2n) {
+    margin: 10px;
+  }
+  article:nth-of-type(n + 2) {
+    margin-top: 0;
+  }
+}
+/* for smartphone: ~ 480px */
+@media screen and (max-width: 480px) {
+  header {
+    height: 60px;
+  }
+  .nav-items {
+    display: none;
+  }
+  .navicon {
+    display: block;
+  }
+  #wrap {
+    /* margin-top = header height */
+    margin-top: 60px;
+  }
+  aside {
+    top: 60px;
+    position: static;
+    width: 100%;
+    padding: 5px 0;
+  }
+  /* aside navigation */
+  aside > ul {
+    width: 100%;
+  }
+  aside > h1 {
+    padding: 5px 0 10px 20px;
+    color: #fff;
+  }
+  section {
+    float: none;
+    margin-left: 0;
+  }
+  /* View navigation item */
+  .nav-toggle:checked ~ .nav-items {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
+  .nav-items > li {
+    display: block;
+  }
+  .nav-items > li > a {
+    line-height: 50px;
+  }
+}
