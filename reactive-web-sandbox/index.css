@@ -1,3 +1,32 @@
-* {
-  color: red;
+/* 기준 */
+html {
+  font-size: 62.5%;
+}
+
+/* 데스크톱 */
+html {
+  /* (하고 싶은 폰트 사이즈 / 16) */
+  font-size: 1.25rem;
+}
+
+#viewport-test {
+  width: 1rem;
+  height: 1rem;
+  padding: 20px 20px 20px 20px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+#viewport-test div {
+  width: 1rem;
+  height: 1rem;
+  background-color: red;
+}
+
+/* 모바일 */
+@media all and (max-width: 639px) {
+  html {
+    font-size: 3rem;
+  }
 }
