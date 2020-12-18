@@ -2,32 +2,47 @@
   margin: 0;
   padding: 0;
 }
-img {
-  border-radius: 50%;
+
+/* 팝업 부모 위치 정의 */
+.add-friend {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 620px;
 }
 
-#friendButton {
-  margin-left: 500px;
-}
-
-#root {
+#friend-list {
   display: none;
-  width: 250px;
-  height: 250px;
-  overflow: scroll;
-  border: 1px solid black;
+  width: 270px;
+  height: 350px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 3px;
 }
-#root ul {
+#friend-list input {
+  display: block;
+  margin: 0 auto;
+  width: 93%;
+  height: 25px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+#friend-list ul {
   list-style: none;
+  height: 305px;
+  overflow: scroll;
 }
-#root li {
+#friend-list li {
   padding: 10px;
 }
-
-#add-friend-toggle {
-  display: none;
+#friend-list li img {
+  border-radius: 40%;
 }
 
-#add-friend-toggle:checked ~ #root {
+/* 팝업 위치 정의 */
+#add-friend-toggle:checked ~ #friend-list {
   display: block;
+  position: absolute;
+  top: calc(24px + 10px);
+  left: calc(24px + -280px);
 }
