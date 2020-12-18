@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  border-radius: 50%;
+}
+
+#friendButton {
+  margin-left: 500px;
+}
+
+#root {
+  display: none;
+  width: 250px;
+  height: 250px;
+  overflow: scroll;
+  border: 1px solid black;
+}
+#root ul {
+  list-style: none;
+}
+#root li {
+  padding: 10px;
+}
+
+#add-friend-toggle {
+  display: none;
+}
+
+#add-friend-toggle:checked ~ #root {
+  display: block;
+}
