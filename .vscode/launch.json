@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Client",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:3000/",
+            "webRoot": "${workspaceFolder}\\express-sandbox\\public",
+            // "file": "${workspaceFolder}/express-sandbox/public/debug.html"
+        },
+        {
+            // https://stackoverflow.com/questions/45592581/cannot-debug-in-vs-code-by-attaching-to-chrome
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "urlFilter": "http://localhost:5500/*",
+            "webRoot": "${workspaceFolder}/express-sandbox/public/"
+        },
+        {
+            // https://nerv2000.tistory.com/105
+            // (nodemon 서버 재시작해도 알아서 유지되는 방법) https://www.da-hae.kr/node-js-vs-code%EC%99%80-nodemon%EC%9C%BC%EB%A1%9C-express-js-%EC%84%9C%EB%B2%84-%EC%89%BD%EA%B2%8C-%EB%94%94%EB%B2%84%EA%B9%85%ED%95%98%EA%B8%B0/
+            "name": "Server",
+            "type": "node",
+            "request": "attach",
+            "processId": "${command:PickProcess}",
+            "restart": true,
+            "protocol": "inspector",
+        }
+    ],
+    "compounds": [
+        {
+            "name": "복합 Debug",
+            "configurations": ["Client", "Server"]
+        }
+    ]
+}
