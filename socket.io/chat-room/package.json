@@ -1,5 +1,5 @@
 {
-  "name": "Express.js-socketio-room-chat",
+  "name": "chat-room",
   "version": "1.0.0",
   "scripts": {
     "start": "node app"
