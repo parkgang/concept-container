@@ -1,5 +1,5 @@
 {
-  "name": "es6-project",
+  "name": "webpack",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack -w"
