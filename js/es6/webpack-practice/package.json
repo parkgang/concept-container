@@ -1,5 +1,5 @@
 {
-  "name": "webpack",
+  "name": "webpack-practice",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack -w"
@@ -12,7 +12,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^4.3.0",
     "mini-css-extract-plugin": "^0.12.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^5.0.0",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.3.0",
     "webpack": "^4.44.2",
