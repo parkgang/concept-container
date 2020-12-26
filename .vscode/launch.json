@@ -12,11 +12,12 @@
             // "file": "${workspaceFolder}/express-sandbox/public/debug.html"
         },
         {
-            "name": "chrome debugger",
+            // 딱히 다른 client와 특별한 건 없습니다 테스트를 위해 따로 파생되었습니다. (webRoot를 정확하게 지정하지 않아도 react debug가 정상적으로 수행됩니다. 단, webpack으로 bundle은 source map이 필요합니다)
+            "name": "React Debugger",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/src"
+            "webRoot": "${workspaceFolder}"
         },
         {
             // [node.js 디버깅 방법](https://nerv2000.tistory.com/105)
