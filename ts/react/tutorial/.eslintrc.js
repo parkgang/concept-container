@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     // airbnb 규칙을 사용한다.
-    'airbnb',
+    // 'airbnb',
     // @eslint-plugin-react 의 규칙을 사용한다.
     'plugin:react/recommended',
     // @typescript-eslint/eslint-plugin의 규칙을 사용한다.
@@ -34,16 +34,16 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     // airbnb ESLint 구성의 문제를 해결하기 위함
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
+    // 'import/extensions': [
+    //   'error',
+    //   'ignorePackages',
+    //   {
+    //     js: 'never',
+    //     jsx: 'never',
+    //     ts: 'never',
+    //     tsx: 'never',
+    //   },
+    // ],
   },
   settings: {
     react: {
