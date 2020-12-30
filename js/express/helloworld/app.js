@@ -9,5 +9,5 @@ app.listen(3000, () => {
 
 app.get("/debug", (req, res) => {
   console.log("debug");
-  res.sendfile("public/debug.html");
+  res.sendfile("public/index.html");
 });
