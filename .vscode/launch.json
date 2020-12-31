@@ -7,8 +7,8 @@
             "name": "Client",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:3000/",
-            "webRoot": "${workspaceFolder}\\express-sandbox\\public",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/js/express/helloworld/public",
             // "file": "${workspaceFolder}/express-sandbox/public/debug.html"
         },
         {
