@@ -1,19 +1,17 @@
 import React from 'react';
 
-import { Greetings, Counter } from './components';
+import * as components from './components';
 
 import './App.css';
 
 function App(): JSX.Element {
-  const onClick = (name: string) => {
-    alert(`${name}님 안녕하세요!`);
+  const onSubmit = (form: { name: string; description: string }) => {
+    console.log(form);
   };
   return (
-    <div>
-      <span>Hello, world!</span>
-      <Greetings name={'박경은'} onClick={onClick} />
-      <Counter />
-    </div>
+    <>
+      <components.MyForm onSubmit={onSubmit} />
+    </>
   );
 }
 
