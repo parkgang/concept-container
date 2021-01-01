@@ -5,9 +5,12 @@ import * as components from './components';
 import './App.css';
 
 function App(): JSX.Element {
+  const onSubmit = (form: { name: string; description: string }) => {
+    console.log(form);
+  };
   return (
     <>
-      <components.ReducerSample />
+      <components.RefSample onSubmit={onSubmit} />
     </>
   );
 }
