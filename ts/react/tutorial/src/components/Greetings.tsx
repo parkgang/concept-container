@@ -27,3 +27,9 @@ const Greetings: React.FC<GreetingProps> = ({ name, mark, optional, onClick }) =
 };
 
 export default Greetings;
+
+/*
+// React.FC를 사용하지 않고 함수 선언식으로 바로 빼는 template
+export default function Greetings({ name, mark, optional, onClick }: GreetingProps): JSX.Element {
+}
+*/
