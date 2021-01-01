@@ -1,5 +1,7 @@
 import React from 'react';
 
+// <Greetings name={'박경은'} onClick={onClick} />
+
 interface GreetingProps {
   name: string;
   mark?: string;
