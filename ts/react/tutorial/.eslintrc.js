@@ -33,6 +33,8 @@ module.exports = {
     // 정의되기 전에 사용되도록 허용 ('React' was used before it was defined)
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
+    // prop-types 규칙을 비활성화
+    'react/prop-types': 0,
     // airbnb ESLint 구성의 문제를 해결하기 위함
     // 'import/extensions': [
     //   'error',
