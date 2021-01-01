@@ -26,7 +26,7 @@ function MyForm({ onSubmit }: MyFormProps): JSX.Element {
     setForm({
       name: '',
       description: '',
-    }); // 초기화
+    });
   };
 
   return (
