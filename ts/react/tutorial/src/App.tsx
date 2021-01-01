@@ -7,7 +7,7 @@ import './App.css';
 function App(): JSX.Element {
   return (
     <>
-      <components.CounterReducer />
+      <components.ReducerSample />
     </>
   );
 }
