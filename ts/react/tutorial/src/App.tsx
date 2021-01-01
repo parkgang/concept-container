@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Greetings from './Greetings';
-import Counter from './Counter';
+import { Greetings, Counter } from './components';
 
 import './App.css';
 
