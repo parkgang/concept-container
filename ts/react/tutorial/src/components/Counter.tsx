@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const Counter: React.FC = () => {
-  const [count, setCount] = useState<number>(0);
+function Counter(): JSX.Element {
+  const [count, setCount] = useState(0);
   const onIncrease = () => setCount(count + 1);
   const onDecrease = () => setCount(count - 1);
   return (
@@ -13,6 +13,6 @@ const Counter: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Counter;
