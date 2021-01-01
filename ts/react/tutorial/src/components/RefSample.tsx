@@ -29,10 +29,7 @@ function RefSample({ onSubmit }: RefSampleProps): JSX.Element {
       name: '',
       description: '',
     });
-    if (!inputRef.current) {
-      return;
-    }
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   return (
