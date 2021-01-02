@@ -25,7 +25,7 @@ export type Todo = {
   done: boolean;
 };
 
-type TodosState = Todo[];
+export type TodosState = Todo[];
 
 const initialState: TodosState = [
   { id: 1, text: '타입스크립트 배우기', done: true },
