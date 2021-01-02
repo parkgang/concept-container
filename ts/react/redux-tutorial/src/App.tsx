@@ -1,11 +1,13 @@
 import React from 'react';
 
+import CounterContainer from './containers/CounterContainer';
+
 import './App.css';
 
 function App(): JSX.Element {
   return (
     <>
-      <span>Hello, world!</span>
+      <CounterContainer />
     </>
   );
 }
