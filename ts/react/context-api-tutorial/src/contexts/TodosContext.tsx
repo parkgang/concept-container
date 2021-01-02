@@ -18,7 +18,7 @@ const TodosDispatchContext = createContext<TodosDispatch | undefined>(undefined)
 function todosReducer(state: TodosState, action: Action): TodosState {
   switch (action.type) {
     case 'CREATE': {
-      const nextId = Math.max(...state.map((todo) => todo.id)) + 1;
+      const nextId = Math.max(0, ...state.map((todo) => todo.id)) + 1;
       return state.concat({
         id: nextId,
         text: action.text,
