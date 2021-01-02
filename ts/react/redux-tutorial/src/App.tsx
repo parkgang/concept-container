@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CounterContainer from './containers/CounterContainer';
+import Counter from './components/Counter';
 
 import './App.css';
 
 function App(): JSX.Element {
   return (
     <>
-      <CounterContainer />
+      <Counter />
     </>
   );
 }
