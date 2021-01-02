@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Counter from './components/Counter';
+import * as components from './components';
 
 import './App.css';
 
 function App(): JSX.Element {
   return (
     <>
-      <Counter />
+      <components.Counter />
     </>
   );
 }
