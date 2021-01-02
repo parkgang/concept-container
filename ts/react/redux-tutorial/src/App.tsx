@@ -7,7 +7,8 @@ import './App.css';
 function App(): JSX.Element {
   return (
     <>
-      <components.Counter />
+      <components.TodoInsert />
+      <components.TodoList />
     </>
   );
 }
