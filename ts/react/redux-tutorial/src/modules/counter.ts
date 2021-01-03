@@ -1,4 +1,4 @@
-import { createAction, ActionType, createReducer, action } from 'typesafe-actions';
+import { createAction, ActionType, createReducer } from 'typesafe-actions';
 
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
