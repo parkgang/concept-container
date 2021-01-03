@@ -1,6 +1,6 @@
 import React from 'react';
 
-// <Greetings name={'박경은'} onClick={onClick} />
+// <components.Greetings name={'박경은'} onClick={() => console.log('test')} />
 
 interface GreetingProps {
   name: string;
