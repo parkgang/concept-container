@@ -1,19 +1,7 @@
-import { createAction, ActionType, createReducer } from 'typesafe-actions';
+import { createReducer } from 'typesafe-actions';
 
-export const addTodo = createAction('todos/ADD_TODO')<string>();
-export const toggleTodo = createAction('todos/TOGGLE_TODO')<number>();
-export const removeTodo = createAction('todos/REMOVE_TODO')<number>();
-
-const actions = { addTodo, toggleTodo, removeTodo };
-type TodosAction = ActionType<typeof actions>;
-
-export type Todo = {
-  id: number;
-  text: string;
-  done: boolean;
-};
-
-export type TodosState = Todo[];
+import { TodosState, TodosAction } from './types';
+import { addTodo, removeTodo, toggleTodo } from './actions';
 
 const initialState: TodosState = [
   { id: 1, text: '타입스크립트 배우기', done: true },
