@@ -1,5 +1,5 @@
 {
-  "name": "redux-middleware",
+  "name": "redux-logger",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
