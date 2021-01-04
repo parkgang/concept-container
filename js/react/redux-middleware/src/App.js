@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import CounterContainer from "./containers/CounterContainer";
+import CounterContainer from './containers/CounterContainer';
 
-import "./App.css";
+import './App.css';
 
 function App() {
   return (
