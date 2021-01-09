@@ -35,4 +35,3 @@ Web front-end `module`을 캐싱하는 repos 입니다.
 | ECMAScript6 | ./ECMAScript6/index.js 에서 진척도 확인하기                                                      |
 | node.js     | 완료                                                                                             |
 | Express     | 완료                                                                                             |
-| ts          |                                                                                                  |
