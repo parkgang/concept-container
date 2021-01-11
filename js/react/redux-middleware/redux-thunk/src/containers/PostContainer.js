@@ -13,11 +13,10 @@ function PostContainer({ postId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data) return; // 포스트가 존재하면 아예 요청을 하지 않음
     dispatch(getPost(postId));
-  }, [postId, dispatch, data]);
+  }, [dispatch, postId]);
 
-  if (loading) return <div>로딩중...</div>;
+  if (loading && !data) return <div>로딩중...</div>; // 로딩중이고 데이터 없을때만
   if (error) return <div>에러 발생!</div>;
   if (!data) return null;
 
