@@ -2,6 +2,8 @@
 
 redux-middleware의 `redux-thunk`를 사용한 프로젝트입니다.
 
+`proxy`를 이용하여 API를 호출합니다.
+
 # dependencies
 
 ```shell
