@@ -17,7 +17,7 @@ function PostContainer({ postId }) {
   }, [dispatch, postId]);
 
   if (loading && !data) return <div>로딩중...</div>; // 로딩중이고 데이터 없을때만
-  if (error) return <div>에러 발생!</div>;
+  if (error) return <div>에러 발생! {data}</div>;
   if (!data) return null;
 
   return (
