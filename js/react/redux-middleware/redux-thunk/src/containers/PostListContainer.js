@@ -15,7 +15,7 @@ function PostListContainer() {
 
   // 로딩중이면서, 데이터가 없을 때에만 로딩중... 표시
   if (loading && !data) return <div>로딩중...</div>;
-  if (error) return <div>에러 발생!</div>;
+  if (error) return <div>에러 발생! {data}</div>;
   if (!data) return null;
 
   return <PostList posts={data} />;

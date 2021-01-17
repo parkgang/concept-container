@@ -13,7 +13,7 @@ export const createPromiseThunk = (type, promiseCreator) => {
       const payload = await promiseCreator(param);
       dispatch({ type: SUCCESS, payload }); // 성공
     } catch (e) {
-      dispatch({ type: ERROR, payload: e, error: true }); // 실패
+      dispatch({ type: ERROR, payload: e }); // 실패
     }
   };
 };
@@ -39,7 +39,7 @@ export const createPromiseThunkById = (
       const payload = await promiseCreator(param);
       dispatch({ type: SUCCESS, payload, meta: id });
     } catch (e) {
-      dispatch({ type: ERROR, error: true, payload: e, meta: id });
+      dispatch({ type: ERROR, payload: e, meta: id });
     }
   };
 };
@@ -69,8 +69,8 @@ export const reducerUtils = {
   // 실패 상태
   error: (error) => ({
     loading: false,
-    data: null,
-    error: error,
+    data: error.message,
+    error: true,
   }),
 };
 
@@ -93,7 +93,7 @@ export const handleAsyncActions = (type, key, keepData = false) => {
       case ERROR:
         return {
           ...state,
-          [key]: reducerUtils.error(action.error),
+          [key]: reducerUtils.error(action.payload),
         };
       default:
         return state;
