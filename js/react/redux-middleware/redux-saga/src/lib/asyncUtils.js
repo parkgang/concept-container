@@ -9,7 +9,7 @@ export const createPromiseSaga = (type, promiseCreator) => {
       const payload = yield call(promiseCreator, action.payload);
       yield put({ type: SUCCESS, payload });
     } catch (e) {
-      yield put({ type: ERROR, error: true, payload: e });
+      yield put({ type: ERROR, payload: e });
     }
   };
 };
@@ -26,7 +26,7 @@ export const createPromiseSagaById = (type, promiseCreator) => {
       const payload = yield call(promiseCreator, action.payload); // API 함수에 넣어주고 싶은 인자는 call 함수의 두번째 인자부터 순서대로 넣어주면 됩니다.
       yield put({ type: SUCCESS, payload, meta: id });
     } catch (e) {
-      yield put({ type: ERROR, error: e, meta: id });
+      yield put({ type: ERROR, payload: e, meta: id });
     }
   };
 };
@@ -56,8 +56,8 @@ export const reducerUtils = {
   // 실패 상태
   error: (error) => ({
     loading: false,
-    data: null,
-    error: error,
+    data: error.message,
+    error: true,
   }),
 };
 
