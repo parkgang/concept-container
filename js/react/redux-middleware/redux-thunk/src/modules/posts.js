@@ -23,6 +23,11 @@ const GET_POST_ERROR = 'GET_POST_ERROR';
 export const getPosts = createPromiseThunk(GET_POSTS, postsAPI.getPosts);
 export const getPost = createPromiseThunkById(GET_POST, postsAPI.getPostById);
 
+// 3번째 인자를 사용하면 withExtraArgument 에서 넣어준 값들을 사용 할 수 있습니다.
+export const goToHome = () => (dispatch, getState, { history }) => {
+  history.push('/');
+};
+
 // initialState 쪽도 반복되는 코드를 initial() 함수를 사용해서 리팩토링 했습니다.
 const initialState = {
   posts: reducerUtils.initial(),
@@ -43,8 +48,3 @@ export default function posts(state = initialState, action) {
       return state;
   }
 }
-
-// 3번째 인자를 사용하면 withExtraArgument 에서 넣어준 값들을 사용 할 수 있습니다.
-export const goToHome = () => (dispatch, getState, { history }) => {
-  history.push('/');
-};
