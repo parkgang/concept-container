@@ -19,10 +19,11 @@ export const createPromiseSaga = (type, promiseCreator) => {
 // id 값을 action.meta로 설정합니다.
 export const createPromiseSagaById = (type, promiseCreator) => {
   const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
+  // 액션이 지니고 있는 값을 조회하고 싶다면 action을 파라미터로 받아와서 사용 할 수 있습니다.
   return function* saga(action) {
     const id = action.meta;
     try {
-      const payload = yield call(promiseCreator, action.payload);
+      const payload = yield call(promiseCreator, action.payload); // API 함수에 넣어주고 싶은 인자는 call 함수의 두번째 인자부터 순서대로 넣어주면 됩니다.
       yield put({ type: SUCCESS, payload, meta: id });
     } catch (e) {
       yield put({ type: ERROR, error: e, meta: id });
