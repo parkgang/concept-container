@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects';
+import { takeEvery, getContext } from 'redux-saga/effects';
 
 import * as postsAPI from '../api/posts'; // api/posts 안의 함수 모두 불러오기
 import {
@@ -21,17 +21,27 @@ const GET_POST = 'GET_POST';
 const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 const GET_POST_ERROR = 'GET_POST_ERROR';
 
+// 홈(/) 경로로 이동
+const GO_TO_HOME = 'GO_TO_HOME';
+
 export const getPosts = () => ({ type: GET_POSTS });
 // payload는 파라미터 용도, meta는 리듀서에서 id를 알기위한 용도
 export const getPost = (id) => ({ type: GET_POST, payload: id, meta: id });
+export const goToHome = () => ({ type: GO_TO_HOME });
 
 const getPostsSaga = createPromiseSaga(GET_POSTS, postsAPI.getPosts);
 const getPostSaga = createPromiseSagaById(GET_POST, postsAPI.getPostById);
+
+function* goToHomeSaga() {
+  const history = yield getContext('history');
+  history.push('/');
+}
 
 // 사가들을 합치기
 export function* postsSaga() {
   yield takeEvery(GET_POSTS, getPostsSaga);
   yield takeEvery(GET_POST, getPostSaga);
+  yield takeEvery(GO_TO_HOME, goToHomeSaga);
 }
 
 // initialState 쪽도 반복되는 코드를 initial() 함수를 사용해서 리팩토링 했습니다.
@@ -54,8 +64,3 @@ export default function posts(state = initialState, action) {
       return state;
   }
 }
-
-// 3번째 인자를 사용하면 withExtraArgument 에서 넣어준 값들을 사용 할 수 있습니다.
-export const goToHome = () => (dispatch, getState, { history }) => {
-  history.push('/');
-};
