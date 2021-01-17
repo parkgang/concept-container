@@ -65,7 +65,7 @@ export function* postsSaga() {
 // initialState 쪽도 반복되는 코드를 initial() 함수를 사용해서 리팩토링 했습니다.
 const initialState = {
   posts: reducerUtils.initial(),
-  post: reducerUtils.initial(),
+  post: {},
 };
 
 export default function posts(state = initialState, action) {
