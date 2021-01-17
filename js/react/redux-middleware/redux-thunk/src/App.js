@@ -5,8 +5,6 @@ import PostListPage from './pages/PostListPage';
 import PostPage from './pages/PostPage';
 import CounterContainer from './containers/CounterContainer';
 
-import './App.css';
-
 function App() {
   return (
     <>
