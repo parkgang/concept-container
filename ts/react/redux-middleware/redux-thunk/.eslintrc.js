@@ -44,6 +44,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    camelcase: 'off',
   },
   settings: {
     react: {
