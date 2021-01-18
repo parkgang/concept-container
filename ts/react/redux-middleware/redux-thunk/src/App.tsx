@@ -1,11 +1,11 @@
 import React from 'react';
 
+import GithubProfileLoader from './containers/GithubProfileLoader';
+
 function App(): JSX.Element {
   return (
     <>
-      <div>
-        <span>Hello, world ts redux-thunk</span>
-      </div>
+      <GithubProfileLoader />;
     </>
   );
 }
