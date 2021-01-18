@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { RootState } from '../modules';
 import { GithubProfileInfo, GithubUsernameForm } from '../components';
 import { getUserProfileThunk } from '../modules/github';
