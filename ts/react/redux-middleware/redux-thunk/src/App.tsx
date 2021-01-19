@@ -5,7 +5,7 @@ import GithubProfileLoader from './containers/GithubProfileLoader';
 function App(): JSX.Element {
   return (
     <>
-      <GithubProfileLoader />;
+      <GithubProfileLoader />
     </>
   );
 }
