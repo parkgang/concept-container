@@ -9,7 +9,7 @@ type GithubProfileInfoProps = {
   blog: string;
 };
 
-function GithubProfileInfo({ name, thumbnail, bio, blog }: GithubProfileInfoProps): JSX.Element {
+export function GithubProfileInfo({ name, thumbnail, bio, blog }: GithubProfileInfoProps): JSX.Element {
   return (
     <div className="GithubProfileInfo">
       <div className="profile-head">
@@ -21,5 +21,3 @@ function GithubProfileInfo({ name, thumbnail, bio, blog }: GithubProfileInfoProp
     </div>
   );
 }
-
-export default GithubProfileInfo;

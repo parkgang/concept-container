@@ -6,7 +6,7 @@ type GithubUsernameFormProps = {
   onSubmitUsername: (username: string) => void;
 };
 
-function GithubUsernameForm({ onSubmitUsername }: GithubUsernameFormProps): JSX.Element {
+export function GithubUsernameForm({ onSubmitUsername }: GithubUsernameFormProps): JSX.Element {
   const [input, setInput] = useState('');
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -25,5 +25,3 @@ function GithubUsernameForm({ onSubmitUsername }: GithubUsernameFormProps): JSX.
     </form>
   );
 }
-
-export default GithubUsernameForm;
