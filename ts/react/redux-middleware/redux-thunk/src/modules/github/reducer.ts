@@ -15,30 +15,45 @@ const initialState: GithubState = {
   userProfile: asyncState.initial(),
 };
 
+// const github = createReducer<GithubState, GithubAction>(initialState, {
+//   [GET_USER_PROFILE]: (state) => ({
+//     ...state,
+//     userProfile: {
+//       loading: true,
+//       error: null,
+//       data: null,
+//     },
+//   }),
+//   [GET_USER_PROFILE_SUCCESS]: (state, action) => ({
+//     ...state,
+//     userProfile: {
+//       loading: false,
+//       error: null,
+//       data: action.payload,
+//     },
+//   }),
+//   [GET_USER_PROFILE_ERROR]: (state, action) => ({
+//     ...state,
+//     userProfile: {
+//       loading: false,
+//       error: action.payload,
+//       data: null,
+//     },
+//   }),
+// });
+
 const github = createReducer<GithubState, GithubAction>(initialState, {
   [GET_USER_PROFILE]: (state) => ({
     ...state,
-    userProfile: {
-      loading: true,
-      error: null,
-      data: null,
-    },
+    userProfile: asyncState.load(),
   }),
   [GET_USER_PROFILE_SUCCESS]: (state, action) => ({
     ...state,
-    userProfile: {
-      loading: false,
-      error: null,
-      data: action.payload,
-    },
+    userProfile: asyncState.success(action.payload),
   }),
   [GET_USER_PROFILE_ERROR]: (state, action) => ({
     ...state,
-    userProfile: {
-      loading: false,
-      error: action.payload,
-      data: null,
-    },
+    userProfile: asyncState.error(action.payload),
   }),
 });
 
