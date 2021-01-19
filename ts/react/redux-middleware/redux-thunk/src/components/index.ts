@@ -1,4 +1,2 @@
-import GithubProfileInfo from './GithubProfileInfo';
-import GithubUsernameForm from './GithubUsernameForm';
-
-export { GithubProfileInfo, GithubUsernameForm };
+export * from './GithubProfileInfo';
+export * from './GithubUsernameForm';
