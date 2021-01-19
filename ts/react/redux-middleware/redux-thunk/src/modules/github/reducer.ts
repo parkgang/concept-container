@@ -1,13 +1,18 @@
 import { createReducer } from 'typesafe-actions';
 import { GithubState, GithubAction } from './types';
 import { GET_USER_PROFILE, GET_USER_PROFILE_SUCCESS, GET_USER_PROFILE_ERROR } from './actions';
+import { asyncState } from '../../lib/reducerUtils';
+
+// const initialState: GithubState = {
+//   userProfile: {
+//     loading: false,
+//     error: null,
+//     data: null,
+//   },
+// };
 
 const initialState: GithubState = {
-  userProfile: {
-    loading: false,
-    error: null,
-    data: null,
-  },
+  userProfile: asyncState.initial(),
 };
 
 const github = createReducer<GithubState, GithubAction>(initialState, {
