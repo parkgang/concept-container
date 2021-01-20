@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
 import { getType, AsyncActionCreatorBuilder } from 'typesafe-actions';
 
-export type AnyAsyncActionCreator = AsyncActionCreatorBuilder<any, any, any>;
+type AnyAsyncActionCreator = AsyncActionCreatorBuilder<any, any, any>;
 
 export type AsyncState<T, E = any> = {
   data: T | null;
