@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import Thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
-import rootReducer from './modules';
+import rootReducer, { rootSaga } from './modules';
 
 import App from './App';
 
-const store = createStore(rootReducer, applyMiddleware(Thunk));
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
