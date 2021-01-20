@@ -22,7 +22,8 @@ redux-middleware의 `redux-saga`를 사용한 프로젝트입니다.
     - actions.ts
       - `thunk`의 경우 시작에 대한 값만 알리기 떄문에 `void`처리가 되어있습니다. <br/>
         조회하는 username값은 `thunk` 함수를 통해 전달됩니다.
-      - `saga`의 경우 시작 action에 조회하는 username이 포함됩니다. username 값은 `action.payload`의 값으로 return되어 다음 체이닝 되는 action이 연쇄적으로 사용되게 됩니다.
+      - `saga`의 경우 시작 action에 조회하는 username이 포함됩니다. <br/>
+        username 값은 `action.payload`의 값으로 return되어 다음 체이닝 되는 action이 연쇄적으로 사용되게 됩니다.
       - 때문에 `saga`의 경우 action type가 string으로 지정되었습니다.
 - index.tsx
   - 프로젝트의 이름에 맞는 middleware가 적용된 것을 확인할 수 있습니다.
