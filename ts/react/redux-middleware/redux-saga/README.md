@@ -11,7 +11,8 @@ redux-middleware의 `redux-saga`를 사용한 프로젝트입니다.
 
 - containers
   - GithubProfileLoader.tsx
-    - `thunk`에서는 하나의 action에서 여러 action을 처리하기 때문에 `thunk` 생성 함수를 호출해서 한번에 처리했습니다. <br/> 하지만 `saga`의 경우 시작하는 action을 모니터링 후 이후의 action을 연계해서 처리하기 때문에 시작 action을 dispatch하도록 변경되었습니다.
+    - 아래에서 단어 중 시작: `request`, 성공: `success`, 실패: `failure` 을 의미합니다.
+    - `thunk`에서는 thunk 함수 내부에서 시작 액션을 dispatch 후 로직 수행 결과에 따라 성공, 실패를 내부 처리하기 때문에 `thunk` 생성 함수를 호출해서 한번에 처리했습니다. <br/> 하지만 `saga`의 경우 시작 액션의 dispatch 유무를 모니터링 헤서 시작되면 로직 수행 결과에 따라 성공, 실패를 처리하기 때문에 시작 액션을 dispatch하도록 변경되었습니다.
 - lib
   - `thunk`, `saga`에 맞게 비동기 작업을 수행하기 위한 유틸함수가 존재합니다.
   - 2개 모두 목적은 동일합니다. 데이터 요청의 시작을 알리는 `request`으로 로딩창을 렌더링 후 성공과 실패 여부에 따라서 화면을 렌더링하는 미들웨어 함수 입니다.
