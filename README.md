@@ -60,3 +60,7 @@ history를 트래킹 할 수 있도록 큰 이벤트마다 여러 번 구분하�
 | use      | 특별히 무언가를 사용해 구현을 하는 경우                                |
 | move     | 코드 및 파일의 이동이 있을 때                                          |
 | rename   | 파일명이 변경될 때                                                     |
+
+# 리펙토링 이전 하이어라키
+
+![image](https://user-images.githubusercontent.com/63892989/114008955-b17d5300-989d-11eb-8ff0-2a9e69befdd6.png)
