@@ -1,32 +1,31 @@
-import Link from 'next/link';
-import { useRecoilState } from 'recoil';
-import { pageNameState } from '../states';
+import { useRecoilState } from "recoil";
 
-const IndexPage = () => {
+import Router from "../components/Router";
+
+import { pageNameState } from "../states";
+
+function IndexPage() {
   const [pageName, setPageName] = useRecoilState(pageNameState);
+
+  function handleOnClick() {
+    setPageName("IndexPage");
+  }
 
   return (
     <div>
       <div>
-        <h1>Index Page!</h1>
+        <h1>IndexPage</h1>
       </div>
       <div>
         <span>pageName 상태: {pageName}</span>
       </div>
       <div>
-        <button
-          onClick={() => {
-            setPageName('IndexPage');
-          }}
-        >
-          현재 페이지 이름으로 상태 변경
-        </button>
+        <button onClick={handleOnClick}>현재 페이지 이름으로 상태 변경</button>
       </div>
-      <Link href="/post">
-        <button>Post Pages 이동</button>
-      </Link>
+      <hr />
+      <Router />
     </div>
   );
-};
+}
 
 export default IndexPage;
