@@ -2,7 +2,7 @@ import { useRecoilValue } from "recoil";
 
 import { getNameSelector } from "../../states";
 
-function Basic() {
+function SuspenseSample() {
   const name = useRecoilValue(getNameSelector);
 
   return (
@@ -12,4 +12,4 @@ function Basic() {
   );
 }
 
-export default Basic;
+export default SuspenseSample;
