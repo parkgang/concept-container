@@ -1,17 +1,27 @@
 @Host = http://localhost:3000
 
-###
+# Authorization 헤더 존재 여부만 확인하는 인증 로직이 포함되어 있습니다.
+# Bearer의 실제 토큰 유무를 검사하지 않습니다. 
+
+### 인증 실패
 GET {{Host}}/
 
-###
+### 인증 성공 
+GET {{Host}}/
+Authorization: Bearer test-access-token-1234
+
+### router1 요청 테스트
 GET {{Host}}/router1
+Authorization: Bearer test-access-token-1234
 
-###
+### router2 요청 테스트
 GET {{Host}}/router2
+Authorization: Bearer test-access-token-1234
 
-###
+### router2 body 요청 값 테스트
 POST {{Host}}/router2
 Content-Type: application/json
+Authorization: Bearer test-access-token-1234
 
 {
     "name": "박경은",
