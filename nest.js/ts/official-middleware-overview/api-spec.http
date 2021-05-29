@@ -1,0 +1,19 @@
+@Host = http://localhost:3000
+
+###
+GET {{Host}}/
+
+###
+GET {{Host}}/router1
+
+###
+GET {{Host}}/router2
+
+###
+POST {{Host}}/router2
+Content-Type: application/json
+
+{
+    "name": "박경은",
+    "arg": 22
+}

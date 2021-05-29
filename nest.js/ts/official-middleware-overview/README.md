@@ -3,6 +3,8 @@
 nest.js의 middleware 동작을 확인하기 위한 프로젝트 입니다.  
 [공식 문서](https://docs.nestjs.com/middleware)를 참조하였습니다.
 
+`/api-spec.http` 으로 쉽게 확인할 수 있도록 되어있습니다.
+
 # 이슈
 
 ## ESLint에서 `tsconfig.json` 읽지 못함
