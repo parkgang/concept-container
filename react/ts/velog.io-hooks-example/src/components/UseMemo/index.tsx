@@ -1,9 +1,5 @@
 function UseMemo() {
-  return (
-    <>
-      <h1>UseMemo</h1>
-    </>
-  );
+  return <></>;
 }
 
 export default UseMemo;
