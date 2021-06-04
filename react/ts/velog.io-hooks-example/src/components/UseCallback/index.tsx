@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 import List from "./List";
 
@@ -6,9 +6,15 @@ function UseCallback() {
   const [number, setNumber] = useState(1);
   const [dark, setDark] = useState(false);
 
-  function getItems() {
+  // useCallback 미사용
+  // function getItems() {
+  //   return [number, number + 1, number + 2];
+  // }
+
+  // useCallback 사용
+  const getItems = useCallback(() => {
     return [number, number + 1, number + 2];
-  }
+  }, [number]);
 
   const theme = {
     backgroundColor: dark ? "#333" : "#fff",
