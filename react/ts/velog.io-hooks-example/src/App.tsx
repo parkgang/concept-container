@@ -1,8 +1,12 @@
+import UseMemo from "./components/UseMemo";
+import UseCallback from "./components/UseCallback";
+
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <UseMemo />
+      <UseCallback />
+    </>
   );
 }
 
