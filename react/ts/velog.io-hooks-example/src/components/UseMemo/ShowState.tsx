@@ -1,12 +1,12 @@
-const getNumber = (number: number) => {
+function getNumber(number: number) {
   console.log("숫자가 변동되었습니다.");
   return number;
-};
+}
 
-const getText = (text: string) => {
+function getText(text: string) {
   console.log("글자가 변동되었습니다.");
   return text;
-};
+}
 
 type Props = {
   number: number;
@@ -18,10 +18,10 @@ function ShowState({ number, text }: Props) {
   const showText = getText(text);
 
   return (
-    <div className="info-wrapper">
-      {showNumber} <br />
-      {showText}
-    </div>
+    <>
+      <div>{showNumber}</div>
+      <div>{showText}</div>
+    </>
   );
 }
 
