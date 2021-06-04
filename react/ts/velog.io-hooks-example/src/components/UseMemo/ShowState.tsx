@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 function getNumber(number: number) {
   console.log("숫자가 변동되었습니다.");
   return number;
@@ -14,8 +16,13 @@ type Props = {
 };
 
 function ShowState({ number, text }: Props) {
-  const showNumber = getNumber(number);
-  const showText = getText(text);
+  // useMemo 미사용
+  // const showNumber = getNumber(number);
+  // const showText = getText(text);
+
+  // useMemo 사용
+  const showNumber = useMemo(() => getNumber(number), [number]);
+  const showText = useMemo(() => getText(text), [text]);
 
   return (
     <>
