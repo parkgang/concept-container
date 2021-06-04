@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 type Props = {
-  getItems(): any;
+  getItems(): number[];
 };
 
 function List({ getItems }: Props) {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<number[]>([]);
   useEffect(() => {
     setItems(getItems());
     console.log("숫자가 변동되었습니다.");
