@@ -2,7 +2,7 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 function isError(error: any): error is Error {
-  return error.Name === "Error";
+  return error.name === "Error";
 }
 
 type User = {
@@ -11,12 +11,8 @@ type User = {
 };
 
 async function postUser(body: User) {
-  try {
-    const endPoint = "http://localhost:8080";
-    await axios.post(endPoint, body);
-  } catch (error) {
-    console.error(error);
-  }
+  const endPoint = "http://localhost:8080";
+  await axios.post(endPoint, body);
 }
 
 function UserList() {
@@ -30,7 +26,7 @@ function UserList() {
   return (
     <div>
       {mutation.isLoading ? (
-        "Adding todo..."
+        "Adding user..."
       ) : (
         <>
           {mutation.isError ? <div>An error occurred: {isError(mutation.error) ? mutation.error.message : ""}</div> : null}
