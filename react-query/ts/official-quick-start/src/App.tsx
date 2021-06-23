@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import Example from "./components/Example";
-import User from "./components/User";
+import UserList from "./components/UserList";
 
 const queryClient = new QueryClient();
 
@@ -12,7 +12,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Example />
         <hr />
-        <User />
+        <UserList />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
