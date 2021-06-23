@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 import Example from "./components/Example";
 import Todo from "./components/Todo";
@@ -12,6 +13,7 @@ function App() {
         <Example />
         <hr />
         <Todo />
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );
