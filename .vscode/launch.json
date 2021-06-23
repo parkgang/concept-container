@@ -1,39 +1,39 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            // [chrome attach 방법](https://stackoverflow.com/questions/45592581/cannot-debug-in-vs-code-by-attaching-to-chrome)
-            // client debug는 launch되는 크롬 프로세스랑 연결 후 파일 히트에 따라서 디버깅이 attach 됩니다 (즉, 서버와 전혀 무관합니다)
-            "name": "Client",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/js/express/helloworld/public",
-            // "file": "${workspaceFolder}/express-sandbox/public/debug.html"
-        },
-        {
-            // 딱히 다른 client와 특별한 건 없습니다 테스트를 위해 따로 파생되었습니다. (webRoot를 정확하게 지정하지 않아도 react debug가 정상적으로 수행됩니다. 단, webpack으로 bundle은 source map이 필요합니다)
-            "name": "React Debugger",
-            "type": "chrome",
-            "request": "launch",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            // [node.js 디버깅 방법](https://nerv2000.tistory.com/105)
-            // [nodemon 서버 재시작해도 알아서 유지되는 방법](https://www.da-hae.kr/node-js-vs-code%EC%99%80-nodemon%EC%9C%BC%EB%A1%9C-express-js-%EC%84%9C%EB%B2%84-%EC%89%BD%EA%B2%8C-%EB%94%94%EB%B2%84%EA%B9%85%ED%95%98%EA%B8%B0/)
-            "name": "Server",
-            "type": "node",
-            "request": "attach",
-            "processId": "${command:PickProcess}",
-            "restart": true,
-            "protocol": "inspector",
-        }
-    ],
-    "compounds": [
-        {
-            "name": "Server+Client",
-            "configurations": ["Server", "Client"]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // [chrome attach 방법](https://stackoverflow.com/questions/45592581/cannot-debug-in-vs-code-by-attaching-to-chrome)
+      // client debug는 launch되는 크롬 프로세스랑 연결 후 파일 히트에 따라서 디버깅이 attach 됩니다 (즉, 서버와 전혀 무관합니다)
+      "name": "Client",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/js/express/helloworld/public"
+      // "file": "${workspaceFolder}/express-sandbox/public/debug.html"
+    },
+    {
+      // 딱히 다른 client와 특별한 건 없습니다 테스트를 위해 따로 파생되었습니다. (webRoot를 정확하게 지정하지 않아도 react debug가 정상적으로 수행됩니다. 단, webpack으로 bundle은 source map이 필요합니다)
+      "name": "React Debugger",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      // [node.js 디버깅 방법](https://nerv2000.tistory.com/105)
+      // [nodemon 서버 재시작해도 알아서 유지되는 방법](https://www.da-hae.kr/node-js-vs-code%EC%99%80-nodemon%EC%9C%BC%EB%A1%9C-express-js-%EC%84%9C%EB%B2%84-%EC%89%BD%EA%B2%8C-%EB%94%94%EB%B2%84%EA%B9%85%ED%95%98%EA%B8%B0/)
+      "name": "Server",
+      "type": "node",
+      "request": "attach",
+      "processId": "${command:PickProcess}",
+      "restart": true,
+      "protocol": "inspector"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Server+Client",
+      "configurations": ["Server", "Client"]
+    }
+  ]
 }
