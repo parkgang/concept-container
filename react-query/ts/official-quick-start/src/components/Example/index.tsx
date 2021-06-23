@@ -8,7 +8,7 @@ async function Api() {
 }
 
 function Example() {
-  const { isLoading, error, data } = useQuery<any, Error>("repoData", Api);
+  const { isLoading, isError, data, error } = useQuery<any, Error>("repoData", Api);
 
   if (isLoading) {
     return (
@@ -18,13 +18,15 @@ function Example() {
     );
   }
 
-  if (error) {
-    return (
-      <>
-        <span>An error has occurred: </span>
-        <span>{error.message}</span>
-      </>
-    );
+  if (isError) {
+    if (error) {
+      return (
+        <>
+          <span>An error has occurred: </span>
+          <span>{error.message}</span>
+        </>
+      );
+    }
   }
 
   return (
