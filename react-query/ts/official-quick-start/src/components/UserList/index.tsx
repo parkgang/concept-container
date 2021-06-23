@@ -1,18 +1,18 @@
+import { useMutation } from "react-query";
 import axios from "axios";
+
+function isError(error: any): error is Error {
+  return error.Name === "Error";
+}
 
 type User = {
   name: string;
   arg: number;
 };
 
-async function postUser() {
+async function postUser(body: User) {
   try {
     const endPoint = "http://localhost:8080";
-    const body: User = {
-      name: "react",
-      arg: 123,
-    };
-
     await axios.post(endPoint, body);
   } catch (error) {
     console.error(error);
@@ -20,11 +20,33 @@ async function postUser() {
 }
 
 function UserList() {
+  const user: User = {
+    name: "react",
+    arg: 123,
+  };
+
+  const mutation = useMutation((newUser: User) => postUser(newUser));
+
   return (
-    <>
-      <span>User</span>
-      <button onClick={postUser}>버튼 테스트</button>
-    </>
+    <div>
+      {mutation.isLoading ? (
+        "Adding todo..."
+      ) : (
+        <>
+          {mutation.isError ? <div>An error occurred: {isError(mutation.error) ? mutation.error.message : ""}</div> : null}
+
+          {mutation.isSuccess ? <div>Todo added!</div> : null}
+
+          <button
+            onClick={() => {
+              mutation.mutate(user);
+            }}
+          >
+            Create Todo
+          </button>
+        </>
+      )}
+    </div>
   );
 }
 
