@@ -1,22 +1,18 @@
-function fetchUser(id) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("wait 0.1 sec.");
-      const user = {
-        id: id,
-        name: "User" + id,
-        email: id + "@test.com",
-      };
-      resolve(user);
-    }, 100);
-  });
-}
+test("spy test", () => {
+  const calculator = {
+    add: (a, b) => a + b,
+    kyungeun: (name) => name + "님 안녕하세요!",
+  };
 
-test("fetch a user", async () => {
-  const user = await fetchUser(1);
-  expect(user).toEqual({
-    id: 1,
-    name: "User1",
-    email: "1@test.com",
-  });
+  const spyFn1 = jest.spyOn(calculator, "add");
+
+  const result = calculator.add(2, 3);
+
+  expect(spyFn1).toBeCalledTimes(1);
+  expect(spyFn1).toBeCalledWith(2, 3);
+  expect(result).toBe(5);
+
+  const spyFn2 = jest.spyOn(calculator, "kyungeun");
+  expect(spyFn2).toBeCalledTimes(0);
+  expect(spyFn2("테스트")).toBe("테스트님 안녕하세요!");
 });
