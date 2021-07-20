@@ -12,12 +12,11 @@ function fetchUser(id) {
   });
 }
 
-test("fetch a user", () => {
-  return fetchUser(1).then((user) => {
-    expect(user).toEqual({
-      id: 1,
-      name: "User1",
-      email: "1@test.com",
-    });
+test("fetch a user", async () => {
+  const user = await fetchUser(1);
+  expect(user).toEqual({
+    id: 1,
+    name: "User1",
+    email: "1@test.com",
   });
 });
