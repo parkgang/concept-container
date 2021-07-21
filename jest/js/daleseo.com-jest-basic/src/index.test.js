@@ -5,13 +5,15 @@ afterEach(() => {
   data.users.splice(0);
 });
 
-test("find all users", () => {
+beforeEach(() => {
   data.users.push(
     { id: 1, email: "user1@test.com" },
     { id: 2, email: "user2@test.com" },
     { id: 3, email: "user3@test.com" }
   );
+});
 
+test("find all users", () => {
   const users = userService.findAll();
 
   expect(users).toHaveLength(3);
@@ -20,11 +22,12 @@ test("find all users", () => {
   expect(users).toContainEqual({ id: 3, email: "user3@test.com" });
 });
 
-test("create a user", () => {
-  const user = { id: "4", email: "user4@test.com" };
+test("destory a user", () => {
+  const id = 3;
+  const user = data.users.find((user) => user.id === id);
 
-  userService.create(user);
+  userService.destroy(id);
 
-  expect(data.users).toHaveLength(1);
-  expect(data.users).toContainEqual(user);
+  expect(data.users).toHaveLength(2);
+  expect(data.users).not.toContainEqual(user);
 });
