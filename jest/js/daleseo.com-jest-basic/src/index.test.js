@@ -1,6 +1,10 @@
 const userService = require("./userService");
 const data = require("./data");
 
+afterEach(() => {
+  data.users.splice(0);
+});
+
 test("find all users", () => {
   data.users.push(
     { id: 1, email: "user1@test.com" },
