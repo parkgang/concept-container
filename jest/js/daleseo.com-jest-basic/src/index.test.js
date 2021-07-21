@@ -15,3 +15,12 @@ test("find all users", () => {
   expect(users).toContainEqual({ id: 2, email: "user2@test.com" });
   expect(users).toContainEqual({ id: 3, email: "user3@test.com" });
 });
+
+test("create a user", () => {
+  const user = { id: "4", email: "user4@test.com" };
+
+  userService.create(user);
+
+  expect(data.users).toHaveLength(1);
+  expect(data.users).toContainEqual(user);
+});
