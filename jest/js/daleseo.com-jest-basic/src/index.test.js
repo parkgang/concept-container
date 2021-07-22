@@ -1,13 +1,9 @@
-const calculator = {
-  add: (a, b) => a + b,
-};
+const axios = require("axios");
+const userService = require("./userService");
 
-test("스파이 테스트", () => {
-  const spyFn = jest.spyOn(calculator, "add");
-
-  const result = calculator.add(2, 3);
-
-  expect(spyFn).toBeCalledTimes(1);
-  expect(spyFn).toBeCalledWith(2, 3);
-  expect(result).toBe(5);
+test("findOne fetches data from the API endpoint", async () => {
+  const spyGet = jest.spyOn(axios, "get");
+  await userService.findOne(1);
+  expect(spyGet).toBeCalledTimes(1);
+  expect(spyGet).toBeCalledWith(`https://jsonplaceholder.typicode.com/users/1`);
 });
