@@ -1,9 +1,16 @@
-import axios from "axios";
+const messageService = require("./messageService");
 
-const API_ENDPOINT = "https://jsonplaceholder.typicode.com";
-
-export function findOne(id) {
-  return axios
-    .get(`${API_ENDPOINT}/users/${id}`)
-    .then((response) => response.data);
-}
+module.exports = {
+  register(user) {
+    /* DB에 회원 추가 */
+    const message = "회원 가입을 환영합니다!";
+    messageService.sendEmail(user.email, message);
+    messageService.sendSMS(user.phone, message);
+  },
+  deregister(user) {
+    /* DB에 회원 삭제 */
+    const message = "탈퇴 처리 되었습니다.";
+    messageService.sendEmail(user.email, message);
+    messageService.sendSMS(user.phone, message);
+  },
+};
