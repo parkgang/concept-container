@@ -3,8 +3,7 @@
   "scripts": {
     "test": "jest",
     "test:mock": "jest ./mock",
-    "test:snapshot": "node --experimental-vm-modules node_modules/.bin/jest ./snapshot",
-    "test:snapshot:update": "node --experimental-vm-modules node_modules/.bin/jest -u ./snapshot"
+    "test:snapshot": "node --experimental-vm-modules node_modules/.bin/jest ./snapshot"
   },
   "dependencies": {
     "axios": "^0.21.1",
