@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`repeats words three times 1`] = `"Test,Test,Test"`;
+exports[`repeats words three times 1`] = `
+Array [
+  "Test",
+  "Test",
+  "Test",
+]
+`;
