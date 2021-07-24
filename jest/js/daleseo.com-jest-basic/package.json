@@ -1,8 +1,9 @@
 {
+  "type": "module",
   "scripts": {
     "test": "jest",
     "test:mock": "jest ./mock",
-    "test:snapshot": "jest ./snapshot"
+    "test:snapshot": "node --experimental-vm-modules node_modules/.bin/jest ./snapshot"
   },
   "dependencies": {
     "axios": "^0.21.1",
