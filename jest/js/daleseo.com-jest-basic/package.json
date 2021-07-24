@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "jest",
-    "test:basic": "jest ./basic",
+    "test:mock": "jest ./mock",
     "test:snapshot": "jest ./snapshot"
   },
   "dependencies": {
