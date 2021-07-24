@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:basic": "jest ./basic",
+    "test:snapshot": "jest ./snapshot"
   },
   "dependencies": {
     "axios": "^0.21.1",
