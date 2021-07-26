@@ -25,6 +25,7 @@ describe("<LoginForm />", () => {
       e.preventDefault();
       console.log(`로그인 Submit`);
     });
+
     const { getByText, getByLabelText } = render(
       <LoginForm onSubmit={onSubmit} />
     );
