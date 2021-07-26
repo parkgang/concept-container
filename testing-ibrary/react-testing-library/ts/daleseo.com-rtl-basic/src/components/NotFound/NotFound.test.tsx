@@ -16,4 +16,13 @@ describe("<NotFound />", () => {
       "해당 페이지(/abc)를 찾을 수 없습니다."
     );
   });
+
+  test("renders image", () => {
+    const { getByAltText } = render(<NotFound path="/abc" />);
+    const image = getByAltText("404");
+    expect(image).toHaveAttribute(
+      "src",
+      "https://media.giphy.com/media/14uQ3cOFteDaU/giphy.gif"
+    );
+  });
 });
