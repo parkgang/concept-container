@@ -1,5 +1,8 @@
+import { Suspense } from "react";
+
 import NotFound from "./components/NotFound";
 import LoginForm from "./components/LoginForm";
+import AsyncCall from "./components/AsyncCall";
 
 export default function App() {
   return (
@@ -11,6 +14,15 @@ export default function App() {
         }}
       />
       <NotFound path="/test" />
+      <Suspense
+        fallback={
+          <div>
+            <h1>로딩 중...</h1>
+          </div>
+        }
+      >
+        <AsyncCall />
+      </Suspense>
     </>
   );
 }
