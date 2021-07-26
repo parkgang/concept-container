@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useState, SyntheticEvent } from "react";
 
 type Props = {
   onSubmit(): void;
 };
 
-export default function LoginForm({ onSubmit }: Props) {
+export default function LoginForm({ onSubmit = function () {} }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function handleSubmit(event: SyntheticEvent) {
+    event.preventDefault();
+    onSubmit();
+  }
 
   return (
     <>
       <h2>Login</h2>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <label>
           이메일
           <input

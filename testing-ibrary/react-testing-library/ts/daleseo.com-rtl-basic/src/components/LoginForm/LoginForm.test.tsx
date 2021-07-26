@@ -2,10 +2,14 @@ import { render, fireEvent } from "@testing-library/react";
 
 import LoginForm from "./LoginForm";
 
+function handleOnSubmit() {
+  console.log(`로그인 Submit`);
+}
+
 describe("<LoginForm />", () => {
   test("enables button when both email and password are entered", () => {
     const { getByText, getByLabelText } = render(
-      <LoginForm onSubmit={() => null} />
+      <LoginForm onSubmit={handleOnSubmit} />
     );
 
     const button = getByText("로그인");
@@ -21,10 +25,7 @@ describe("<LoginForm />", () => {
   });
 
   test("submits form when buttion is clicked", () => {
-    const onSubmit = jest.fn().mockImplementation((e) => {
-      e.preventDefault();
-      console.log(`로그인 Submit`);
-    });
+    const onSubmit = jest.fn().mockImplementation(handleOnSubmit);
 
     const { getByText, getByLabelText } = render(
       <LoginForm onSubmit={onSubmit} />
