@@ -21,7 +21,7 @@ export default function App() {
           </div>
         }
       >
-        <AsyncCall />
+        <AsyncCall id={1} />
       </Suspense>
     </>
   );
