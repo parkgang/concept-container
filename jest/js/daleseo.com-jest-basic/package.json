@@ -2,9 +2,10 @@
   "type": "module",
   "scripts": {
     "test": "jest",
+    "test:esm": "node --experimental-vm-modules node_modules/.bin/jest",
     "test:mock": "jest ./mock",
-    "test:snapshot": "node --experimental-vm-modules node_modules/.bin/jest ./snapshot",
-    "test:parameterized": "node --experimental-vm-modules node_modules/.bin/jest ./parameterized"
+    "test:snapshot": "npm run test:esm ./snapshot",
+    "test:parameterized": "npm run test:esm ./parameterized"
   },
   "dependencies": {
     "axios": "^0.21.1",
