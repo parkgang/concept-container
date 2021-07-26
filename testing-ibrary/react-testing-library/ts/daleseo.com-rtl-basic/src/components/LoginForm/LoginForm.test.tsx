@@ -1,4 +1,5 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import LoginForm from "./LoginForm";
 
@@ -41,5 +42,20 @@ describe("<LoginForm />", () => {
     fireEvent.click(button);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  test("[user-event] enables button when both email and password are entered", () => {
+    render(<LoginForm onSubmit={handleOnSubmit} />);
+
+    const email = screen.getByLabelText("이메일");
+    const password = screen.getByLabelText("비밀번호");
+    const button = screen.getByRole("button");
+
+    expect(button).toBeDisabled(); // 버튼 비활성화
+
+    userEvent.type(email, "user@test.com");
+    userEvent.type(password, "Test1234");
+
+    expect(button).toBeEnabled(); // 버튼 활성화
   });
 });
