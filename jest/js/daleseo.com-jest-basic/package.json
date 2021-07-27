@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "test:esm": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:esm": "node --experimental-vm-modules node_modules/.bin/jest --watchAll --verbose",
     "test:mock": "jest ./mock",
     "test:snapshot": "npm run test:esm ./snapshot",
     "test:parameterized": "npm run test:esm ./parameterized"
