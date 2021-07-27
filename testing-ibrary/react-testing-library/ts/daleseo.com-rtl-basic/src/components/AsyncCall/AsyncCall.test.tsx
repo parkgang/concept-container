@@ -14,7 +14,7 @@ const queryClient = new QueryClient({
 });
 
 describe("<AsyncCall />", () => {
-  test("마운트 확인", async () => {
+  test("Mount", async () => {
     async function arrangeRender() {
       render(
         <QueryClientProvider client={queryClient}>
