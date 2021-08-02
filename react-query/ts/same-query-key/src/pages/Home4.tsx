@@ -1,7 +1,16 @@
+import { Suspense } from "react";
+
+import View1 from "../components/View1";
+import Loading from "../components/Loading";
+import GetQueryData from "../components/GetQueryData";
+
 export default function Home4() {
   return (
     <>
-      <h1>Home4</h1>
+      <Suspense fallback={<Loading />}>
+        <View1 />
+        <GetQueryData />
+      </Suspense>
     </>
   );
 }
