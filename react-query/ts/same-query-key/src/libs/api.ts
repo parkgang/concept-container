@@ -1,7 +1,9 @@
+import { CommonApi } from "../types/api";
+
 const resTime = 1100;
 
 export function View1Api() {
-  return new Promise((resolve, reject) => {
+  return new Promise<CommonApi>((resolve, reject) => {
     setTimeout(() => {
       resolve({
         name: "View1Api",
@@ -12,7 +14,7 @@ export function View1Api() {
 }
 
 export function View2Api() {
-  return new Promise((resolve, reject) => {
+  return new Promise<CommonApi>((resolve, reject) => {
     setTimeout(() => {
       resolve({
         name: "View2Api",
@@ -23,7 +25,7 @@ export function View2Api() {
 }
 
 export function View3Api() {
-  return new Promise((resolve, reject) => {
+  return new Promise<CommonApi>((resolve, reject) => {
     setTimeout(() => {
       resolve({
         name: "View3Api",
