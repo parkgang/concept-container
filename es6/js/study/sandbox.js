@@ -1,12 +1,26 @@
 // 연습장입니다.
 
-const item = { type: "👔", size: "M" };
-const detail = { price: 20, made: "Korea", gender: "M" };
+// Spread Syntax - Array
+let fruits = ["🍉", "🍊", "🍌"];
 
-// ✅ Good Code ✨
-const shirt0 = Object.assign(item, detail);
-console.log(shirt0);
+// fruits.push('🍓');
+fruits = [...fruits, "🍓"];
+console.log(fruits); // [ '🍉', '🍊', '🍌', '🍓' ]
 
-// ✅ Better! Code ✨
-const shirt = { ...item, ...detail, price: 30 };
-console.log(shirt);
+// fruits.unshift('🍇');
+fruits = ["🍇", ...fruits];
+console.log(fruits); // [ '🍇', '🍉', '🍊', '🍌', '🍓' ]
+
+const fruits2 = ["🍈", "🍑", "🍍"];
+
+let combined = fruits.concat(fruits2);
+combined = [...fruits, "🍒", ...fruits2];
+
+/*
+[
+  '🍇', '🍉', '🍊',
+  '🍌', '🍓', '🍒',
+  '🍈', '🍑', '🍍'
+]
+*/
+console.log(combined);
