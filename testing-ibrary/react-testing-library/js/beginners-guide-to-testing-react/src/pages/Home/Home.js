@@ -13,6 +13,8 @@ function Home() {
     const response = await fetch(url);
     const { data } = await response.json();
     setPosts(data.children);
+    // mocking된 데이터가 들어오는 것을 확인할 수 있습니다.
+    console.log(data.children);
     setStatus("resolved");
   };
 

@@ -32,7 +32,14 @@ describe("Subreddit form", () => {
         json: () =>
           Promise.resolve({
             data: {
-              children: [{}, {}],
+              children: [
+                {
+                  v1: "mocking된 데이터 입니다.",
+                },
+                {
+                  v2: "아무런 의미가 없으며 fetch mocking 예제를 단적으로 보여주기 위한 데이터 입니다.",
+                },
+              ],
             },
           }),
       })
