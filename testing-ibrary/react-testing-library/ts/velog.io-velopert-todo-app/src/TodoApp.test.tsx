@@ -43,7 +43,8 @@ describe("<TodoApp />", () => {
     const { getByText } = render(<TodoApp />);
     const todoText = getByText("TDD 배우기");
     const removeButton = todoText.nextSibling;
-    fireEvent.click(removeButton);
+    // TODO: ts으로 포팅하면서 무조건 버튼이 있을거라고 가정하고 as를 사용 추후 유효성 로직 추가하기
+    fireEvent.click(removeButton as ChildNode);
     expect(todoText).not.toBeInTheDocument(); // 페이지에서 사라졌음을 의미함
   });
 });
