@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 
-const TodoForm = ({ onInsert }) => {
+const TodoForm = ({ onInsert }: any) => {
   const [value, setValue] = useState("");
   const onChange = useCallback((e) => {
     setValue(e.target.value);
