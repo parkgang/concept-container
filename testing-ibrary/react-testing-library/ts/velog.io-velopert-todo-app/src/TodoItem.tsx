@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 
-const TodoItem = ({ todo, onToggle, onRemove }) => {
+const TodoItem = ({ todo, onToggle, onRemove }: any) => {
   const { id, text, done } = todo;
   const toggle = useCallback(() => onToggle(id), [id, onToggle]);
   const remove = useCallback(() => onRemove(id), [id, onRemove]);
