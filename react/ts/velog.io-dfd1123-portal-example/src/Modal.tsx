@@ -1,6 +1,6 @@
 type Props = {
-  show: any;
-  handleModalShow: any;
+  show: boolean;
+  handleModalShow(arg0: boolean): void;
 };
 
 export default function Modal({ show, handleModalShow }: Props) {

@@ -1,3 +1,10 @@
+/**
+ * 모달이 작동될 수 있도록 하는 CSS 입니다.
+ * 모달 창이 보여져야할때는 .modal-wrap에 active 클래스를 부여하고
+ * active클래스가 있을 경우 visiblity는 visible, active클래스가 존재하지 않을 때는 hidden을 주어 모달창의 보여짐을 설정하고
+ * animation을 위해 opacity와 tranform에 transition 효과를 주도록 되어있습니다.
+ */
+
 .App {
   font-family: sans-serif;
   text-align: center;
