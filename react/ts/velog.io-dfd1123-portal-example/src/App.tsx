@@ -8,9 +8,12 @@ import "./styles.css";
 export default function App() {
   const [modal, setModal] = useState(false);
 
-  const handleModalShow = (status: any) => {
+  function handleModalShow(status: boolean) {
     setModal(status);
-  };
+  }
+  function handleOnClick() {
+    handleModalShow(true);
+  }
 
   return (
     <div className="App">
@@ -18,12 +21,7 @@ export default function App() {
       <h2>밑에 모달 버튼을 눌러보세요!</h2>
 
       <div>
-        <button
-          type="button"
-          onClick={() => {
-            handleModalShow(true);
-          }}
-        >
+        <button type="button" onClick={handleOnClick}>
           모달 버튼
         </button>
       </div>
