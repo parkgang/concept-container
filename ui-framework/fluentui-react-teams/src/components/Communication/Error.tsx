@@ -13,7 +13,7 @@ export default function Error() {
     option: CommunicationOptions.Error,
     fields: {
       title: "앗, 이런!",
-      desc: "에러메시지가 들어갑니다.",
+      desc: "여기에 에러메시지가 들어갑니다.",
       actions: {
         primary: { label: "새로고침", target: "refresh" },
       },
