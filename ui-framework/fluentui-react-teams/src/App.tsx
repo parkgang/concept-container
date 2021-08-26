@@ -1,19 +1,11 @@
-import {
-  Provider as RTProvider,
-  themeNames,
-  Communication,
-  TCommunicationProps,
-  CommunicationOptions,
-} from "@fluentui/react-teams";
+import { Provider as RTProvider, themeNames } from "@fluentui/react-teams";
+
+import Welcome from "components/Communication/Welcome";
 
 export default function App() {
-  const props: TCommunicationProps = {
-    option: CommunicationOptions.Welcome,
-  };
-
   return (
     <RTProvider themeName={themeNames.Default} lang="en-US">
-      <Communication {...props} />
+      <Welcome />
     </RTProvider>
   );
 }
