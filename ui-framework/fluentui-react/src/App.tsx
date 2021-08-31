@@ -1,7 +1,9 @@
+import DetailsList from "components/ItemsAndLists/DetailsList";
+
 export default function App() {
   return (
     <>
-      <h1>App</h1>
+      <DetailsList />
     </>
   );
 }
