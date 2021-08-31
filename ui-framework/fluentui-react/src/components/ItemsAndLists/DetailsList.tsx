@@ -1,10 +1,6 @@
 import * as React from "react";
 import { TextField } from "@fluentui/react/lib/TextField";
-import {
-  IToggleStyleProps,
-  IToggleStyles,
-  Toggle,
-} from "@fluentui/react/lib/Toggle";
+import { Toggle } from "@fluentui/react/lib/Toggle";
 import { Announced } from "@fluentui/react/lib/Announced";
 import {
   DetailsList,
@@ -15,9 +11,9 @@ import {
 } from "@fluentui/react/lib/DetailsList";
 import { MarqueeSelection } from "@fluentui/react/lib/MarqueeSelection";
 import { mergeStyleSets } from "@fluentui/react/lib/Styling";
-import { IStyleFunctionOrObject, TooltipHost } from "@fluentui/react";
+import { TooltipHost } from "@fluentui/react";
 
-export const classNames = mergeStyleSets({
+const classNames = mergeStyleSets({
   fileIconHeaderIcon: {
     padding: 0,
     fontSize: "16px",
@@ -43,26 +39,22 @@ export const classNames = mergeStyleSets({
   controlWrapper: {
     display: "flex",
     flexWrap: "wrap",
-    color: "red",
   },
   exampleToggle: {
     display: "inline-block",
     marginBottom: "10px",
     marginRight: "30px",
   },
-  abcdfg: {
+  selectionDetails: {
     marginBottom: "20px",
-    color: "red",
   },
 });
-const controlStyles: IStyleFunctionOrObject<IToggleStyleProps, IToggleStyles> =
-  {
-    root: {
-      margin: "0 30px 20px 0",
-      maxWidth: "300px",
-      color: "red",
-    },
-  };
+const controlStyles = {
+  root: {
+    margin: "0 30px 20px 0",
+    maxWidth: "300px",
+  },
+};
 
 export interface IDetailsListDocumentsExampleState {
   columns: IColumn[];
@@ -136,7 +128,7 @@ export default class DetailsListDocumentsExample extends React.Component<
         sortDescendingAriaLabel: "Sorted Z to A",
         onColumnClick: this._onColumnClick,
         data: "string",
-        isPadded: false,
+        isPadded: true,
       },
       {
         key: "column3",
@@ -150,7 +142,7 @@ export default class DetailsListDocumentsExample extends React.Component<
         onRender: (item: IDocument) => {
           return <span>{item.dateModified}</span>;
         },
-        isPadded: false,
+        isPadded: true,
       },
       {
         key: "column4",
@@ -239,8 +231,7 @@ export default class DetailsListDocumentsExample extends React.Component<
             message={`Number of items after filter applied: ${items.length}.`}
           />
         </div>
-        <div className={classNames.abcdfg}>{selectionDetails}</div>
-        <div className={classNames.abcdfg}>그럼 여기도 똑같이 적용?</div>
+        <div className={classNames.selectionDetails}>{selectionDetails}</div>
         <Announced message={selectionDetails} />
         {announcedMessage ? (
           <Announced message={announcedMessage} />
