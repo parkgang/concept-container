@@ -4,6 +4,7 @@ import Nav from "components/Nav";
 import APage from "pages/APage";
 import BPage from "pages/BPage";
 import CPage from "pages/CPage";
+import NotFoundPage from "pages/NotFoundPage";
 
 export const APagePath = "/a";
 export const BPagePath = "/b";
@@ -18,6 +19,7 @@ export default function App() {
           <Route path={APagePath} component={APage} />
           <Route path={BPagePath} component={BPage} />
           <Route path={CPagePath} component={CPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </Router>
     </>
