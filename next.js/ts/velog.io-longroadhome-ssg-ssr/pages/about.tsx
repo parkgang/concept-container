@@ -5,6 +5,7 @@ import axios from "axios";
 
 import type { Post } from "types/jsonplaceholder-posts";
 
+type PreRenderingMode = "ssg" | "ssr";
 type Props = {
   list: Post[];
 };
@@ -25,6 +26,15 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
 }
 
 export default function About({ list }: Props) {
+  const [mode, setMode] = useState<PreRenderingMode>("ssg");
+
+  const endPoint = mode === "ssg" ? "detail-static" : "detail";
+
+  function handleMode(mode: PreRenderingMode) {
+    return () => setMode(mode);
+  }
+
+  // CSR 예제 코드
   // const [list, setList] = useState([]);
 
   // useEffect(() => {
@@ -37,14 +47,22 @@ export default function About({ list }: Props) {
   // }, []);
 
   return (
-    <div className="About">
-      <h1>여기는 About 페이지요!</h1>
-      {list.length &&
-        list.slice(0, 10).map((item) => (
-          <li key={item.id}>
-            <Link href={`detail/${item.id}`}>{item.title}</Link>
-          </li>
-        ))}
-    </div>
+    <main>
+      <section>
+        <b>pre-rendering: {mode}</b>
+        <br />
+        <button onClick={handleMode("ssg")}>SSG으로 변경</button>
+        <button onClick={handleMode("ssr")}>SSR으로 변경</button>
+      </section>
+      <section>
+        <h1>여기는 About 페이지요!</h1>
+        {list.length &&
+          list.slice(0, 10).map((item) => (
+            <li key={item.id}>
+              <Link href={`${endPoint}/${item.id}`}>{item.title}</Link>
+            </li>
+          ))}
+      </section>
+    </main>
   );
 }
