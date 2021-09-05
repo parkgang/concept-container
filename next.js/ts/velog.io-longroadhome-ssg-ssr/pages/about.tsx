@@ -1,19 +1,39 @@
+import { GetStaticPropsResult } from "next";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Post } from "../types/jsonplaceholder-posts";
 
-export default function About() {
-  const [list, setList] = useState<Post[]>([]);
+type Props = {
+  list: Post[];
+};
 
-  useEffect(() => {
-    const getList = async () => {
-      const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
-      const data = res.data;
-      setList(data);
-    };
-    getList();
-  }, []);
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+  const res = await axios.get<Post[]>(
+    `https://jsonplaceholder.typicode.com/posts`
+  );
+  const data = res.data;
+
+  console.log(data[1]); // 해당 콘솔은 어디에서 출력이 되나요?
+
+  return {
+    props: {
+      list: data,
+    },
+  };
+}
+
+export default function About({ list }: Props) {
+  // const [list, setList] = useState([]);
+
+  // useEffect(() => {
+  //   const getList = async () => {
+  //     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
+  //     const data = res.data;
+  //     setList(data);
+  //   };
+  //   getList();
+  // }, []);
 
   return (
     <div className="About">
