@@ -1,8 +1,9 @@
 import { GetStaticPropsResult } from "next";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Post } from "../types/jsonplaceholder-posts";
+import type { Post } from "types/jsonplaceholder-posts";
 
 type Props = {
   list: Post[];
@@ -39,7 +40,11 @@ export default function About({ list }: Props) {
     <div className="About">
       <h1>여기는 About 페이지요!</h1>
       {list.length &&
-        list.slice(0, 10).map((item) => <li key={item.id}>{item.title}</li>)}
+        list.slice(0, 10).map((item) => (
+          <li key={item.id}>
+            <Link href={`detail/${item.id}`}>{item.title}</Link>
+          </li>
+        ))}
     </div>
   );
 }
