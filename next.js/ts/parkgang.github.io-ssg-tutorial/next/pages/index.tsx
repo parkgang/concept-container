@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import SmallCard from "../components/SmallCard";
+import PostCard from "../components/PostCard";
 import { projectIcons } from "../components/Icons";
 import { projects } from "../utils/projectsData";
 
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <>
       <div className="home">
-        <h1>What Can I Deploy to Static Apps?</h1>
+        <h1>SSG Dynamic Routing</h1>
         <div className="card-grid">
           {projects.map((project) => {
             const Icon = projectIcons[project.id];
@@ -22,22 +23,11 @@ export default function Home() {
             );
           })}
         </div>
-        <div
-          style={{
-            fontSize: "3rem",
-          }}
-        >
-          <ol>
-            <li>
-              <Link href="/post/1">1</Link>
-            </li>
-            <li>
-              <Link href="/post/2">2</Link>
-            </li>
-            <li>
-              <Link href="/post/3">3</Link>
-            </li>
-          </ol>
+        <h1>CSR Dynamic Routing</h1>
+        <div className="card-grid">
+          {["1", "2", "3"].map((x, index) => (
+            <PostCard key={index} path={x} />
+          ))}
         </div>
       </div>
     </>
