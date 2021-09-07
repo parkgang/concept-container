@@ -7,7 +7,7 @@ type Props = {
   slug: string;
 };
 
-export default function SmallCard({ Icon, title, slug }: Props) {
+export default function IconCard({ Icon, title, slug }: Props) {
   return (
     <Link href={`/project/${slug}`} passHref>
       <a className="card-small">
