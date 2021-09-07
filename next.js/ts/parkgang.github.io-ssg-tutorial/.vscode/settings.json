@@ -1,4 +1,0 @@
-{
-  // [next.config.js @type 린트 에러 수정](https://stackoverflow.com/a/68838570/14471375)
-  "eslint.workingDirectories": ["./next"]
-}
