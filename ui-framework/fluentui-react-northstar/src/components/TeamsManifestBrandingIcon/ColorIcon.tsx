@@ -21,7 +21,7 @@ export default function ColorIcon() {
   return (
     <>
       <Provider theme={teamsTheme}>
-        <Reset>
+        <Reset id="이 Element 노드 스크린샷 캡쳐">
           <AppsIcon />
         </Reset>
       </Provider>
