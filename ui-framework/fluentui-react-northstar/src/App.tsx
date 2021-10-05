@@ -1,7 +1,12 @@
+import ColorIcon from "components/TeamsManifestBrandingIcon/ColorIcon";
+import OutlineIcon from "components/TeamsManifestBrandingIcon/OutlineIcon";
+
 export default function App() {
   return (
     <>
-      <h1>App</h1>
+      <ColorIcon />
+      <hr />
+      <OutlineIcon />
     </>
   );
 }
