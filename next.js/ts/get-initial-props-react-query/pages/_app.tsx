@@ -40,7 +40,6 @@ function margeDehydrate({
     ],
   };
 }
-const queryKey = ["hello1"];
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -60,7 +59,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 MyApp.getInitialProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKey, getHello1);
+  await queryClient.prefetchQuery(["hello1"], getHello1);
 
   return {
     pageProps: {
