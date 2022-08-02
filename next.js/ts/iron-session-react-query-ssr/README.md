@@ -1,42 +1,24 @@
-# Example application using [`iron-session`](https://github.com/vvo/iron-session)
+## Overview
 
-<p align="center"><b>👀 Online demo at <a href="https://iron-session-example.vercel.app/">https://iron-session-example.vercel.app</a></b></p>
+1. `next.js` + `iron-session` + `react-query` project 입니다.
+1. 아래의 예제가 포함되어 있습니다.
+   1. props drilling 없이 Server Side에서 조회된 데이터를 Client Side가 접근할 수 있는 예제
+      1. 이를 위해서 Server Side에서 `react-query` 를 prefetch 합니다. `suspense` 없이 데이터가 미리 불러오는 것을 네트워크 탭으로 화인해보세요.
+   1. 모든 페이지에 사용되는 API 호출을 위한 예제
+1. [with-iron-session](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session) 이용하여 스케폴드 되었지만 핵심은 `iron-session` 가 아닙니다. 스케폴드된 프로젝트를 재사용하면서 발생한 문제입니다. 물론 스케폴드된 그대로 `iron-session` 으로 로그인이 되어있긴 합니다. 스케폴드 내용 중 바뀐 것은 아래와 같습니다.
+   1. [pages/profile-ssr.tsx](pages/profile-ssr.tsx) `res.setHeader()` 으로 리디렉션을 설정하는 것이 아닌 `next.js` 기능으로 처리
+      1. `res.setHeader()` 으로 하면 SSR에서는 잘 동작하지만 SSR 이후 CSR 접근 당시 리디렉션 해야하는 상황임에도 되지 않는 문제가 있습니다.
+   1. 필요없어서 `vercel.json` 제거
+   1. 이외는 commit history 이외 diff로 확인하세요.
 
----
+## Quick Start
 
-This example creates an authentication system that uses a **signed and encrypted cookie to store session data**. It relies on [`iron-session`](https://github.com/vvo/iron-session).
-
-It uses current best practices for authentication in the Next.js ecosystem and replicates parts of how the Vercel dashboard is built.
-
-**Features of the example:**
-
-- [API Routes](https://nextjs.org/docs/api-routes/dynamic-api-routes) and [getServerSideProps](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) examples.
-- The logged in status is synchronized between browser windows/tabs using **`useUser`** hook and the [`swr`](https://swr.vercel.app/).
-- The layout is based on the user's logged-in/out status.
-- The session data is signed and encrypted in a cookie (this is done automatically by `iron-session`).
-
-[`iron-session`](https://github.com/vvo/iron-session) also provides:
-
-- An Express middleware, which can be used in any Node.js HTTP framework.
-- Multiple encryption keys (passwords) to allow for seamless updates or just password rotation.
-- Full TypeScript support, including session data.
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-iron-session)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-iron-session&project-name=with-iron-session&repository-name=with-iron-session)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-iron-session with-iron-session-app
-# or
-yarn create next-app --example with-iron-session with-iron-session-app
-# or
-pnpm create next-app --example with-iron-session with-iron-session-app
+```shell
+pnpm i
+pnpm run dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## 테스트 시나리오
+
+1. `getInitialProps` 으로 전달된 props가 모든 페이지에서 조회되는가? 브라우저 콘솔창으로 확인
+1. `getInitialProps` 으로 호출된 `react-query` 가 모든 페이지에서 조회되는가? `react-query Dev Tool` 에서 확인
