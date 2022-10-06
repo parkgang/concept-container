@@ -1,11 +1,11 @@
-import { PrismaClient as PrismaClient1 } from "./prisma/generated/client1";
-import { PrismaClient as PrismaClient2 } from "./prisma/generated/client2";
+import { PrismaClient as PrismaClientDb1 } from "./prisma/db1/client";
+import { PrismaClient as PrismaClientDb2 } from "./prisma/db2/client";
 
-const client1 = new PrismaClient1();
-const client2 = new PrismaClient2();
+const db1Client = new PrismaClientDb1();
+const db2Client = new PrismaClientDb2();
 
 async function main() {
-  const user = await client1.user.create({
+  const user = await db1Client.user.create({
     data: {
       name: "Alice",
       email: "alice@prisma.io",
@@ -13,7 +13,7 @@ async function main() {
   });
   console.log(user);
 
-  const post = await client2.post.create({
+  const post = await db2Client.post.create({
     data: {
       authorId: 1,
       title: "hi",
@@ -24,12 +24,12 @@ async function main() {
 
 main()
   .then(async () => {
-    await client1.$disconnect();
-    await client2.$disconnect();
+    await db1Client.$disconnect();
+    await db2Client.$disconnect();
   })
   .catch(async (e) => {
     console.error(e);
-    await client1.$disconnect();
-    await client2.$disconnect();
+    await db1Client.$disconnect();
+    await db2Client.$disconnect();
     process.exit(1);
   });

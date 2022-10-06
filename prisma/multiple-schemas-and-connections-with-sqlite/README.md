@@ -7,12 +7,16 @@
 
 ## Start
 
+> PWD가 해당 프로젝트 root라고 가정하고 작성되어있습니다.
+
 ```shell
-cd {해당 프로젝트 root으로 진입}
 npm i
 # 스키마에 맞는 Client Build
-npx prisma migrate dev --name init --schema prisma/db1-schema.prisma
-npx prisma migrate dev --name init --schema prisma/db2-schema.prisma
+cd /prisma/db1
+npx prisma migrate dev --name init
+cd /prisma/db2
+npx prisma migrate dev --name init
 # 2개의 DB에 데이터가 생성되는 것을 확인할 수 있습니다
+cd /
 npm run start
 ```
