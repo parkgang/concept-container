@@ -9,6 +9,7 @@
 
 ```shell
 cd {해당 프로젝트 root으로 진입}
+npm i
 # 스키마에 맞는 Client Build
 npx prisma migrate dev --name init --schema prisma/db1-schema.prisma
 npx prisma migrate dev --name init --schema prisma/db2-schema.prisma
