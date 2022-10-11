@@ -3,10 +3,49 @@
 1. `prisma` 를 이용하여 `멀티 커넥션` , `멀티 스키마` 를 달성하는 프로젝트 입니다.
 1. [Prisma 설정하기 / 처음부터 시작 하기 / 관계형 데이터베이스](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-sqlserver) 문서의 도움을 받아 진행되었습니다.
 
-## 전체 조건
+## 컨셉
 
-`Node.js` 가 설치되어있어야 하고 `SQL Server` 가 `listen` 중 이어야 합니다.
+`prisma` 를 이용하여 `여러개의 DB 커넥션` 을 가지고 스키마가 다른 `prisma client` 를 이용하도록 합니다.
 
-## 주의
+이를 통해 멀티 테넌트 DB 구조 디자인을 `prisma` 를 이용하여 사용할 수 있는 방법을 알 수 있습니다.
 
-### WSL
+> ![](./assets/1.png)
+>
+> https://learn.microsoft.com/ko-kr/azure/azure-sql/database/saas-tenancy-app-design-patterns?view=azuresql#d-multi-tenant-app-with-database-per-tenant
+
+## 전제 조건
+
+1. 앱을 실행할 수 있도록 `Node.js` 가 설치되어 있어야 합니다.
+1. `SQL Server` 에 앱이 접근할 수 있어야 합니다.
+   1. `SQL Server` 가 `listen` 중 이어야 합니다.
+   1. `SQL Server` 의 `보안` 이 `SQL Server 및 Windows 인증 모드` 이어야 합니다.
+   1. `SQL Server` 이 `TCP/IP` 를 사용 중 이어야 합니다.
+
+추가적으로 아래의 작업을 통해 사용할 DB와 `prisma migrate` 가 스키마 프로비저닝 할 계정을 만들도록 합니다.
+
+### DB 생성
+
+`SQL Server` 에 아래의 `DB` 를 생성합니다.
+
+```
+catalog
+tenant_a
+tenant_b
+```
+
+![](./assets/2.png)
+
+### 사용자 생성
+
+`SQL Server 인증 (ID, PW가 있는 계정)` 으로 아래의 권한을 가진 사용자를 생성합니다.
+
+| `public` 이외 `prisma migrate` 가 스키마 프로비저닝 할 수 있도록 `dbcreator` 추가 | `catalog` , `tenant_a` , `tenant_b` 모두 동일하게 DB 권한 추가 |
+| --------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| ![](./assets/3.png)                                                               | ![](./assets/4.png)                                            |
+
+## Start
+
+```shell
+npm i
+npm run start
+```
