@@ -45,7 +45,24 @@ tenant_b
 
 ## Start
 
+> 커넥션 스트링은 IP, DB, 계정에 맞게 변경하시면 됩니다.
+
 ```shell
 npm i
+
+# 우선 `catalog` 를 위한 커넥션 string을 지정합니다.
+export DATABASE_URL="sqlserver://localhost:1433;database=catalog;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT"
+# 아래의 명령어로 마이그레이션(스키마 프로비저닝) 을 진행합니다
+npm run catalog-db-push
+
+# 나머지 `tenant_a` 도 진행
+export DATABASE_URL="sqlserver://localhost:1433;database=tenant_a;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT"
+npm run tenant-db-push
+
+# 나머지 `tenant_b` 도 진행
+export DATABASE_URL="sqlserver://localhost:1433;database=tenant_b;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT"
+npm run tenant-db-push
+
+# 실행 후 console과 DBMS에 적재된 데이터 확인
 npm run start
 ```
