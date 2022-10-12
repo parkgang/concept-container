@@ -61,16 +61,16 @@ tenant_b
 npm i
 
 # 우선 `catalog` 를 위한 커넥션 string을 지정합니다.
-set DATABASE_URL=sqlserver://localhost:1433;database=catalog;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT
+set DATABASE_URL=sqlserver://localhost:1433;database=catalog;user=prisma_migrate;password=1234;trustServerCertificate=true;
 # 아래의 명령어로 마이그레이션(스키마 프로비저닝) 을 진행합니다
 npm run catalog-db-push
 
 # 나머지 `tenant_a` 도 진행
-set DATABASE_URL=sqlserver://localhost:1433;database=tenant_a;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT
+set DATABASE_URL=sqlserver://localhost:1433;database=tenant_a;user=prisma_migrate;password=1234;trustServerCertificate=true;
 npm run tenant-db-push
 
 # 나머지 `tenant_b` 도 진행
-set DATABASE_URL=sqlserver://localhost:1433;database=tenant_b;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT
+set DATABASE_URL=sqlserver://localhost:1433;database=tenant_b;user=prisma_migrate;password=1234;trustServerCertificate=true;
 npm run tenant-db-push
 
 # 실행 후 console과 DBMS에 적재된 데이터 확인

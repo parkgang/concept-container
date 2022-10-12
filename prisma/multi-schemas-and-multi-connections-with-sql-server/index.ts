@@ -4,21 +4,21 @@ import { PrismaClient as PrismaClientTenant } from "./prisma/tenant/client";
 const catalogClient = new PrismaClientCatalog({
   datasources: {
     db: {
-      url: "sqlserver://localhost:1433;database=catalog;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT",
+      url: "sqlserver://localhost:1433;database=catalog;user=prisma_migrate;password=1234;trustServerCertificate=true;",
     },
   },
 });
 const tenantAClient = new PrismaClientTenant({
   datasources: {
     db: {
-      url: "sqlserver://localhost:1433;database=tenant_a;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT",
+      url: "sqlserver://localhost:1433;database=tenant_a;user=prisma_migrate;password=1234;trustServerCertificate=true;",
     },
   },
 });
 const tenantBClient = new PrismaClientTenant({
   datasources: {
     db: {
-      url: "sqlserver://localhost:1433;database=tenant_b;user=prisma_migrate;password=1234;encrypt=DANGER_PLAINTEXT",
+      url: "sqlserver://localhost:1433;database=tenant_b;user=prisma_migrate;password=1234;trustServerCertificate=true;",
     },
   },
 });
