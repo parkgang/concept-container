@@ -1,7 +1,7 @@
 ## Overview
 
 1. `prisma` 를 이용하여 `멀티 커넥션` , `멀티 스키마` 를 달성하는 프로젝트 입니다.
-1. [Prisma 설정하기 / 처음부터 시작 하기 / 관계형 데이터베이스](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-sqlserver) 문서의 도움을 받아 진행되었습니다.
+1. [Prisma 설정하기 / 처음부터 시작 하기 / 관계형 데이터베이스](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-sqlserver) 문서를 통해 `prisma` 와 `SQL Server` 연결 작업에 대해 도움을 받을 수 있습니다.
 
 ## Stack
 
@@ -27,7 +27,7 @@
    1. `SQL Server` 의 `보안` 이 `SQL Server 및 Windows 인증 모드` 이어야 합니다.
    1. `SQL Server` 이 `TCP/IP` 를 사용 중 이어야 합니다.
 
-추가적으로 아래의 작업을 통해 사용할 DB와 `prisma migrate` 가 스키마 프로비저닝 할 계정을 만들도록 합니다.
+추가적으로 아래의 작업을 통해 `사용할 DB` 와 `prisma migrate` 가 스키마 프로비저닝 할 계정을 만들도록 합니다.
 
 ### DB 생성
 
