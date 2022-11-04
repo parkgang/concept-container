@@ -6,7 +6,10 @@
 ## Start
 
 ```shell
-npx swagger-typescript-api -p ./schemas/swagger.json -o ./generated -n myApi.ts
+# fetch
+npx swagger-typescript-api -p ./schemas/swagger.json -o ./generated -n fetch-api.ts
+# axios
+npx swagger-typescript-api -p ./schemas/swagger.json -o ./generated -n axios-api.ts --axios
 ```
 
 ## Reference
