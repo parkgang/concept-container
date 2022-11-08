@@ -1,100 +1,28 @@
-# Prisma + tRPC
+## Overview
 
-## Features
+1. `tRPC` 를 사용하면서 `iron-session` 를 사용하는 예제 프로젝트 입니다.
+1. 스케폴드의 경우 https://github.com/trpc/examples-next-prisma-starter 를 사용했는데 동작하지 않는 코드 및 불필요하게 많은 것들이 있어서 `2022-11-08` 기준 아래의 코드가 제거되었습니다.
+   > 때문에 스케폴드 관련 내용이 궁금하면 OG에서 보고 여기에서는 `tRPC` 에서 `iron-session` 을 사용하기 위해서 어떻게 적용되어 있는가를 중점으로 보도록 합니다.
+   1. .github
+   1. playwright
+   1. test
+   1. docker-compose.yaml
+   1. postcss.config.js
+   1. playwright.config.ts
+   1. render.yaml
+   1. sandbox.config.json
+   1. tailwind.config.js
+   1. vitest.config.ts
+   1. /src/pages/api/auth
+   1. /src/pages/about.tsx
+   1. /src/server/wssDevServer.ts
+   1. /src/server/prodServer.ts
+   1. /src/styles
+   1. /.vscode/settings.json
 
-- 🧙‍♂️ E2E typesafety with [tRPC](https://trpc.io)
-- ⚡ Full-stack React with Next.js
-- ⚡ Database with Prisma
-- ⚙️ VSCode extensions
-- 🎨 ESLint + Prettier
-- 💚 CI setup using GitHub Actions:
-  - ✅ E2E testing with [Playwright](https://playwright.dev/)
-  - ✅ Linting
-- 🔐 Validates your env vars on build and start
+## Start
 
-
-## Setup
-
-**yarn:**
-```bash
-yarn create next-app --example https://github.com/trpc/trpc --example-path examples/next-prisma-starter trpc-prisma-starter
-cd trpc-prisma-starter
-yarn
-yarn dx
+```shell
+npm i
+npm run dx
 ```
-
-**npm:**
-
-```bash
-npx create-next-app --example https://github.com/trpc/trpc --example-path examples/next-prisma-starter trpc-prisma-starter
-cd trpc-prisma-starter
-yarn
-yarn dx
-```
-
-
-### Requirements
-
-- Node >= 14
-- Postgres
-
-## Development
-
-### Start project
-
-```bash
-yarn create next-app --example https://github.com/trpc/trpc --example-path examples/next-prisma-starter trpc-prisma-starter
-cd trpc-prisma-starter
-yarn
-yarn dx
-```
-
-### Commands
-
-```bash
-yarn build      # runs `prisma generate` + `prisma migrate` + `next build`
-yarn db-reset   # resets local db
-yarn dev        # starts next.js
-yarn dx         # starts postgres db + runs migrations + seeds + starts next.js 
-yarn test-dev   # runs e2e tests on dev
-yarn test-start # runs e2e tests on `next start` - build required before
-yarn test:unit  # runs normal jest unit tests
-yarn test:e2e   # runs e2e tests
-```
-
-## Deployment
-
-### Using [Render](https://render.com/)
-
-The project contains a [`render.yaml`](./render.yaml) [*"Blueprint"*](https://render.com/docs/blueprint-spec) which makes the project easily deployable on [Render](https://render.com/).
-
-Go to [dashboard.render.com/blueprints](https://dashboard.render.com/blueprints) and connect to this Blueprint and see how the app and database automatically gets deployed.
-
-## Files of note
-
-<table>
-  <thead>
-    <tr>
-      <th>Path</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="./prisma/schema.prisma"><code>./prisma/schema.prisma</code></a></td>
-      <td>Prisma schema</td>
-    </tr>
-    <tr>
-      <td><a href="./src/pages/api/trpc/[trpc].ts"><code>./src/pages/api/trpc/[trpc].ts</code></a></td>
-      <td>tRPC response handler</td>
-    </tr>
-    <tr>
-      <td><a href="./src/server/routers"><code>./src/server/routers</code></a></td>
-      <td>Your app's different tRPC-routers</td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-Created by [@alexdotjs](https://twitter.com/alexdotjs).
