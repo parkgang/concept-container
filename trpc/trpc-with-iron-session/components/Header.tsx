@@ -6,14 +6,7 @@ import { trpc } from "src/utils/trpc";
 export default function Header() {
   const router = useRouter();
 
-  const userQuery = trpc.session.user.useQuery(undefined, {
-    // TODO: 이런 Client Side Hooks을 한 곳으로 모을 수는 없을까? <Header /> 가 모든 페이지에서 호출되어서 여기에 명시하긴 했는데 이전처럼 hooks/query 디렉터리에 모아야할 듯
-    onSuccess(data) {
-      if (data.isLoggedIn === false) {
-        router.push("/login");
-      }
-    },
-  });
+  const userQuery = trpc.session.user.useQuery();
   const logout = trpc.session.logout.useMutation({
     onSuccess() {
       router.push("/login");

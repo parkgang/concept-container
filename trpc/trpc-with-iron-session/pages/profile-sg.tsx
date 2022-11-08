@@ -3,10 +3,23 @@ import Layout from "components/Layout";
 import { trpc } from "src/utils/trpc";
 import { withIronSessionSsr } from "iron-session/next";
 import { sessionOptions } from "lib/session";
+import { useRouter } from "next/router";
 
 // Make sure to check https://nextjs.org/docs/basic-features/layouts for more info on how to use layouts
 export default function SgProfile() {
-  const userQuery = trpc.session.user.useQuery();
+  const router = useRouter();
+
+  const userQuery = trpc.session.user.useQuery(undefined, {
+    /**
+     * NOTE: 꼭 사용자 정보 쿼리가 사용자 정보가 없는 경우 로그인 페이지로 리디렉션 시켜야하는 것은 아닙니다.
+     * `<Header />` 와 같이 모든 페이지에서 호출되긴 하는데 정보가 없으면 없는데로 사용하는 경우가 있기 때문입니다.
+     */
+    onSuccess(data) {
+      if (data.isLoggedIn === false) {
+        router.push("/login");
+      }
+    },
+  });
   const eventQuery = trpc.session.event.useQuery(undefined, {
     // 사용자가 로그인한 경우에만 수행합니다.
     enabled: userQuery.data?.isLoggedIn,
