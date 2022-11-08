@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "components/Layout";
 import { withIronSessionSsr } from "iron-session/next";
 import { sessionOptions } from "lib/session";
-import { User } from "pages/api/user";
+import { User } from "lib/session";
 
 import { InferGetServerSidePropsType } from "next";
 

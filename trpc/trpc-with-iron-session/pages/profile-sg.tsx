@@ -1,14 +1,19 @@
 import React from "react";
 import Layout from "components/Layout";
-import useUser from "lib/useUser";
-import useEvents from "lib/useEvents";
+import { trpc } from "src/utils/trpc";
+import { withIronSessionSsr } from "iron-session/next";
+import { sessionOptions } from "lib/session";
 
 // Make sure to check https://nextjs.org/docs/basic-features/layouts for more info on how to use layouts
 export default function SgProfile() {
-  const { user } = useUser({
-    redirectTo: "/login",
+  const userQuery = trpc.session.user.useQuery();
+  const eventQuery = trpc.session.event.useQuery(undefined, {
+    // 사용자가 로그인한 경우에만 수행합니다.
+    enabled: userQuery.data?.isLoggedIn,
   });
-  const { events } = useEvents(user);
+
+  const user = userQuery.data;
+  const events = eventQuery.data;
 
   return (
     <Layout>
@@ -49,3 +54,24 @@ export default function SgProfile() {
     </Layout>
   );
 }
+
+export const getServerSideProps = withIronSessionSsr(async function ({
+  req,
+  res,
+}) {
+  const user = req.session.user;
+
+  if (!user) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+},
+sessionOptions);

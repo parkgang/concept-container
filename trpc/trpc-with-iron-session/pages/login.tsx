@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import useUser from "lib/useUser";
 import Layout from "components/Layout";
 import Form from "components/Form";
-import fetchJson, { FetchError } from "lib/fetchJson";
+import { trpc } from "src/utils/trpc";
+import { useRouter } from "next/router";
+import { withIronSessionSsr } from "iron-session/next";
+import { sessionOptions } from "lib/session";
 
 export default function Login() {
-  // here we just check if user is already logged in and redirect to profile
-  const { mutateUser } = useUser({
-    redirectTo: "/profile-sg",
-    redirectIfFound: true,
+  const router = useRouter();
+
+  const login = trpc.session.login.useMutation({
+    onSuccess() {
+      router.push("/profile-sg");
+    },
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -26,17 +30,11 @@ export default function Login() {
             };
 
             try {
-              mutateUser(
-                await fetchJson("/api/login", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(body),
-                }),
-                false,
-              );
+              await login.mutateAsync({ username: body.username });
             } catch (error) {
-              if (error instanceof FetchError) {
-                setErrorMsg(error.data.message);
+              // TODO: tRPC 에러 처리 필요
+              if (error instanceof Error) {
+                setErrorMsg(error.message);
               } else {
                 console.error("An unexpected error happened:", error);
               }
@@ -56,3 +54,24 @@ export default function Login() {
     </Layout>
   );
 }
+
+export const getServerSideProps = withIronSessionSsr(async function ({
+  req,
+  res,
+}) {
+  const user = req.session.user;
+
+  if (user) {
+    return {
+      redirect: {
+        destination: "/profile-sg",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+},
+sessionOptions);
