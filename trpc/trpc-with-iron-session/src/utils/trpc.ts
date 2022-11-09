@@ -16,12 +16,24 @@ export const trpc = createTRPCNext<AppRouter>({
         }),
         httpBatchLink({
           url: `http://localhost:${process.env.PORT ?? 3000}/api/trpc`,
+          headers() {
+            if (ctx?.req) {
+              // SSR을 제대로 사용하려면 클라이언트의 헤더를 서버로 전달해야 합니다.
+              // 이는 SSR시 쿠키와 같은 것을 전달할 수 있도록 하기 위한 것입니다.
+              // 해당 작업을 진행하지 않으면 SSR시 쿠키가 전달되지 않음으로 SSR에서 쿠키 값으로 사용자 정보를 SSR 굽는 등 iron-session 처리를 할 수 없습니다.
+              // 햇갈리면 안되는 것은 해당 작업은 SSR시 처리를 위함이며 해당 코드가 없다고 해서 Client Side에서 호출되는 tRPC가 iron-session 처리를 못한다는 것이 아닙니다.
+              const { connection: _connection, ...headers } = ctx.req.headers;
+              return {
+                ...headers,
+              };
+            }
+            return {};
+          },
         }),
       ],
     };
   },
   ssr: true,
-  // TODO: SSR 관련 헤더처리 구성이 있는데 굳이 필요하지 않은 것 같아 삭제하긴 함 어떤 것인지 추가적으로 살펴보기
 });
 
 export type RouterInput = inferRouterInputs<AppRouter>;
