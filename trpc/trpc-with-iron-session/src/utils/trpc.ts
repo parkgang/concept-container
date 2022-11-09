@@ -34,6 +34,14 @@ export const trpc = createTRPCNext<AppRouter>({
           },
         }),
       ],
+      queryClientConfig: {
+        defaultOptions: {
+          queries: {
+            // react-query 옵션 설정 방법 예제 추가하는 겸 재시도 계속하면 디버깅 힘들어서 설정
+            retry: 1,
+          },
+        },
+      },
     };
   },
   ssr: true,
