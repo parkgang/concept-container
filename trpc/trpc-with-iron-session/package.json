@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@octokit/types": "^7.0.0",
+    "@tanstack/react-query-devtools": "^4.14.5",
     "@types/react": "^18.0.17",
     "eslint-config-next": "latest",
     "typescript": "^4.7.4"
