@@ -13,6 +13,9 @@ export default function Login() {
     onSuccess() {
       router.push("/profile-sg");
     },
+    onError(err) {
+      setErrorMsg(err.message);
+    },
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -29,16 +32,7 @@ export default function Login() {
               username: event.currentTarget.username.value,
             };
 
-            try {
-              await login.mutateAsync({ username: body.username });
-            } catch (error) {
-              // TODO: tRPC 에러 처리 필요
-              if (error instanceof Error) {
-                setErrorMsg(error.message);
-              } else {
-                console.error("An unexpected error happened:", error);
-              }
-            }
+            login.mutate({ username: body.username });
           }}
         />
       </div>

@@ -28,11 +28,9 @@ export const sessionRouter = router({
     const user = ctx.session.user;
 
     if (!user || user.isLoggedIn === false) {
-      // TODO: 아래와 같은 응답처리가 맞는지 확인 필요
       throw new TRPCError({
         code: "UNAUTHORIZED",
       });
-      // res.status(401).end();
     }
 
     try {
@@ -65,9 +63,10 @@ export const sessionRouter = router({
         await ctx.session.save();
         return user;
       } catch (error) {
-        // TODO: tRPC 에러 응답 처리 필요
-        console.error(error);
-        // res.status(500).json({ message: (error as Error).message });
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: (error as Error).message,
+        });
       }
     }),
   logout: publicProcedure.mutation(async ({ ctx }) => {
