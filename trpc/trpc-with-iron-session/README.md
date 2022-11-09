@@ -2,7 +2,7 @@
 
 https://trpc.io/docs/v9/awesome-trpc 기여를 위해서 https://github.com/parkgang/trpc-iron-session 으로 이동되었습니다.
 
-**해당 프로젝트는 혹시 몰라서 남겨좋은 것이며 `더 이상 유지보수 되지 않을 것` 입니다.**
+**해당 프로젝트는 혹시 몰라서 남겨놓은 것이며 `더 이상 유지보수 되지 않을 것` 입니다.**
 
 ## Overview
 
