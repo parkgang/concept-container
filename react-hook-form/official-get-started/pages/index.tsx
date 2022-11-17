@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import { useEffect, useState } from "react";
 
 type Inputs = {
   example: string;
@@ -14,9 +15,15 @@ export default function Home() {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   console.log(watch("example")); // 이름을 전달하여 입력 값을 확인합니다.
+
+  const [isDevToolEnabled, setIsDevToolEnabled] = useState<boolean>(false);
+  useEffect(() => {
+    setIsDevToolEnabled(true);
+  }, []);
 
   return (
     <>
@@ -32,7 +39,7 @@ export default function Home() {
 
         <input type="submit" />
       </form>
-      <DevTool control={control} />
+      {isDevToolEnabled && <DevTool control={control} />}
     </>
   );
 }
