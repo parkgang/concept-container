@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "tsx index.ts"
+    "dev": "tsx watch index.ts"
   },
   "dependencies": {
     "tsx": "^3.12.1"
