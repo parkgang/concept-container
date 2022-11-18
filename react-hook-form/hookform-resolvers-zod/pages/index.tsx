@@ -1,24 +1,31 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useEffect, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-};
+const schema = z.object({
+  name: z.string().min(1, { message: "필수 값 입니다" }),
+  // 아래와 같이 `message` 가 지정되지 않은 경우 `zod` 의 기본 에러 메시지가 출력되는 거 같습니다
+  // 출력 메시지: Number must be greater than or equal to 10
+  age: z.number().min(10),
+});
+
+type Schema = z.infer<typeof schema>;
 
 export default function Home() {
   const {
     register,
-    control,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Schema>({
+    resolver: zodResolver(schema),
+  });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-
-  console.log(watch("example")); // 이름을 전달하여 입력 값을 확인합니다.
+  const onSubmit = (data: Schema) => {
+    alert(JSON.stringify(data));
+  };
 
   const [isDevToolEnabled, setIsDevToolEnabled] = useState<boolean>(false);
   useEffect(() => {
@@ -27,16 +34,11 @@ export default function Home() {
 
   return (
     <>
-      {/* handleSubmit"은 "onSubmit"을 호출하기 전에 입력을 검증합니다 */}
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* "등록" 기능을 호출하여 후크에 입력을 등록합니다. */}
-        <input defaultValue="test" {...register("example")} />
-
-        {/* 필수 또는 기타 표준 HTML 유효성 검사 규칙이 포함된 유효성 검사 포함 */}
-        <input {...register("exampleRequired", { required: true })} />
-        {/* 필드 유효성 검사가 실패하면 오류가 반환됩니다. */}
-        {errors.exampleRequired && <span>This field is required</span>}
-
+        <input {...register("name")} />
+        {errors.name?.message && <p>{errors.name?.message}</p>}
+        <input type="number" {...register("age", { valueAsNumber: true })} />
+        {errors.age?.message && <p>{errors.age?.message}</p>}
         <input type="submit" />
       </form>
       {isDevToolEnabled && <DevTool control={control} />}
