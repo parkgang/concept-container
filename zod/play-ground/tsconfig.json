@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
-    "strict": true
+    // zod 요구 사항
+    "strict": true,
+    "lib": [
+      // setTimeout 사용을 위함
+      "DOM",
+      // Promise 사용을 위함
+      "ES2015"
+    ]
   }
 }
