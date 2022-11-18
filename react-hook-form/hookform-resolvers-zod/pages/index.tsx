@@ -20,7 +20,22 @@ export default function Home() {
     control,
     formState: { errors },
   } = useForm<Schema>({
-    resolver: zodResolver(schema),
+    // 원래 `resolver: zodResolver(schema)` 코드를 넣어도 똑같이 동작하는데 디버깅시 어떤 값이 떨어지는지 궁금해서 확장하였습니다.
+    resolver: async (data, context, options) => {
+      // 여기에서 유효성 검사 스키마를 디버깅할 수 있습니다.
+      const validationResult = await zodResolver(schema)(
+        data,
+        context,
+        options
+      );
+
+      console.log("formData", data);
+      console.log("context", context);
+      console.log("options", options);
+      console.log("validation result", validationResult);
+
+      return validationResult;
+    },
   });
 
   const onSubmit = (data: Schema) => {
