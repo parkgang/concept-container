@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "tsx": "^3.12.1"
+  }
+}
