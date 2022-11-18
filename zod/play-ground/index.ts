@@ -1,34 +1,12 @@
-import { z } from "zod";
+import { z, ZodError } from "zod";
 
-function 공백() {
-  console.log(
-    "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-  );
-  console.log();
-  console.log();
-  console.log();
-  console.log();
-  console.log();
-  console.log();
-  console.log();
-  console.log();
-  console.log();
-}
-
-const mySchema = z.string();
+const mySchema = z.number();
 
 try {
-  mySchema.parse("tuna"); // => "tuna"
-  mySchema.parse(12); // => throws ZodError
+  const result = mySchema.parse(1.1);
+  console.log(result);
 } catch (error) {
-  console.log("parse error", error);
-  공백();
+  if (error instanceof ZodError) {
+    console.log(error);
+  }
 }
-
-const tunaResult = mySchema.safeParse("tuna"); // => { success: true; data: "tuna" }
-console.log("tunaResult", tunaResult);
-공백();
-
-const _12Result = mySchema.safeParse(12); // => { success: false; error: ZodError }
-console.log("12 Result", _12Result);
-공백();
