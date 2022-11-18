@@ -3,6 +3,7 @@
     "dev": "tsx watch index.ts"
   },
   "dependencies": {
-    "tsx": "^3.12.1"
+    "tsx": "^3.12.1",
+    "zod": "^3.19.1"
   }
 }

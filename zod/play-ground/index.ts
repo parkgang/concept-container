@@ -1,5 +1,34 @@
-type Test = string;
+import { z } from "zod";
 
-const test: Test = "hello, world";
+function 공백() {
+  console.log(
+    "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+  );
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+}
 
-console.log(test);
+const mySchema = z.string();
+
+try {
+  mySchema.parse("tuna"); // => "tuna"
+  mySchema.parse(12); // => throws ZodError
+} catch (error) {
+  console.log("parse error", error);
+  공백();
+}
+
+const tunaResult = mySchema.safeParse("tuna"); // => { success: true; data: "tuna" }
+console.log("tunaResult", tunaResult);
+공백();
+
+const _12Result = mySchema.safeParse(12); // => { success: false; error: ZodError }
+console.log("12 Result", _12Result);
+공백();
