@@ -1,19 +1,10 @@
 ## Overview
 
-`tRPC` 혹은 `react-query` 를 사용할 때 `query` 와 `mutation` 에서 햇갈리는 부분이 있었습니다.
+> 초 경량 프로젝트 입니다. 테스트만을 위해서 빠진거 많으니까 참고해서 프로젝트 구성하지마세요.
 
-그 중 `query` 부분인데 `query` 는 `hook` 기반으로 데이터가 호출되어서 명령적으로 원하는 시점에 데이터를 가져오는 것이 불편하고 응답 값이 `cache` 되는 특성이 있습니다.
+`id 중복 체크` 와 같이 `query` 의 성격을 가지지만 `cache` 가 되면 안되는 `프로시저` 에 대해서 `tRPC` 의 `vanilla` 으로 호출시 `cache` 되지 않는지 확인하지 위한 프로젝트 입니다.
 
-`ID 중복 체크` 와 같은 것이 경우 아래의 이유로 `react-query` 으로 제어하는 것이 부적합 합니다.
-
-1. 확인만 받는 작업이라서 `query` 가 맞는거 같지만 `query` 는 `hook` 기반으로 호출되고 `응답 값이 캐시` 되어서 `query` 으로 호출하는 것은 이상함
-1. 검증 작업이므로 원하는 시점에 `API` 를 호출할 수 있어야 함 그래서 `mutation` 를 사용하더라도 `mutateAsync` 으로 호출해야 하는데 `query` 와 `mutation` 모두 `state` 으로 처리되고 `mutateAsync` 으로 사용하면 `react-query` 자체의 `onError` 핸들러롸 상충되므로 코드의 혼란을 야기함
-
-문제는 `tRPC` 를 사용하기로 했으면 `tRPC` 의 `Middlewares` , `Procedures` , etc. 강력한 기능을 사용하기 때문에 `Procedures` 으로 만들어야 하는데 `tRPC` 에서 `Client` 호출이라고 하며 `react-query` 기반만 있어서 발생한 문제입니다.
-
-`tRPC` 를 안쓰는 경우 문제가 없는 것이 `ID 중복 체크` 와 같은 작업의 경우 `axios` 를 이용해서 `HTTP` call을 하면되고 필요한 경우에만 `react-query` 기반의 `hook` 으로 호출할 수 있도록 옵셔널하게 할 수 있기 때문이죠
-
-다행이 `tRPC` 에도 `react-query` 기반이 아닌 `HTTP API` 호출하듯이 `Vanilla client` 로 호출하는 방법을 제공하는데 `query` 이더라도 `Vanilla client` 에서 `cache` 되지 않는지 궁금해서 테스트 해보게 되었습니다.
+> `tRPC` 의 경우 `API EndPoint` 가 노출되긴 하는데 프로그래밍 적인 방법으로 `tRPC` 가 알아서 관리하므로 `tRPC` 에서 제공하는 `Client` 를 사용해야 합니다. 기본적으로 `react-query` 를 사용하도록 가이드 되는데 `react-query` 가 아니라 그냥 `HTTP API` call을 하고 싶은 경우 의도대로 잘 동작하는지 확인하기 위함입니다.
 
 ## Start
 
@@ -21,3 +12,11 @@
 npm i
 npm run dev
 ```
+
+## 테스트 시나리오
+
+1. `react-query` 호출의 경우 값의 경우 응답 값을 `cache` 해서 체크로써의 의미가 사라지는 것을 볼 수 있어요.
+   1. 하지만 `vanilla` 호출의 경우 `cache` 되지 않는 것을 볼 수 있어요.
+   1. 확실하게 보고 싶다면 `네트워크 속도 지연` 을 하고 테스트 해보세요.
+1. `react-query` 의 경우 선언적인 `hook` 호출이라서 `state` 를 조작해서 호출하는 이상한 패턴을 볼 수 있어요.
+   1. 하지만 `vanilla` 호출의 경우 명시적으로 원할 때 호출해서 응답 값을 가지고 처리할 수 있어요.
