@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "tsx index.ts",
+    "db:reset": "prisma db push && prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.13",
+    "prisma": "^4.13.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4"
+  }
+}
