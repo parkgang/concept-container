@@ -2,12 +2,13 @@
 
 `트랜잭션 격리 수준` 을 테스트 하기위한 프로젝트 이며 각 격리 수준에 대한 `examples` 을 제공합니다.
 
-`examples` 코드를 통해서 어떻게 격리 수준에 따라 동작하는지, lock이 걸리는지 확인할 수 있습니다.  
+`examples` 코드를 통해서 어떻게 격리 수준에 따라 동작하는지, lock이 걸리는지 확인할 수 있습니다.
+
 또한, `로컬` 에서 손쉽게 `Prisma` 테스트할 수 있는 프로젝트로도 사용될 수 있습니다.
 
 대부분은 `Prisma` 의 [대화형 트랜잭션](https://www.prisma.io/docs/guides/performance-and-optimization/prisma-client-transactions-guide#interactive-transactions) 을 이용하여 구현되었습니다.
 
-각각의 [examples][examples-path] 을 실행하면서 `insight` 를 얻을 수도 있지만 이미 만들어진 [examples][examples-path] 에 `트랜잭션 격리 수준` 을 바꿔보며 어떻게 동작하는지를 보는 것도 많은 도움이 됩니다.
+각각의 [examples][examples-path] 을 실행하면서 `insight` 를 얻을 수도 있지만 이미 만들어진 [examples][examples-path] 에서 `낮은 격리 수준` 예제 파일에서 `높은 격리 수준` 으로 올려보며 어떻게 동작하는지를 보는 것도 많은 도움이 됩니다.
 
 의도적으로 코드 예제들의 코드 스타일을 비슷하게 구성하였습니다. 파일별 `diff` 를 통해서 어떻게 다른지 살펴보세요.
 
