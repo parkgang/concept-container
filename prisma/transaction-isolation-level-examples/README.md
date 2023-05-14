@@ -7,7 +7,7 @@
 
 대부분은 `Prisma` 의 [대화형 트랜잭션](https://www.prisma.io/docs/guides/performance-and-optimization/prisma-client-transactions-guide#interactive-transactions) 을 이용하여 구현되었습니다.
 
-각각의 [samples][samples-path] 을 실행하면서 `insight` 를 얻을 수도 있지만 이미 만들어진 [samples][samples-path] 에 `트랜잭션 격리 수준` 을 바꿔보며 어떻게 동작하는지를 보는 것도 많은 도움이 됩니다.
+각각의 [examples][examples-path] 을 실행하면서 `insight` 를 얻을 수도 있지만 이미 만들어진 [examples][examples-path] 에 `트랜잭션 격리 수준` 을 바꿔보며 어떻게 동작하는지를 보는 것도 많은 도움이 됩니다.
 
 의도적으로 코드 예제들의 코드 스타일을 비슷하게 구성하였습니다. 파일별 `diff` 를 통해서 어떻게 다른지 살펴보세요.
 
@@ -32,14 +32,14 @@ npm i && npm run db:reset
 
 ### 실행
 
-[samples][samples-path] 디렉터리의 코드를 아래의 명령어 중 선택적으로 골라 실행하면 됩니다.
+[examples][examples-path] 디렉터리의 코드를 아래의 명령어 중 선택적으로 골라 실행하면 됩니다.
 
 ```shell
 # `tsx` 가 로컬에 설치되어 있다면 아래의 명령을
-npx tsx samples/read-committed.ts
+npx tsx examples/read-committed.ts
 # `tsx` 를 내부 패키지로 관리하고 실행하고 싶다면 아래의 명령을
-npm run start -- samples/read-committed.ts
+npm run start -- examples/read-committed.ts
 ```
 
-[samples-path]: samples
+[examples-path]: examples
 [util-file]: util.ts
