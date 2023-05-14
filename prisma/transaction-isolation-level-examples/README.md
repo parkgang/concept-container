@@ -1,8 +1,8 @@
 ## 개요
 
-`트랜잭션 격리 수준` 을 테스트 하기위한 프로젝트 이며 각 격리 수준에 대한 `sample` 을 제공합니다.
+`트랜잭션 격리 수준` 을 테스트 하기위한 프로젝트 이며 각 격리 수준에 대한 `examples` 을 제공합니다.
 
-`sample` 코드를 통해서 어떻게 격리 수준에 따라 동작하는지, lock이 걸리는지 확인할 수 있습니다.  
+`examples` 코드를 통해서 어떻게 격리 수준에 따라 동작하는지, lock이 걸리는지 확인할 수 있습니다.  
 또한, `로컬` 에서 손쉽게 `Prisma` 테스트할 수 있는 프로젝트로도 사용될 수 있습니다.
 
 대부분은 `Prisma` 의 [대화형 트랜잭션](https://www.prisma.io/docs/guides/performance-and-optimization/prisma-client-transactions-guide#interactive-transactions) 을 이용하여 구현되었습니다.
