@@ -1,7 +1,9 @@
 {
   "scripts": {
-    "dev": "tsx index.ts",
-    "db:reset": "prisma db push && prisma generate"
+    "postinstall": "npm run prisma:generate",
+    "start": "tsx",
+    "db:reset": "prisma db push && npm run prisma:generate",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^4.13.0"
