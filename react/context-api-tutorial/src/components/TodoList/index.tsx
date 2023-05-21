@@ -1,6 +1,5 @@
-import React from 'react';
 
-import { TodoItem } from '../';
+import { TodoItem } from '..';
 import { useTodosState } from '../../contexts/TodosContext';
 
 function TodoList(): JSX.Element {

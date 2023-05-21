@@ -1,6 +1,6 @@
 import "./CommentList.css";
 
-import { Comment } from "../";
+import { Comment } from "..";
 
 const CommentList = ({ comments }) => {
   const commentList = comments.map((comment, index) => (

@@ -1,5 +1,5 @@
+import { CommentList } from "..";
 import "./Post.css";
-import { CommentList } from "../";
 
 const Post = ({ title, body, comments }) => (
   <div className="Post ">
