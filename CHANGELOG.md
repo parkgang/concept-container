@@ -59,6 +59,10 @@
       └─official-helloworld
 ```
 
+### 디렉터리 구조
+
+![image](./assets/2.png)
+
 ### Commit message 컨벤션
 
 history를 트래킹 할 수 있도록 큰 이벤트마다 여러 번 구분하여 커밋하도록 합니다.
@@ -79,10 +83,6 @@ history를 트래킹 할 수 있도록 큰 이벤트마다 여러 번 구분하�
 | use      | 특별히 무언가를 사용해 구현을 하는 경우                                |
 | move     | 코드 및 파일의 이동이 있을 때                                          |
 | rename   | 파일명이 변경될 때                                                     |
-
-### 디렉터리 구조
-
-![image](./assets/2.png)
 
 ## <2021-04-08 (init)
 
