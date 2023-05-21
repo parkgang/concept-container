@@ -1,8 +1,5 @@
 {
-  "name": "mysql-connection",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "mysql-connection-with-express",
   "scripts": {
     "start": "node index"
   },
