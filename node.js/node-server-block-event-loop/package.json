@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "tsx --watch index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "tsx": "^3.12.7"
+  }
+}
