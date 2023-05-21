@@ -2,7 +2,7 @@
 
 ### Repository 이름 변경
 
-`js-ts-container` -> `web-container` 으로 변경했습니다.
+`js-ts-container` 를 `web-container` 으로 변경했습니다.
 
 `JS` , `TS` 뿐 아니라 `HTML` , `CSS` 와 관련된 코드들도 포함되고 있었고 `UI Framework` 의 경우 `JS` 로 코드가 작성되지만 기대하는 동작과 결과는 `HTML` + `CSS` + `JS` 에 가깝습니다.
 
@@ -10,7 +10,7 @@
 
 ### 디렉터리 구조 변경
 
-- 대부분이 `TS` 으로 개발되고 `JS` 와 `TS` 으로 개발되었다는 것이 중요한 정보가 아니게 됨에 따라 `JS` , `TS` 언어별로 구별하던 디렉터리 계층을 제거했습니다.
+- 대부분이 `TS` 으로 개발되고 있고 `JS` 와 `TS` 으로 개발되었다는 것이 더 이상 중요한 정보가 아니게 됨에 따라 `JS` , `TS` 언어별로 구별하던 디렉터리 계층을 제거했습니다.
 - 프로젝트가 더 명확하고 기대되는 위치로 이동했습니다.
   - `react` 하위에 더 넓은 범위인 `react+redux` , `react-router-dom` 예제가 있어서 각각 `redux` , `react-router-dom` 으로 이동하는 등 작업이 진행되었습니다.
 
@@ -22,7 +22,7 @@
 
 ### Repository 이름 변경
 
-`front-end-container` -> `js-ts-container` 으로 변경했습니다.
+`front-end-container` 를 `js-ts-container` 으로 변경했습니다.
 
 `front-end` 뿐 아니라 `Node.js` 와 관련된 코드들도 포함되어 더 넓은 범위로 표현하기 위해서 변경했습니다.
 
