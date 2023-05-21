@@ -7,6 +7,7 @@
 아래의 명령어로 서버를 시작합니다.
 
 ```shell
+nvm use
 npm i
 npm run dev
 ```
