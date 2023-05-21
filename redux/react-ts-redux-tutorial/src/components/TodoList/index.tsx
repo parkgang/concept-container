@@ -1,5 +1,6 @@
 import React from 'react';
-import { TodoItem } from '..';
+
+import { TodoItem } from '../';
 import useTodos from '../../hooks/useTodos';
 
 function TodoList(): JSX.Element {

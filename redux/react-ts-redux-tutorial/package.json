@@ -1,5 +1,5 @@
 {
-  "name": "react-ts-redux-tutorial",
+  "name": "redux-tutorial",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "4.0.1",
     "redux": "^4.0.5",
     "typesafe-actions": "^5.1.0",
     "typescript": "^4.0.3",
