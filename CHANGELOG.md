@@ -61,7 +61,7 @@
 
 ### 디렉터리 구조
 
-![image](./assets/2.png)
+![image](./assets/2-1.png)
 
 ### Commit message 컨벤션
 
