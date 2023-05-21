@@ -1,0 +1,10 @@
+{
+  "name": "mysql-connection-with-express",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
+}

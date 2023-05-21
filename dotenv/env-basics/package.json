@@ -1,0 +1,9 @@
+{
+  "name": "env-basics",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
