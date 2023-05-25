@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/server.js\""
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.0.4"
+  }
+}

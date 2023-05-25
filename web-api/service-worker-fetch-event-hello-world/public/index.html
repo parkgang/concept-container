@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Service Worker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    This is your first service worker
+    <script>
+      const registerServiceWorker = async () => {
+        if ("serviceWorker" in navigator) {
+          try {
+            const registration = await navigator.serviceWorker.register(
+              "./service-worker.js"
+            );
+            if (registration.installing) {
+              console.log("Service worker installing");
+            } else if (registration.waiting) {
+              console.log("Service worker installed");
+            } else if (registration.active) {
+              console.log("Service worker active");
+            }
+          } catch (error) {
+            console.error(`Registration failed with ${error}`);
+          }
+        }
+      };
+
+      // 서비스 워커를 등록합니다.
+      registerServiceWorker();
+
+      // 서비스 워커가 설치되면, 서비스 워커에서 fetch 이벤트를 가로채서 관련 요청 정보를 출력하는 것을 볼 수 있습니다.
+      fetch("https://jsonplaceholder.typicode.com/users/1")
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+    </script>
+  </body>
+</html>
