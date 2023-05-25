@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    // 서비스 워커 타입 제공을 위해
+    "lib": ["WebWorker"],
+    // 엄격한 검사를 위해
+    "strict": true,
+    // Node.js Server의 모듈이 CommonJS를 사용하므로 대응하기 위해
+    "esModuleInterop": true,
+    // 빌드 결과물을 한 곳으로 모으기 위해
+    "outDir": "./dist"
+  }
+}
