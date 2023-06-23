@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "node index.js"
+  },
+  "dependencies": {
+    "loadtest": "^5.2.0"
+  }
+}
