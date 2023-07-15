@@ -1,4 +1,5 @@
 import type { GetServerSideProps } from "next";
+import Image from "next/image";
 
 type PageProps = {
   ssrFinalizedDisplayDate: string;
@@ -28,6 +29,13 @@ export default function SsrPage({
       <p>
         SSR이 완료된 시점은 <strong>{nowDateIso}</strong> 입니다.
       </p>
+      <Image
+        src="/api/slow-image"
+        alt="아주 느리게 서빙되는 이미지"
+        width={473}
+        height={966}
+        style={{ border: "1px solid black" }}
+      />
     </div>
   );
 }
