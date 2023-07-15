@@ -25,7 +25,10 @@ export default function Home() {
         <HeightSpacing height={1500} />
         <Link href="ssg-page">SSG page으로 이동</Link>
         <HeightSpacing height={1500} />
-        <Link href="ssr-page">SSR page으로 이동</Link>
+        <Link href="ssr-page">
+          SSR page으로 이동 (getServerSideProps에서 일정 시간 지연하므로 TTFB가
+          느린 것이 정상입니다)
+        </Link>
         <HeightSpacing height={500} />
       </main>
     </>
