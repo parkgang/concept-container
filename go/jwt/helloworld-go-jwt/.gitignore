@@ -1,0 +1,5 @@
+# misc
+.DS_STORE
+
+# vscode-go 디버깅 파일
+__debug_bin

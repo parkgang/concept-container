@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource
+            name="Server-Mysql"
+            auth="Container"
+            type="javax.sql.DataSource"
+            username="아이디 입력하세요"
+            password="비밀번호 입력하세요"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://52.231.50.84:3306/jsp_WordBookWeb?serverTimezone=UTC"
+            maxActive="20"
+            maxIdle="10"
+    />
+    <Resource
+            name="Local-Mysql"
+            auth="Container"
+            type="javax.sql.DataSource"
+            username="아이디 입력하세요"
+            password="비밀번호 입력하세요"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/test?serverTimezone=UTC"
+            maxActive="20"
+            maxIdle="10"
+    />
+</Context>
