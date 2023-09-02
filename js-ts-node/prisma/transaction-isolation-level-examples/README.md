@@ -27,6 +27,8 @@
 ```shell
 # DBMS 컨테이너 실행
 docker-compose up -d
+# 노드 버전 설정
+nvm use
 # Prisma 스키마 기준으로 프로비저닝
 npm i && npm run db:reset
 ```
