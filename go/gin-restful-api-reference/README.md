@@ -16,10 +16,10 @@ restful api 구현을 위한 hello, world code
 # mysql server를 활성화 합니다.
 docker-compose up -d
 
-# 이후 "init.sql" 으로 필요한 DB를 생성합니다.
+# 이후 `Mysql` 컨테이너에 접속해서 `create database memo;` 으로 필요한 DB를 생성합니다.
 
 # 프로그램을 실행합니다.
-go run main.go
+go run main.go # 제품이 실행하면서 스키마가 알아서 프로비저닝 됩니다.
 
 # "restful-api.http" 으로 api를 테스트합니다.
 ```
