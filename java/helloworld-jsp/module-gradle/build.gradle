@@ -1,0 +1,17 @@
+plugins {
+    id 'war'
+}
+
+group 'com.kyungeun'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'mysql:mysql-connector-java:8.0.21'
+    compile 'javax.servlet:javax.servlet-api:4.0.1'
+    compile 'javax:javaee-api:8.0.1'
+}
