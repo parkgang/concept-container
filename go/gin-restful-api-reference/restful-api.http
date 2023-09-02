@@ -1,0 +1,30 @@
+@URL = http://localhost:8080
+
+### swagger 문서 조회
+GET {{URL}}/swagger/index.html
+
+### ping
+GET {{URL}}/v1/test
+
+### 조회
+GET {{URL}}/v1/memos
+
+### id 값으로 조회
+GET {{URL}}/v1/memos/5
+
+### 생성
+POST {{URL}}/v1/memos
+
+{
+    "content": "성공"
+}
+
+### 삭제
+DELETE {{URL}}/v1/memos/4
+
+### 수정
+PUT {{URL}}/v1/memos/5
+
+{
+    "content": "변경 한글 값 잘 들어가나요?"
+}
