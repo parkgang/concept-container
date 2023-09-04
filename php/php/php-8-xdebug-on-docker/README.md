@@ -27,3 +27,5 @@ docker-compose up -d
   - 당연한 사실인데 실수한 이력이 많아서 문서화 합니다.
 - `VSCode` 에 종속된 환경이 아니며 `Phpstorm` 에서도 `Xdebug` 가 잘 동작하는 환경입니다.
   - `Phpstorm` 에서 해당 프로젝트를 열고 `디버깅 listen` 상태에서 `breaking point` 를 걸고 `웹 페이지` 를 새로고침하면 `Xdebug` 가 자동으로 인식되어 `서버` 관련 설정이 나올 것 입니다.
+  - 추가적으로 아래와 같이 경로 맵핑을 하면 됩니다.
+    ![Phpstorm PHP 서버 설정](phpstorm-server-setting.png)
