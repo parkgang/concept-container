@@ -1,5 +1,5 @@
 <?php
-$servername = "db";
+$servername = "db"; // Docker Compose에서 설정한 서비스 이름
 $username = "myuser";
 $password = "mypassword";
 $dbname = "mydatabase";
