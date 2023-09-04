@@ -20,5 +20,8 @@ docker-compose up -d
 
 - http://localhost:50080/sample.php 으로 접속하면 웹 사이트를 확인할 수 있습니다.
 - `VSCode` 의 경우 `root` 에서 `F5` 를 통해서 디버깅하거나 `Dev Containers` 으로 `Container` 에 들어가서도 디버깅할 수 있습니다.
+  - 사전에 `CLI` 으로 `docker-compose` 를 실행한 경우 `실행 중인 컨테이너에 연결` 을 선택하세요.
+  - 이미 동일한 `Container` 실행 중인데 `컨테이너에서 다시 열기` 하면 충돌합니다.
+  - 당연한 사실인데 실수한 이력이 많아서 문서화 합니다.
 - `VSCode` 에 종속된 환경이 아니며 `Phpstorm` 에서도 `Xdebug` 가 잘 동작하는 환경입니다.
   - `Phpstorm` 에서 해당 프로젝트를 열고 `디버깅 listen` 상태에서 `breaking point` 를 걸고 `웹 페이지` 를 새로고침하면 `Xdebug` 가 자동으로 인식되어 `서버` 관련 설정이 나올 것 입니다.
