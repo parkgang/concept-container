@@ -10,7 +10,7 @@ foreach ($numbers as $number) {
 }
 
 print_r($doubleNumbers);
-echo  "<br/>";
+echo "<br /><br />";
 echo TEST_VALUE;
 
 phpinfo();
