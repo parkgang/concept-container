@@ -3,7 +3,7 @@ FROM php:5.5.25-apache
 # Xdebug 컴파일을 위해서 소스코드 clone를 위해 git을 설치하려고 `apt-get update` 하니까
 # Err http://security.debian.org jessie/updates/main amd64 Packages
 # 오류가 발생해서 https://knight76.tistory.com/entry/Failed-to-fetch-httpdebdebianorgdebiandistsjessie-updatesInRelease-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0 방법을 따라 `/etc/apt/sources.list` 를 수정
-COPY ./apt-sources.list /etc/apt/sources.list
+COPY ./docker/app/apt-sources.list /etc/apt/sources.list
 
 RUN \
     # 업데이트 중 일부분은 실패하는데 `git` 설치하는 것이 목적이기 때문에 무시하고 진행
@@ -27,7 +27,7 @@ RUN make
 RUN cp modules/xdebug.so /usr/local/lib/php/extensions
 
 # php.ini에 Xdebug 확장 추가
-COPY ./php.ini /usr/local/etc/php/php.ini
+COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
 
 # 모듈이 설치되었는지 확인
 RUN php -m | grep Xdebug || (echo "Xdebug가 로드되지 않았습니다." && exit 1)
