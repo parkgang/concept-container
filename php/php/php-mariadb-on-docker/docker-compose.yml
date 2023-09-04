@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - 80:80
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.1.30
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    volumes:
+      # 마운드시 오류가 발생하여 주석처리
+      # - ./db-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
