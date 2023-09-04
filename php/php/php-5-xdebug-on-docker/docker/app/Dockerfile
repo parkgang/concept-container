@@ -31,3 +31,11 @@ COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
 
 # 모듈이 설치되었는지 확인
 RUN php -m | grep Xdebug || (echo "Xdebug가 로드되지 않았습니다." && exit 1)
+
+# 아파치 서버 재시작하여 반영
+# 이걸 하지 않으면 아래의 오류가 발생함
+# AH00526: Syntax error on line 3 of /etc/apache2/apache2.conf:
+# Invalid Mutex directory in argument file:/var/lock/apache2
+# 근데 어짜피 아파치로 실행되는 PHP에 반영하려면 재시작이 필요함
+# 이외 `service` 으로 시작하는 방법도 찾음: https://askubuntu.com/a/800217
+RUN apachectl restart
