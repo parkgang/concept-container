@@ -2,11 +2,11 @@
 
 > 상둥이격 프로젝트로 [php-8-xdebug-on-docker](https://github.com/parkgang/concept-container/tree/main/php/php/php-8-xdebug-on-docker) 가 있습니다.
 
-`php@5` 버전에 `Docker` 환경에서 `Xdebug@3` 을 사용하는 환경입니다.
+`php@5` 버전에 `Docker` 환경에서 `Xdebug@2` 을 사용하는 환경입니다.
 
 아래의 기능을 제공합니다.
 
-- `Xdebug@3` 예제
+- `컴파일` 해서 손수 직접 `Xdebug@2` 를 설정하는 예제
 - `Container` 환경 안에서 디버깅하는 예제와 `로컬 머신` 에서 디버깅하는 예제
   - `root` 에 있는 `.vscode/launch.json` 이 원격에서 디버깅할 때 사용되는 것이고 `src/.vscode/launch.json` 이 컨테이너 안에서 디버깅할 때 사용되는 것임
 - `VSCode` 에서 `PHP` 개발할 수 있는 환경 제공 (i.e. `PHP Intelephense` )
