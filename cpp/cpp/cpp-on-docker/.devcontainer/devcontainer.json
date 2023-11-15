@@ -1,0 +1,11 @@
+{
+  "name": "c++ playground",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "playground",
+  "workspaceFolder": "/src",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools", "esbenp.prettier-vscode"]
+    }
+  }
+}
