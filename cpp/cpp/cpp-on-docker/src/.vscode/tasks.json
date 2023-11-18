@@ -11,7 +11,8 @@
         "-g",
         "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        // NOTE: 실행 파일 구분할 수 있도록 확장자 지정
+        "${fileDirname}/${fileBasenameNoExtension}.out"
       ],
       "options": {
         "cwd": "${fileDirname}"
