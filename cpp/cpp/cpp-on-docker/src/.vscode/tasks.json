@@ -2,7 +2,7 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C++17",
+      "label": "C++17 Build",
       "command": "/usr/bin/g++",
       "args": [
         // NOTE: C++ 버전 지정
