@@ -1,4 +1,0 @@
-node_modules
-
-# 원래 Client는 `node_modules` 되어 형상관리에서 제외되어 있기 때문에 동일한 룰로 제외: 빌드 결과물 이기 때문
-prisma/**/client
