@@ -2,7 +2,7 @@
   "name": "ubuntu idle container",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "playground",
-  "workspaceFolder": "~",
+  "workspaceFolder": "/",
   "customizations": {
     "vscode": {
       "extensions": [
