@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  playground:
+    build: .
+    environment:
+      LANG: ko_KR.UTF-8
+      TZ: Asia/Seoul

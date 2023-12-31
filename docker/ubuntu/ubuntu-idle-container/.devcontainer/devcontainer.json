@@ -1,0 +1,17 @@
+{
+  "name": "ubuntu idle container",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "playground",
+  "workspaceFolder": "~",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "sculove.translator",
+        "WakaTime.vscode-wakatime"
+      ]
+    }
+  }
+}
