@@ -1,0 +1,4 @@
+# C++ 컴파일 결과
+*.out
+# CMake 빌드 결과
+build
