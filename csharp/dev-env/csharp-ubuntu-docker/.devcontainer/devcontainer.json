@@ -1,0 +1,11 @@
+{
+  "name": "C# dev env",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "csharp-dev-env",
+  "workspaceFolder": "/src",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-dotnettools.csdevkit"]
+    }
+  }
+}

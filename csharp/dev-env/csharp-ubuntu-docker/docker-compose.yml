@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  csharp-dev-env:
+    build: .
+    volumes:
+      - ./sample:/src
