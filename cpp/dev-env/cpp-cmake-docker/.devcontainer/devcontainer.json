@@ -1,0 +1,11 @@
+{
+  "name": "C++ dev env",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "cpp-dev-env",
+  "workspaceFolder": "/src",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools", "ms-vscode.cmake-tools"]
+    }
+  }
+}

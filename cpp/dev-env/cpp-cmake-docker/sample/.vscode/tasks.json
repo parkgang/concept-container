@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C++17 Build",
+      "command": "/usr/bin/g++",
+      "args": [
+        // NOTE: C++ 버전 지정
+        "-std=c++17",
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        // NOTE: 실행 파일 구분할 수 있도록 확장자 지정
+        "${fileDirname}/${fileBasenameNoExtension}.out"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "디버거에서 생성된 작업입니다."
+    }
+  ],
+  "version": "2.0.0"
+}
