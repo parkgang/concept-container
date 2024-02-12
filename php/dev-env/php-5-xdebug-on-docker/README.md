@@ -1,6 +1,6 @@
 ## 개요
 
-> 상둥이격 프로젝트로 [php-8-xdebug-on-docker](https://github.com/parkgang/concept-container/tree/main/php/php/php-8-xdebug-on-docker) 가 있습니다.
+> 상둥이격 프로젝트로 [php-8-xdebug-on-docker](../php-8-xdebug-on-docker/README.md) 가 있습니다.
 
 `php@5` 버전에 `Docker` 환경에서 `Xdebug@2` 을 사용하는 환경입니다.
 
