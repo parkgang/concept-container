@@ -1,0 +1,7 @@
+# node
+node_modules/
+
+# playwright
+test-results/
+playwright-report/
+storageState.json
