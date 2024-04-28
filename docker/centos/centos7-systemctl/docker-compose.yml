@@ -1,0 +1,5 @@
+services:
+  playground:
+    build: .
+    command: /usr/sbin/init
+    privileged: true
