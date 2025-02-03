@@ -1,0 +1,3 @@
+- `jqGrid` frozen columns 예시입니다.
+- `AI` 를 통해 frozen columns 예제를 만들면 UI가 늘 깨졌는데 깨지지 않는 버전을 찾아 이렇게 저장합니다.
+- 이외 `jqGrid` 설정 값을 바꿔보며 테스트할 수 있는 프로젝트로 사용할 수 있습니다.
