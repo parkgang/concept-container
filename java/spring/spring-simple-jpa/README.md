@@ -26,6 +26,14 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
 
 `GET` `http://localhost:8080/api/acc-codes/org/180307N` 요청 후 결과 확인
 
+조회하는 쿼리
+
+```sql
+select *
+from ACC_CODE
+where ID_ORG = ?
+```
+
 # 기타
 
 - 오라클DB 드라이버 다운안되서 `lib/ojdbc14-10.2.0.4.0.jar` 실 제품 것 가져옴
