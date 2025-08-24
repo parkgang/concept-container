@@ -21,7 +21,7 @@
 
 원래 하나의 repo에서 관리되었는데 2025-08-24 이후부터 Subtree로 관리합니다.
 
-Subtree 추가 방법
+Subtree 추가 방법: working tree가 비어있어야 합니다.
 
 ```bash
 git subtree add --prefix={main repo 경로} {subtree repo 경로} {subtree repo branch 명}
@@ -51,7 +51,7 @@ Subtree Repo Branch로 분리 후 worktree로 사용하여 작업 후 main repo�
 git subtree split --prefix=go/gin/gin-restful-api -b gin-restful-api-only
 
 # worktree로 분리
-git worktree add ../gin-restful-api gin-restful-api-only
+git worktree add ~/workspaces/temp/gin-restful-api gin-restful-api-only
 
 # 독립된 repo라고 생각하고 작업
 cd gin-restful-api
