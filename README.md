@@ -59,6 +59,9 @@ cd gin-restful-api
 # Subtree Repo 업데이트
 cd concept-container
 git subtree pull --prefix=go/gin/gin-restful-api ../gin-restful-api gin-restful-api-only
+
+# 모두 작업 후 정리: 디렉터리 제거됩니다.
+git worktree remove gin-restful-api-only
 ```
 
 Subtree Repo remote push 하는 방법
