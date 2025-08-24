@@ -43,17 +43,43 @@ git log -- .
 
 ### 프로젝트 관리 워크플로우
 
-Subtree Repo Branch로 분리 후 worktree로 사용하여 작업 후 main repo에 반영하는 방법:  
+Subtree Repo Branch로 분리 후 독립된 repo로 작업 후 main repo에 반영하는 방법:  
 심도있는 작업을 위해 다시 repo를 분리하고 업데이트할 때 사용
 
-```bash
-# Subtree Repo만 Branch로 분리
-git subtree split --prefix=go/gin/gin-restful-api -b gin-restful-api-only
+(공통). Subtree Repo Branch로 분리:
 
-# worktree로 분리
+```bash
+git subtree split --prefix=go/gin/gin-restful-api -b gin-restful-api-only
+```
+
+1\. main repo 생성:  
+깔끔한 독립 repo으로 repo에서 branch 만들면서 작업 가능
+
+```bash
+# repo 생성
+mkdir gin-restful-api
+cd gin-restful-api
+git init
+
+# subtree branch으로 repo 가져오기
+git pull ~/workspaces/repos/concept-container gin-restful-api-only
+
+# 작업 진행...
+
+# Subtree Repo 업데이트
+cd concept-container
+git subtree pull --prefix=go/gin/gin-restful-api ../gin-restful-api main
+```
+
+2\. worktree 사용:  
+main repo에서 `git worktree list` 으로 관리할 수 있는 장점  
+단, branch 이름이 main이 아니라 불편
+
+```bash
+# worktree 생성
 git worktree add ~/workspaces/temp/gin-restful-api gin-restful-api-only
 
-# 독립된 repo라고 생각하고 작업
+# 독립된 repo라고 생각하고 작업 진행
 cd gin-restful-api
 
 # Subtree Repo 업데이트
