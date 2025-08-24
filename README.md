@@ -43,7 +43,7 @@ git log -- .
 
 ### 프로젝트 관리 워크플로우
 
-Subtree Repo Branch로 분리 후 worktree로 사용하여 작업 후 main repo에 반영하는 방법  
+Subtree Repo Branch로 분리 후 worktree로 사용하여 작업 후 main repo에 반영하는 방법:  
 심도있는 작업을 위해 다시 repo를 분리하고 업데이트할 때 사용
 
 ```bash
@@ -68,13 +68,14 @@ gh repo create gin-restful-api --public
 git subtree push --prefix=go/gin/gin-restful-api https://github.com/parkgang/gin-restful-api.git main
 ```
 
-filter-repo로 분리 후 remote push 하는 방법
+filter-repo로 분리 후 remote push 하는 방법:  
+해당 방법은 main repo에서 관리된 repo를 분리하는 방법입니다. subtree로 관리된 것은 subtree 명령으로 분리해야 Git History 유지됩니다.
 
 ```bash
 brew install git-filter-repo
 
 # 분리
-git filter-repo --path go/gin/gin-restful-api/ --path-rename go/gin/gin-restful-api/:
+git filter-repo -f --path go/gin/gin-restful-api/ --path-rename go/gin/gin-restful-api/:
 
 # Remote Push
 gh repo create gin-restful-api --public
