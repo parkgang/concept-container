@@ -4,25 +4,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 프로젝트 개요
 
-이 프로젝트는 Laravel 12 웹 애플리케이션으로, Vite와 Tailwind CSS 4를 사용하여 프론트엔드 자산을 관리합니다.
+이 프로젝트는 Laravel 12 웹 애플리케이션으로, Laravel의 MVC 패턴과 데이터베이스 연동을 학습할 수 있는 게시물 관리 시스템이 구현되어 있습니다. Vite와 Tailwind CSS 4를 사용하여 프론트엔드 자산을 관리합니다.
+
+## 구현된 기능
+
+### 게시물 관리 시스템 (MVC 예제)
+- **URL**: `/posts` (목록), `/posts/{id}` (상세)
+- **모델**: `Post` (title, content 필드)
+- **컨트롤러**: `PostController` (index, show 메서드)
+- **뷰**: Tailwind CSS로 스타일링된 반응형 템플릿
+- **데이터**: 4개의 Laravel 학습 관련 샘플 게시물
+
+### 데이터 흐름 (Client-Server)
+1. 브라우저 요청 → 2. 라우트 처리 → 3. 컨트롤러 로직 → 4. 모델(DB 조회) → 5. 뷰 렌더링 → 6. HTML 응답
 
 ## 개발 명령어
 
-### 백엔드 (Laravel)
-- `composer dev`: 개발 서버 실행 (서버, 큐, 로그, Vite를 동시 실행)
-- `php artisan serve`: Laravel 개발 서버만 실행
-- `composer test`: 테스트 실행 (config 초기화 후 artisan test)
-- `php artisan test`: 직접 테스트 실행
-- `php artisan migrate`: 데이터베이스 마이그레이션
-- `php artisan queue:work`: 큐 워커 실행
-- `php artisan pail`: 실시간 로그 보기
+### 빠른 시작
+- `composer dev`: **권장** 통합 개발 환경 (서버, 큐, 로그, Vite 동시 실행)
+- 브라우저에서 `http://localhost:8000/posts` 접속하여 게시물 시스템 확인
 
-### 프론트엔드 (Vite + Node.js)
+### 개별 명령어
+- `php artisan serve`: Laravel 개발 서버만 실행
 - `npm run dev`: Vite 개발 서버 실행
 - `npm run build`: 프로덕션 빌드
-
-### 통합 개발 환경
-- `composer dev`: 권장되는 개발 명령어 (모든 서비스를 동시 실행)
+- `composer test`: 테스트 실행 (config 초기화 후 artisan test)
+- `php artisan migrate`: 데이터베이스 마이그레이션
+- `php artisan db:seed --class=PostSeeder`: 샘플 게시물 데이터 추가
 
 ## 코드 품질 도구
 
@@ -32,34 +40,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 아키텍처 구조
 
-### 백엔드 (Laravel MVC)
-- `app/`: 애플리케이션 로직 (Models, Controllers, Services 등)
-- `routes/web.php`: 웹 라우트 정의
-- `database/migrations/`: 데이터베이스 스키마 변경
-- `database/seeders/`: 초기 데이터
-- `config/`: 애플리케이션 설정
+### 핵심 MVC 컴포넌트
+- **모델**: `app/Models/Post.php` - Eloquent ORM으로 posts 테이블과 상호작용
+- **컨트롤러**: `app/Http/Controllers/PostController.php` - 게시물 비즈니스 로직
+- **뷰**: `resources/views/posts/` - Blade 템플릿 (index.blade.php, show.blade.php)
+- **라우트**: `routes/web.php` - RESTful URL 매핑
 
-### 프론트엔드 자산
-- `resources/css/app.css`: 메인 CSS 파일 (Tailwind 진입점)
-- `resources/js/app.js`: 메인 JavaScript 파일
-- `resources/views/`: Blade 템플릿
-- `public/`: 컴파일된 자산 및 정적 파일
+### 데이터베이스 구조
+- **마이그레이션**: `database/migrations/2025_09_08_140635_create_posts_table.php`
+- **시더**: `database/seeders/PostSeeder.php` - Laravel 학습용 샘플 데이터
+- **SQLite**: `database/database.sqlite` - 로컬 개발용 데이터베이스
 
-### 테스트
-- `tests/`: Pest 테스트 파일들
-- `phpunit.xml`: PHPUnit/Pest 설정
+### 프론트엔드
+- `resources/css/app.css`: Tailwind CSS 4 진입점
+- `resources/views/welcome.blade.php`: 홈페이지 (게시물 링크 포함)
+- `vite.config.js`: Vite 빌드 설정
 
-## 환경 설정
+## 개발 환경 요구사항
 
-- `.env`: 환경 변수 (로컬 개발용)
-- `.env.example`: 환경 변수 템플릿
-- SQLite 데이터베이스 사용 (`database/database.sqlite`)
+- **PHP**: 8.2+ (현재 8.4 사용)
+- **Composer**: 2.8.11+
+- **Node.js**: 22.18.0+
+- **Laravel**: 12
+- **데이터베이스**: SQLite (개발용)
 
-## 주요 의존성
+## 주요 기술 스택
 
-- Laravel Framework 12
-- PHP 8.2+
-- Vite 7
-- Tailwind CSS 4
-- Pest 4 (테스팅)
-- Axios (HTTP 클라이언트)
+- **백엔드**: Laravel 12 + Eloquent ORM + Pest 4 (테스팅)
+- **프론트엔드**: Vite 7 + Tailwind CSS 4
+- **도구**: Laravel Pint (코드 스타일링), Axios (HTTP 클라이언트)
+
+## 학습 목적
+
+이 프로젝트는 Laravel의 핵심 개념을 학습하기 위해 설계되었습니다:
+- MVC 패턴의 실제 구현
+- Eloquent ORM을 통한 데이터베이스 상호작용
+- Blade 템플릿 엔진 사용법
+- Laravel의 라우팅 시스템
+- 마이그레이션과 시더를 통한 데이터베이스 관리
