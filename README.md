@@ -1,61 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## 개요
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+라라벨 프레임워크의 기본적인 구조를 볼 수 있는 프로젝트입니다.
 
-## About Laravel
+## 프로젝트 생성 과정
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```bash
+laravel new example-app
+# 이후 모두 기본 값
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 들어간 예제 기능
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+> Git Log 보는 것을 추천합니다.
 
-## Learning Laravel
+구현된 Laravel Client-Server 동작 방식
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+📊 데이터 흐름
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. 사용자 요청: /posts 접속
+2. 라우트 처리: routes/web.php에서 PostController@index 호출
+3. 컨트롤러 로직: PostController가 Post 모델을 통해 데이터베이스 조회
+4. 데이터베이스 접근: SQLite에서 posts 테이블 데이터 조회 (Eloquent ORM 사용)
+5. 뷰 렌더링: posts/index.blade.php에서 데이터를 HTML로 변환
+6. 클라이언트 응답: 브라우저에 완성된 HTML 전달
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+🗂️ 생성된 파일들
 
-## Laravel Sponsors
+-   모델: app/Models/Post.php - 데이터베이스 테이블과 상호작용
+-   마이그레이션: database/migrations/2025_09_08_140635_create_posts_table.php -
+    posts 테이블 구조 정의
+-   시더: database/seeders/PostSeeder.php - 샘플 데이터 4개 생성
+-   컨트롤러: app/Http/Controllers/PostController.php - 비즈니스 로직 처리
+-   라우트: routes/web.php - URL과 컨트롤러 메서드 매핑
+-   뷰: resources/views/posts/index.blade.php, posts/show.blade.php - 사용자
+    인터페이스
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+🎯 주요 기능
 
-### Premium Partners
+1. 게시물 목록: /posts - 모든 게시물을 최신 순으로 표시
+2. 게시물 상세: /posts/{id} - 특정 게시물 내용과 Laravel 데이터 흐름 설명
+3. 홈페이지 연결: "게시물 보기" 버튼으로 접근 가능
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+이제 composer dev 명령어로 개발 서버를 실행하고 http://localhost:8000/posts에서
+Laravel의 MVC 패턴과 데이터베이스 연동을 직접 경험해보실 수 있습니다!
 
-## Contributing
+## Start
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. PHP@8.4, Composer@2.8.11, Node.js@22.18.0, Laravel@12 설치
+1. `composer run dev` 으로 실행
+1. http://localhost:8000/posts 보기
