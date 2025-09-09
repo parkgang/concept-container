@@ -1,12 +1,24 @@
-## 개요
+## 📋 개요
 
-라라벨 프레임워크의 기본적인 구조를 볼 수 있는 프로젝트입니다.
+**Laravel 기본 학습 프로젝트** - Laravel 프레임워크의 MVC 패턴과 데이터베이스 연동을 실습할 수 있는 게시물 관리 시스템입니다.
 
-## 프로젝트 생성 과정
+### ✨ 이 프로젝트에서 배울 수 있는 것들
+- **MVC 패턴**: Model-View-Controller 구조의 실제 구현
+- **Eloquent ORM**: Laravel의 데이터베이스 ORM 사용법
+- **Blade 템플릿**: Laravel의 템플릿 엔진 활용
+- **라우팅**: URL과 컨트롤러 메서드 매핑
+- **마이그레이션**: 데이터베이스 스키마 관리
+- **시더**: 샘플 데이터 생성 및 관리
+
+### 🎯 구현된 기능
+- **게시물 목록 보기** (`/posts`): 4개의 Laravel 학습 관련 게시물
+- **게시물 상세 보기** (`/posts/{id}`): 개별 게시물 내용과 Laravel 데이터 흐름 설명
+
+## 🔧 프로젝트 생성 과정
 
 ```bash
-laravel new example-app
-# 이후 모두 기본 값
+laravel new laravel-basic-understand
+# 이후 모두 기본 값으로 설정
 ```
 
 ## 들어간 예제 기능
@@ -44,8 +56,59 @@ laravel new example-app
 이제 composer dev 명령어로 개발 서버를 실행하고 http://localhost:8000/posts에서
 Laravel의 MVC 패턴과 데이터베이스 연동을 직접 경험해보실 수 있습니다!
 
-## Start
+## 🚀 Quick Start
 
-1. PHP@8.4, Composer@2.8.11, Node.js@22.18.0, Laravel@12 설치
-1. `composer run dev` 으로 실행
-1. http://localhost:8000/posts 보기
+### 전제 조건
+- **PHP**: 8.2+ (권장: 8.4)
+- **Composer**: 2.8+
+- **Node.js**: 22.18.0+
+- **Laravel**: 12
+
+### 🛠️ 초기 설정 (필수!)
+
+⚠️ **중요**: 프로젝트를 처음 클론한 경우, 다음 명령어들을 **반드시** 순서대로 실행해야 합니다:
+
+```bash
+# 1. 의존성 설치
+composer install
+npm install
+
+# 2. 환경 설정 파일 생성
+cp .env.example .env
+
+# 3. 애플리케이션 키 생성
+php artisan key:generate
+
+# 4. SQLite 데이터베이스 파일 생성
+touch database/database.sqlite
+
+# 5. 데이터베이스 테이블 생성
+php artisan migrate
+
+# 6. 샘플 데이터 생성 (Laravel 학습용 게시물 4개)
+php artisan db:seed --class=PostSeeder
+```
+
+### ▶️ 서버 실행
+
+```bash
+# 권장: 통합 개발 환경 (Laravel 서버 + Vite)
+composer dev
+
+# 또는 개별 실행
+php artisan serve  # Laravel 서버만
+npm run dev       # Vite 개발 서버만
+```
+
+### 🌐 접속하기
+
+- **메인 페이지**: http://localhost:8000
+- **게시물 목록**: http://localhost:8000/posts ← **여기서 시작하세요!**
+
+### 🔧 문제 해결
+
+**500 에러가 발생하나요?**
+위의 "초기 설정" 단계를 빠뜨리지 않았는지 확인하세요. 특히:
+- `.env` 파일 존재 여부
+- `database/database.sqlite` 파일 존재 여부
+- 마이그레이션 실행 여부

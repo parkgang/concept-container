@@ -20,7 +20,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 개발 명령어
 
-### 빠른 시작
+### 빠른 시작 (프로젝트 초기 설정)
+**⚠️ 새로운 개발자 주의사항**: 프로젝트를 처음 클론한 경우 다음 초기 설정이 필요합니다:
+
+```bash
+# 1. 환경 설정 파일 생성
+cp .env.example .env
+
+# 2. 애플리케이션 키 생성
+php artisan key:generate
+
+# 3. SQLite 데이터베이스 파일 생성
+touch database/database.sqlite
+
+# 4. 데이터베이스 마이그레이션 실행
+php artisan migrate
+
+# 5. 샘플 데이터 생성
+php artisan db:seed --class=PostSeeder
+```
+
+**정상 실행**:
 - `composer dev`: **권장** 통합 개발 환경 (서버, 큐, 로그, Vite 동시 실행)
 - 브라우저에서 `http://localhost:8000/posts` 접속하여 게시물 시스템 확인
 
@@ -69,6 +89,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **백엔드**: Laravel 12 + Eloquent ORM + Pest 4 (테스팅)
 - **프론트엔드**: Vite 7 + Tailwind CSS 4
 - **도구**: Laravel Pint (코드 스타일링), Axios (HTTP 클라이언트)
+
+## 문제 해결 가이드
+
+### 일반적인 초기 설정 문제들
+
+**1. 500 Internal Server Error 발생 시**
+- 원인: 초기 설정이 완료되지 않음
+- 해결: 위의 "빠른 시작 (프로젝트 초기 설정)" 단계를 순서대로 실행
+
+**2. SQLite 관련 에러**
+```
+Database file at path [.../database.sqlite] does not exist
+```
+- 해결: `touch database/database.sqlite` 명령으로 데이터베이스 파일 생성
+
+**3. APP_KEY 관련 에러**
+- 해결: `php artisan key:generate` 명령으로 애플리케이션 키 생성
+
+**4. 마이그레이션 에러**
+- 해결: 데이터베이스 파일 생성 후 `php artisan migrate` 실행
+
+**5. 빈 페이지 또는 데이터 없음**
+- 해결: `php artisan db:seed --class=PostSeeder` 명령으로 샘플 데이터 생성
 
 ## 학습 목적
 
