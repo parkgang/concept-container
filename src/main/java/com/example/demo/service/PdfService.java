@@ -5,7 +5,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +17,15 @@ import java.io.InputStream;
 public class PdfService {
 
     public byte[] generatePdfWithUserInfo(UserInfo userInfo) throws IOException {
-        ClassPathResource resource = new ClassPathResource("PDF POC.pdf");
+        ClassPathResource resource = new ClassPathResource("pdf-template.pdf");
 
         try (InputStream inputStream = resource.getInputStream();
              PDDocument document = PDDocument.load(inputStream)) {
 
             PDPage page = document.getPage(0);
 
-            PDFont font = PDType1Font.HELVETICA;
+            ClassPathResource fontResource = new ClassPathResource("fonts/NotoSansKR-Regular.ttf");
+            PDFont font = PDType0Font.load(document, fontResource.getInputStream());
 
             try (PDPageContentStream contentStream = new PDPageContentStream(document, page,
                     PDPageContentStream.AppendMode.APPEND, true, true)) {

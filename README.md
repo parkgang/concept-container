@@ -1,5 +1,6 @@
 ## 개요
 
-- JDK 1.8 환경에서 동작하는 Spring Boot init 프로젝트 입니다.
-- 2025-09-19 Spring Boot 3.5.6, Java 17 으로 init 되었습니다.
-- spring-boot-starter-web, spring-boot-devtools 의존성만 추가되어있고 이외는 init와 동일합니다.
+- Java@8, Spring Boot@2.7.18 환경
+- PDF에 텍스트 오버레이(overlay) PoC 프로젝트 입니다.
+- 한글 표시를 위해 https://fonts.google.com/noto/specimen/Noto+Sans+KR 에서 다운로드 후 [fonts](./src/main/resources/fonts) 경로에 배치하였습니다.
+- 만들어진 PDF 문서는 [pdf-template.docx](./src/main/resources/pdf-template.docx) 에서 참고할 수 있습니다.
