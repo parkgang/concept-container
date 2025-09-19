@@ -32,14 +32,22 @@ public class PdfService {
 
                 contentStream.setFont(font, 12);
 
+                // 이름
                 contentStream.beginText();
                 contentStream.newLineAtOffset(305, 743);
                 contentStream.showText(userInfo.getName());
                 contentStream.endText();
 
+                // 나이
                 contentStream.beginText();
                 contentStream.newLineAtOffset(305, 723);
                 contentStream.showText(String.valueOf(userInfo.getAge()));
+                contentStream.endText();
+
+                // 체크 표시 추가 (✓ 심볼 사용)
+                contentStream.beginText();
+                contentStream.newLineAtOffset(113, 679);
+                contentStream.showText("✓");
                 contentStream.endText();
             }
 
