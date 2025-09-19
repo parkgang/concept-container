@@ -32,13 +32,13 @@ public class PdfService {
                 contentStream.setFont(font, 12);
 
                 contentStream.beginText();
-                contentStream.newLineAtOffset(100, 700);
-                contentStream.showText("Name: " + userInfo.getName());
+                contentStream.newLineAtOffset(305, 743);
+                contentStream.showText(userInfo.getName());
                 contentStream.endText();
 
                 contentStream.beginText();
-                contentStream.newLineAtOffset(100, 680);
-                contentStream.showText("Age: " + userInfo.getAge() + " years old");
+                contentStream.newLineAtOffset(305, 723);
+                contentStream.showText(String.valueOf(userInfo.getAge()));
                 contentStream.endText();
             }
 
