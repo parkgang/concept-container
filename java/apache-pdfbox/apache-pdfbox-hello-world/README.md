@@ -13,6 +13,7 @@
 ```shell
 ./gradlew bootRun
 ```
+http://localhost:8080/ 접속하여 값 입력 후 다운로드되는 PDF 확인
 
 ### PDF 디버깅 방법(좌표 찍어서 볼 수 있음)
 
