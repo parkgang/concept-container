@@ -29,7 +29,7 @@ for video in tqdm(videos):
             "-i",
             str(video),
             "-t",
-            "10",
+            "15",  # 영상 시작부터 15초까지만 추출
             "-vn",
             "-ac",
             "1",
@@ -41,9 +41,4 @@ for video in tqdm(videos):
         stderr=subprocess.DEVNULL,
     )
 
-# | 컬럼 | 설명 |
-# |---|---|
-# | `filename` | 파일 이름 (확장자 제외) |
-# | `speech_detected` | 음성 탐지 여부 |
-# | `speech_duration` | 전체 음성 구간의 합산 길이 (초) |
 print("오디오 추출 완료")
