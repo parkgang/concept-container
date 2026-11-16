@@ -18,14 +18,21 @@ df = vad.merge(transcription, on="filename", how="left")
 
 
 def classify(row):
+    # 음성이 탐지되지 않은 경우
     if not row["speech_detected"]:
         return "Background"
 
+    # 음성은 있지만 텍스트가 없는 경우
     if pd.isna(row["transcription"]):
         return "Review"
 
+    # 인식된 텍스트가 너무 짧은 경우
     if len(str(row["transcription"]).strip()) < 3:
         return "Review"
+
+    # 한국어가 아닌 경우
+    if row["language"] != "ko":
+        return "Not lang ko"
 
     return "Vlog"
 
