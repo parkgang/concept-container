@@ -38,8 +38,11 @@ for audio in tqdm(list(AUDIO_DIR.glob("*.wav"))):
 
     results.append(
         {
+            # 파일 이름 (확장자 제외)
             "filename": audio.stem,
+            # 음성 탐지 여부
             "speech_detected": len(timestamps) > 0,
+            # 전체 음성 구간의 합산 길이 (초)
             "speech_duration": round(speech_duration, 2),
         }
     )
