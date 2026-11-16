@@ -4,9 +4,17 @@ import pandas as pd
 from faster_whisper import WhisperModel
 from tqdm import tqdm
 
-AUDIO_DIR = Path("Audio")
+# 프로젝트 루트 디렉터리
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-vad_df = pd.read_csv("Results/speech_detection.csv")
+# 프로젝트 디렉터리
+ORIGINAL_DIR = BASE_DIR / "Original"
+AUDIO_DIR = BASE_DIR / "Audio"
+RESULTS_DIR = BASE_DIR / "Results"
+VLOG_DIR = BASE_DIR / "Vlog"
+
+
+vad_df = pd.read_csv(RESULTS_DIR / "speech_detection.csv")
 
 model = WhisperModel("small", device="cpu", compute_type="int8")
 
@@ -29,6 +37,6 @@ for _, row in tqdm(targets.iterrows(), total=len(targets)):
         }
     )
 
-pd.DataFrame(results).to_csv("Results/transcription.csv", index=False)
+pd.DataFrame(results).to_csv(RESULTS_DIR / "transcription.csv", index=False)
 
 print("음성 인식 완료")

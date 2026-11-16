@@ -4,10 +4,23 @@ import pandas as pd
 import torch
 from tqdm import tqdm
 
-AUDIO_DIR = Path("Audio")
+# 프로젝트 루트 디렉터리
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# 프로젝트 디렉터리
+ORIGINAL_DIR = BASE_DIR / "Original"
+AUDIO_DIR = BASE_DIR / "Audio"
+RESULTS_DIR = BASE_DIR / "Results"
+VLOG_DIR = BASE_DIR / "Vlog"
+
+# 결과 디렉터리 자동 생성
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 model, utils = torch.hub.load(
-    repo_or_dir="snakers4/silero-vad", model="silero_vad", force_reload=False
+    repo_or_dir="snakers4/silero-vad",
+    model="silero_vad",
+    force_reload=False,
+    trust_repo=True,
 )
 
 get_speech_timestamps, _, read_audio, *_ = utils
@@ -32,6 +45,6 @@ for audio in tqdm(list(AUDIO_DIR.glob("*.wav"))):
     )
 
 df = pd.DataFrame(results)
-df.to_csv("Results/speech_detection.csv", index=False)
+df.to_csv(RESULTS_DIR / "speech_detection.csv", index=False)
 
 print("음성 감지 완료")

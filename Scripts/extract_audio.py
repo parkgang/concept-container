@@ -3,8 +3,11 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-VIDEO_DIR = Path("Original")
-AUDIO_DIR = Path("Audio")
+# 프로젝트 루트 디렉터리
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+VIDEO_DIR = BASE_DIR / "Original"
+AUDIO_DIR = BASE_DIR / "Audio"
 
 AUDIO_DIR.mkdir(exist_ok=True)
 
