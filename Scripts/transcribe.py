@@ -16,7 +16,14 @@ VLOG_DIR = BASE_DIR / "Vlog"
 
 vad_df = pd.read_csv(RESULTS_DIR / "speech_detection.csv")
 
-model = WhisperModel("small", device="cpu", compute_type="int8")
+model = WhisperModel(
+    "small",
+    #
+    # device="cpu",
+    # Apple Silicon 더 빠를 수 있다고 함.
+    device="mps",
+    compute_type="int8",
+)
 
 results = []
 
