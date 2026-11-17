@@ -41,6 +41,10 @@ for _, row in tqdm(targets.iterrows(), total=len(targets)):
             "filename": row["filename"],
             "language": info.language,
             "transcription": text,
+            "char_count": len(text),  # 공백 포함 글자수
+            "char_count_no_space": len(
+                text.replace(" ", "")
+            ),  # 공백 제외 글자수
         }
     )
 
