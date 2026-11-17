@@ -33,6 +33,10 @@ def classify(row):
     if len(str(row["transcription"]).strip()) < 3:
         return "Review"
 
+    # 인식된 텍스트가 40글자 이하인 경우
+    if len(str(row["transcription"]).strip()) <= 40:
+        return "Short Transfer"
+
     # 한국어가 아닌 경우
     if row["language"] != "ko":
         return "Not lang ko"

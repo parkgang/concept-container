@@ -15,15 +15,16 @@ RESULTS_DIR = BASE_DIR / "Results"
 
 # 분류별 앨범
 ALBUMS = {
-    "Background": "01. Background",
-    "Review": "02. Review",
-    "Not lang ko": "03. Not lang ko",
-    "Failed Audio": "04. Failed Audio",
-    "Vlog": "05. Vlog",
+    "Background": "Background",
+    "Failed Audio": "Failed Audio",
+    "Review": "Review",
+    "Not lang ko": "Not lang ko",
+    "Short Transfer": "Short Transfer",
+    "Vlog": "Vlog",
 }
 
 # 중복 검수 앨범
-DUPLICATE_ALBUM = "06. Duplicate Review"
+DUPLICATE_ALBUM = "Duplicate Review"
 
 # True: 결과만 확인
 # False: 실제 앨범 추가
