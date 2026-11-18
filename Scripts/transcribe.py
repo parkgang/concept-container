@@ -48,6 +48,19 @@ for _, row in tqdm(targets.iterrows(), total=len(targets)):
         }
     )
 
-pd.DataFrame(results).to_csv(RESULTS_DIR / "transcription.csv", index=False)
+# 후반 작업에서 해당 스키마로 Merge 되기 때문에 음성 인식 아무것도 안된 경우라도 헤더 존재해야함
+# TODO: 아무것도 음성 인식 안된 경우 때문에 위에 데이터 넣는 부분과 하단에 컬럼 정보 섞이는데 한 곳에서 관리되도록
+columns = [
+    "filename",
+    "language",
+    "transcription",
+    "char_count",
+    "char_count_no_space",
+]
+
+pd.DataFrame(results, columns=columns).to_csv(
+    RESULTS_DIR / "transcription.csv",
+    index=False,
+)
 
 print("음성 인식 완료")
