@@ -32,7 +32,7 @@ osxphotos exportdb "/Users/kyungeun/Downloads/Vlog 1" \
 ### 의존성 설치
 
 ```
-cd TravelVideoPOC/Scripts
+cd Scripts
 
 python3 -m venv .venv
 source .venv/bin/activate
