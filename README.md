@@ -34,7 +34,7 @@ Subtree 업데이트 방법: add가 pull 명령어로 바뀐 것 이외 동일
 git subtree pull --prefix=go/gin/gin-restful-api ~/workspaces/temp/gin-restful-api main
 ```
 
-현재 있는 경로에 대한 git log만 보기
+현재 있는 경로에 대한 git log만 보기 (단, subtree 추가 전 commit은 보이지 않음. 모든 로그 한번에 보려면 split branch를 만들어서 확인하기)
 
 ```bash
 cd go/gin/gin-restful-api/
