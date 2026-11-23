@@ -6,6 +6,8 @@
 
 ## 시작
 
+`Audio` , `Original` , `Results` 디렉터리 만들기
+
 `osxphotos` 설치
 
 `osxphotos` 으로 사진 내보내기
@@ -25,8 +27,7 @@ osxphotos exportdb "/Users/kyungeun/Downloads/Vlog 1" \
   --report "/Users/kyungeun/Downloads/Vlog 1/export_report.csv" 0
 ```
 
-- `Audio` , `Original` , `Results` 디렉터리 만들기
-- `Original` 디렉터리에 처리할 영상 파일 모두 넣기
+`Original` 디렉터리에 처리할 영상 파일 모두 넣기
 
 ### 의존성 설치
 
