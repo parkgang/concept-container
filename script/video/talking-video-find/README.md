@@ -8,6 +8,17 @@
 
 `Audio` , `Original` , `Results` 디렉터리 만들기
 
+아래와 같은 구조임
+
+```
+Project/
+├── Audio/
+├── Original/
+├── Results/
+├── Scripts/
+└── README.md
+```
+
 `osxphotos` 설치
 
 `osxphotos` 으로 사진 내보내기
